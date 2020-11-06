@@ -79,9 +79,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="index3.html" class="brand-link">
-      <img src="adminlte/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
-           style="opacity: .8">
-      <span class="brand-text font-weight-light">Copec</span>
+      <img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="brand-image elevation-3"
+           style="opacity: .9">
+      <span>-</span>
     </a>
 
     <!-- Sidebar -->
@@ -89,7 +89,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="adminlte/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="adminlte/img/default-user.png" class="img-circle elevation-2" alt="Imagen usuario">
         </div>
         <div class="info">
           <a href="#" class="d-block">Nedd Stark</a>

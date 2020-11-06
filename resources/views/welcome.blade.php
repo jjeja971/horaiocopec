@@ -5,14 +5,14 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Grafico de promedio de transito dia: 4 noviembre</h5>
+            <h5 class="card-title">Gráfico de promedio de transito día: 4 de Noviembre 2020</h5>
 
             <p class="card-text">
-              Mostrar grafico aquí.
+              Mostrar gráfico aquí.
             </p>
 
-            <a href="#" class="card-link">Mas detalles</a>
-            <a href="#" class="card-link">Detalle recomendacion de turnos</a>
+            <a href="#" class="card-link">Más detalles</a>
+            <a href="#" class="card-link">Detalle recomendación de turnos</a>
           </div>
         </div>
 
