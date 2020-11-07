@@ -81,7 +81,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <a href="index3.html" class="brand-link">
       <img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="brand-image elevation-3"
            style="opacity: .9">
-      <span>-</span>
+      <span><br></span>
     </a>
 
     <!-- Sidebar -->
