@@ -84,9 +84,12 @@ class AtendedorController extends Controller
             return false;
     }
 
-    public function pruebac(){
-        $pruebac=DB::select('select * from categoria');
-        return view ('welcome',compact('pruebac'));
+    public function probando(){
+        $dato = DB::select('select nombre_atendedor
+                            from atendedor
+                            where rut_atendedor = 2');
+            
+        return view ('proban2', compact('dato'));
     }
 
 }

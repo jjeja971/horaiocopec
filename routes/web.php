@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AtendedorController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,8 +18,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/probando', function () {
+/*Route::get('/probando', function () {
     return view('proban2');
-});
+});*/
+
+Route::get('/probando', [AtendedorController::class, 'probando']);
 
 
