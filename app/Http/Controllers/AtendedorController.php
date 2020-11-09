@@ -84,4 +84,9 @@ class AtendedorController extends Controller
             return false;
     }
 
+    public function pruebac(){
+        $pruebac=DB::select('select * from categoria');
+        return view ('welcome',compact('pruebac'));
+    }
+
 }
