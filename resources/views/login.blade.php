@@ -19,21 +19,21 @@
         
             <div class="col-lg-4"></div>
             <div class="mt-5 col-lg-4"  style="text-align: center">
-                <a href="."><img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="elevation-6"
-                style="opacity: .9; width:500px;"></a>
+                <a href="."><img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="p-5"
+                style="opacity: .9; width:100%;"></a>
             </div>
             <div class="col-lg-4"></div>
 
             <div class="col-lg-4"></div>
             <div class="col-lg-4"  style="text-align: center">
-                <div class="mt-5 card card-primary card-outline">
+                <div class="mt-2 card card-primary card-outline">
                     <div class="card-body">
                         <h2 class="mt-4 card-text">
                             Registro de usuario.
                           </h2>
                         <div class="form-group">
                             <label class="mt-5">Nombre de usuario</label>
-                            <input class="form-control" placeholder="Ingrese nombre usuario">
+                            <input class="mb-4 form-control" placeholder="Ingrese nombre usuario">
                             
                           </div>
                           <div class="mb-5 form-group">

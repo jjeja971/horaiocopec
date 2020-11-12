@@ -79,7 +79,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="." class="brand-link">
-      <img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="brand-image elevation-3"
+      <img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="brand-image elevation-5"
            style="opacity: .9">
       <span><br></span>
     </a>
