@@ -92,4 +92,9 @@ class AtendedorController extends Controller
         return view ('proban2', compact('dato'));
     }
 
+    public function menuHorario(){
+          
+        return view ('horario');
+    }
+
 }

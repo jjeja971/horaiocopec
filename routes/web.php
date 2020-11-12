@@ -23,5 +23,6 @@ Route::get('/', function () {
 });*/
 
 Route::get('/probando', [AtendedorController::class, 'probando']);
+Route::get('/menuHorario', [AtendedorController::class, 'menuHorario']);
 
 

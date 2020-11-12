@@ -111,9 +111,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link active">
+                <a href="menuHorario" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Opcion 1</p>
+                  <p>Horarios</p>
                 </a>
               </li>
               <li class="nav-item">
@@ -147,7 +147,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0 text-dark">Página principal</h1>
+   
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
@@ -185,7 +185,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Software desarrollado por...
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020-2029 <a href="https://adminlte.io">Copec</a>.</strong> Todos los derechos reservados.
+    <strong>Copyright &copy; 2020-2029 <a href="https://ww2.copec.cl/#/">Copec</a>.</strong> Todos los derechos reservados.
   </footer>
 </div>
 <!-- ./wrapper -->
@@ -200,3 +200,4 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="adminlte/js/adminlte.min.js"></script>
 </body>
 </html>
+
