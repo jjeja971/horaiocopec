@@ -183,7 +183,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <footer class="main-footer">
     <!-- To the right -->
     <div class="float-right d-none d-sm-inline">
-      Software desarrollado por...
+      Página Web desarrollada por...
     </div>
     <!-- Default to the left -->
     <strong>Copyright &copy; 2020 <a href="https://ww2.copec.cl/#/">Copec</a>.</strong> Todos los derechos reservados.
@@ -199,6 +199,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
+<!--  Chart.js-->
+
 </body>
 </html>
 

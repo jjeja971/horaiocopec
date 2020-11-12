@@ -59,7 +59,7 @@
     <footer class="main-footer" style="bottom:1em; position: absolute; width:98%; height: 40px; margin:0">
         <!-- To the right -->
         <div class="float-right d-none d-sm-inline">
-          Software desarrollado por...
+          Página Web desarrollada por...
         </div>
         <!-- Default to the left -->
         <strong>Copyright &copy; 2020 <a href="https://ww2.copec.cl/#/">Copec</a>.</strong> Todos los derechos reservados.
