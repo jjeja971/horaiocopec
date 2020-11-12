@@ -19,8 +19,8 @@
         
             <div class="col-lg-4"></div>
             <div class="mt-5 col-lg-4"  style="text-align: center">
-                <img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="elevation-6"
-                style="opacity: .9; width:500px;">
+                <a href="."><img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="elevation-6"
+                style="opacity: .9; width:500px;"></a>
             </div>
             <div class="col-lg-4"></div>
 

@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="index3.html" class="nav-link">Inicio</a>
+        <a href="." class="nav-link">Inicio</a>
       </li>
     </ul>
 
@@ -92,7 +92,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="adminlte/img/default-user.png" class="img-circle elevation-2" alt="Imagen usuario">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Nedd Stark</a>
+          <a href="login" class="d-block">Nedd Stark</a>
         </div>
       </div>
 
@@ -113,24 +113,25 @@ scratch. This page gets rid of all links and provides the needed markup only.
               <li class="nav-item">
                 <a href="menuHorario" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Horarios</p>
+                  <p>Ir a Menú de Horarios</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Opcion 2</p>
-                </a>
-              </li>
+              
             </ul>
           </li>
-          <li class="nav-item">
+          <!--<li class="nav-item">
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Reportes
                 <span class="right badge badge-danger">New</span>
               </p>
+            </a>
+          </li> -->
+          <li class="nav-item">
+            <a href="login" class="nav-link">       
+              <i class="mt-4 fas fa-sign-out-alt nav-icon"></i>
+              <p>Salir</p>
             </a>
           </li>
         </ul>
@@ -185,7 +186,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
       Software desarrollado por...
     </div>
     <!-- Default to the left -->
-    <strong>Copyright &copy; 2020-2029 <a href="https://ww2.copec.cl/#/">Copec</a>.</strong> Todos los derechos reservados.
+    <strong>Copyright &copy; 2020 <a href="https://ww2.copec.cl/#/">Copec</a>.</strong> Todos los derechos reservados.
   </footer>
 </div>
 <!-- ./wrapper -->
