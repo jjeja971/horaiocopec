@@ -8,10 +8,10 @@
       <div class="col-lg-6">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Gráfico de promedio de transito día: 4 de Noviembre 2020</h5>
+            <h5 class="card-title">Gráfico semana 1 de Noviembre 2020</h5>
 
             <p class="card-text">
-              Mostrar gráfico aquí.
+              <canvas id="GraficoIni" width="400" height="150"></canvas>
             </p>
 
             <a href="#" class="card-link">Más detalles</a>
@@ -35,9 +35,6 @@
             <a href="#" class="card-link">Another link</a>
           </div>
         </div><!-- /.card -->
-
-
-        <canvas id="GraficoIni" width="400" height="150"></canvas>
       </div>
     </div>
   </div>
