@@ -7,13 +7,13 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4" style="text-align: center">
-            <a href="#" class="mt-5 btn btn-primary btn-lg btn-block">Ingresar horario manual</a>
+            <a href="horarioManual" class="mt-5 btn btn-primary btn-lg btn-block">Ingresar horario manual</a>
         </div>
         <div class="col-lg-4"></div>
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="#" class="mt-4 btn btn-primary btn-lg btn-block">Ingresar horario automático</a>
+            <a href="horarioAutomatico" class="mt-4 btn btn-primary btn-lg btn-block">Ingresar horario automático</a>
         </div>
         <div class="col-lg-4"></div>
 
@@ -27,3 +27,9 @@
 
 
 @endsection
+
+<script>
+    window.onload = function() {
+    document.getElementById("nombrePag").textContent="Menú horarios";
+    }
+</script>

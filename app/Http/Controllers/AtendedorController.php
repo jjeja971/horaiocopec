@@ -84,6 +84,13 @@ class AtendedorController extends Controller
             return false;
     }
 
+
+
+
+    public function login(){
+        return view ('login');
+    }
+
     public function probando(){
         $dato = DB::select('select nombre_atendedor
                             from atendedor
@@ -95,6 +102,16 @@ class AtendedorController extends Controller
     public function menuHorario(){
           
         return view ('horario');
+    }
+
+    public function horarioManual(){
+          
+        return view ('horarioManual');
+    }
+    
+    public function horarioAutomatico(){
+          
+        return view ('horarioAutomatico');
     }
 
 }

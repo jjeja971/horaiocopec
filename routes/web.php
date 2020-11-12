@@ -21,8 +21,10 @@ Route::get('/', function () {
 /*Route::get('/probando', function () {
     return view('proban2');
 });*/
-
+Route::get('/login', [AtendedorController::class, 'login']);
 Route::get('/probando', [AtendedorController::class, 'probando']);
 Route::get('/menuHorario', [AtendedorController::class, 'menuHorario']);
+Route::get('/horarioManual', [AtendedorController::class, 'horarioManual']);
+Route::get('/horarioAutomatico', [AtendedorController::class, 'horarioAutomatico']);
 
 
