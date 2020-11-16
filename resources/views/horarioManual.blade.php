@@ -33,7 +33,7 @@
 
         google.charts.load('current', {'packages':['timeline']});
         google.charts.setOnLoadCallback(drawChart);
-        }
+        
 
         function drawChart() {
             var container = document.getElementById('timeline');
@@ -64,7 +64,11 @@
             }
         }
 
+
         
+
+
+    }
 
 </script>
 
