@@ -16,7 +16,10 @@ class AtendedorController extends Controller
     }
 
     public function listaratendedores(){
-        return view ('atendedores/list_atendedores');
+
+        $lista = DB::select('select * from atendedor');
+        
+        return view('atendedores/list_atendedores',compact('lista'));
     }
 
     public function creaatendedor(Request $recuperar){
