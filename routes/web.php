@@ -27,4 +27,6 @@ Route::get('/menuHorario', [AtendedorController::class, 'menuHorario']);
 Route::get('/horarioManual', [AtendedorController::class, 'horarioManual']);
 Route::get('/horarioAutomatico', [AtendedorController::class, 'horarioAutomatico']);
 
+Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
+
 

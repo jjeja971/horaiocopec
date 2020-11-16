@@ -119,15 +119,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
               
             </ul>
           </li>
-          <!--<li class="nav-item">
-            <a href="#" class="nav-link">
+          <li class="nav-item">
+            <a href="listaratendedores" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
-                Reportes
-                <span class="right badge badge-danger">New</span>
+                Gestionar atendedores
               </p>
             </a>
-          </li> -->
+          </li> 
           <li class="nav-item">
             <a href="login" class="nav-link">       
               <i class="mt-4 fas fa-sign-out-alt nav-icon"></i>

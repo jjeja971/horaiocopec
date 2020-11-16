@@ -15,6 +15,10 @@ class AtendedorController extends Controller
         return view('nuevoatendedor');
     }
 
+    public function listaratendedores(){
+        return view ('atendedores/list_atendedores');
+    }
+
     public function creaatendedor(Request $recuperar){
 
         $rut = preg_replace('/[^k0-9]/i', '', $recuperar->rut);
