@@ -1,8 +1,8 @@
 @extends('layout')
 @section('content')
-<button type="button" class="btn btn-block btn-info btn-lg">Agregar Atendedor</button>
-<div class="card">
 
+<div class="card">
+  <a href="nuevoatendedor" type="submit" class="btn btn-block btn-info btn-lg">Agregar Atendedor</a>
     <div class="card-header">
       <h3 class="card-title">DataTable with default features</h3>
     </div>
@@ -28,9 +28,7 @@
               <td>{{$item->numero}}</td>
               <td>{{$item->email}}</td>
               <td>{{$item->direccion}}</td>
-              <td><a class="btn btn-app">
-                <i class="fas fa-edit"></i> Editar
-              </a></td>
+              <td><a class="btn btn-app"><i class="fas fa-edit"></i> Editar</a></td>
           </tr>
           @endforeach
         

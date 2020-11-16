@@ -12,13 +12,13 @@ class AtendedorController extends Controller
 {
 
     public function natendedor(){
-        return view('nuevoatendedor');
+        return view('atendedores/agregaratendedor');
     }
 
     public function listaratendedores(){
 
         $lista = DB::select('select * from atendedor');
-        
+
         return view('atendedores/list_atendedores',compact('lista'));
     }
 
@@ -46,18 +46,21 @@ class AtendedorController extends Controller
     
         $jornada = $recuperar->jornada;
 
+        
+
             if ($valido == 0){
-                return back()->with('error','Por favor ingrese un rut valido');
+                echo "validar 0";
+               // return back()->with('error','Por favor ingrese un rut valido');
                 
             }
 
             if ($valido == 1){
-
+                
             //$dato = DB::select('call agregar_usuario(?,?,?,?,?,?,?)', [$rut,$nombre,md5($pass1),$tipo,$estado,$telefono,$email]);
-            //$dato = DB::select('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
+            $dato = DB::update('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
             
-            $dato = DB::select('select * from atendedor');
-            return back()->with('mensaje','Agregado con exito' );
+            //$dato = DB::select('select * from atendedor');
+            return back();
                 
             }              
     }

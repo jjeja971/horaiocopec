@@ -28,5 +28,8 @@ Route::get('/horarioManual', [AtendedorController::class, 'horarioManual']);
 Route::get('/horarioAutomatico', [AtendedorController::class, 'horarioAutomatico']);
 
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
+Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
+
+Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 
 
