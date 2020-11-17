@@ -8,17 +8,7 @@
 
         <div class="col-lg-3">
 
-            <form name="formulario" style="text-align: center;" class="mt-5">
-                <!-- Lista de selección múltiple -->
-                <select id="listaper" name="combo" multiple>
-                  <!-- Formato alternativo con atributo label -->
-                  <optgroup label="Seleccione nombre a asignar turno">
-                    <option value="1">Nedd Stark</option>
-                    <option value="2">Jon Snow</option>
-                    <option value="3">Sansa Stark</option>
-                  </optgroup>
-                </select>
-              </form>
+            
 
         </div>
         <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
@@ -26,12 +16,6 @@
         </div>
         <div class="col-lg-3"></div>
 
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4 mt-5"  style="text-align: center">
-            <button class="btn btn-success btn-lg btn-block" type="submit" data-toggle="modal" data-target="#exampleModal" id="boton_arriendo">Probando</button>
-
-        </div>
-        <div class="col-lg-4"></div>
 
         <!-- Modal -->
                                         
@@ -41,34 +25,35 @@
                 
               <div class="modal-content">
                 
-                <div class="modal-header" style="z-index:90;background: #30acb8">
+                <div class="modal-header" style="z-index:90;background: #3955cf">
                     <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
-                <div style="background: rgba(203, 227, 255, 0.295); width:48%; height:100%; position:absolute;"></div>
+                <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
                 <div class="modal-body">
                     <div class="container-fluid" style="text-align: center">
-                        <h3> Seleccione el personal a asignar al turno elegido</h3>                              
+                        <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
                         <div class="col-md-12 order-md-1">
                             
                             <div class="row" >
-                                <div class="col-md-4"></div>
-                                <div class="col-md-4" style="text-align: center">
-                                    <form name="formulario" style="text-align: center;" class="mt-5">
+                                <div class="col-md-3"></div>
+                                <div class="col-md-4">
+                                    <form name="formulario" class="mt-5">
                                         <!-- Lista de selección múltiple -->
-                                        <select id="listaper" name="combo" multiple>
-                                          <!-- Formato alternativo con atributo label -->
+                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>
+                                      
                                          
                                             <option value="1">Nedd Stark</option>
                                             <option value="2">Jon Snow</option>
                                             <option value="3">Sansa Stark</option>
+           
                                    
                                         </select>
                                       </form>
                                 </div>
-                                <div class="col-md-4"></div>
+                                <div class="col-md-5"></div>
                             </div>
                         </div>
                     </div>
@@ -92,75 +77,72 @@
 
 <script>
     
-    window.onload = function() {
+window.onload = function() {
+    
     document.getElementById("nombrePag").textContent="Horario Automático";
+    var opcion = document.getElementById("listapersonal");
 
     google.charts.load('current', {'packages':['timeline']});
-        google.charts.setOnLoadCallback(drawChart);
-        
+    google.charts.setOnLoadCallback(drawChart);
 
-        function drawChart() {
+    function drawChart() {
+                
+        var chart = new google.visualization.Timeline(document.getElementById('timeline'));
+        var dataTable = new google.visualization.DataTable();
+
+        dataTable.addColumn({ type: 'string', id: 'President' });
+        dataTable.addColumn({ type: 'date', id: 'Start' });
+        dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addRows([
+            [ 'Sin asignar',       new Date(2020, 3, 1, 5), new Date(2020, 3, 1, 9) ],
+            [ 'Sin asignar 2',      new Date(2020, 3, 1, 7),  new Date(2020, 3, 1, 12, 30) ],
+            [ 'Sin asignar 3',  new Date(2020, 3, 1, 12),  new Date(2020, 3, 1, 18) ]]);
+
+            var options = {
+                height: 450,
+                timeline: {
+                    legend: 'none'
+                },
+                tooltip: {
+                    trigger: 'selection'
+                }                
+            };
+    
+        chart.draw(dataTable, options); 
+        //metodo escuchar seleccion barra grafico
+        google.visualization.events.addListener(chart, 'select', selectHandler);
             
-            var chart = new google.visualization.Timeline(document.getElementById('timeline'));
-            var dataTable = new google.visualization.DataTable();
+        function selectHandler() {
+            $('#exampleModal').modal('show');
+            var selection = chart.getSelection();
 
-            dataTable.addColumn({ type: 'string', id: 'President' });
-            dataTable.addColumn({ type: 'date', id: 'Start' });
-            dataTable.addColumn({ type: 'date', id: 'End' });
-            dataTable.addRows([
-                [ 'Sin asignar',       new Date(2020, 3, 1, 5), new Date(2020, 3, 1, 9) ],
-                [ 'Sin asignar 2',      new Date(2020, 3, 1, 7),  new Date(2020, 3, 1, 12, 30) ],
-                [ 'Sin asignar 3',  new Date(2020, 3, 1, 12),  new Date(2020, 3, 1, 18) ]]);
-
-                var options = {
-                    height: 450,
-                    timeline: {
-                        legend: 'none'
-                    },
-                    tooltip: {
-                        trigger: 'selection'
-                    }
-                  
-                };
-
-            
-            chart.draw(dataTable, options); 
-                google.visualization.events.addListener(chart, 'select', selectHandler);
-
-            function selectHandler() {
-                var selection = chart.getSelection();
-                var message = '';
-
-                for (var i = 0; i < selection.length; i++) {
-                    var item = selection[i];
-                    if (item.row != null && item.column != null) {
-                        message += 'fila: ' + item.row + ' , columna: ' + item.column;
-                    } else if (item.row != null) {
-                        message += 'fila: ' + item.row;
-                    } else if (item.column != null) {
-                        message += 'columna: ' + item.column;
-                    }
-                }
-                if (message == '') {
-                    message = 'nada';
-                }
-                var opcion = document.getElementById("listaper");
-                var seleccionper = opcion.options[opcion.selectedIndex].text;
-
-                dataTable.setCell(item.row, 0, seleccionper);
-            
-                chart.draw(dataTable, options); 
-                  
+            for (var i = 0; i < selection.length; i++) {
+                var item = selection[i];             
+            }
+                            
+            if ((opcion.options[opcion.selectedIndex])) {
+                var seleccionpersonal = opcion.options[opcion.selectedIndex].text;
+                dataTable.setCell(item.row, 0, seleccionpersonal);        
+                $("#listapersonal").val("0");
+                chart.draw(dataTable, options);
+                
             }
             
-        }
+    
+            opcion.addEventListener("change", function(){
+                $('#exampleModal').modal('hide');
+                selectHandler();
+            });
+            
+
+        } 
+
+
 
         
-
-
-
-
-
-
     }
+
+    
+
+}
 </script>
