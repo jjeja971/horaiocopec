@@ -4,18 +4,24 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12" style="text-align: center"><h1>Ingreso manual de turnos</h1></div>
+        <div class="col-lg-12" style="text-align: center"><h1>Ingreso manual de Turnos</h1></div>
 
         <div class="col-lg-3"></div>
         <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
-            <div id="timeline" style="height: 180px;"></div>
+            <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
         </div>
         <div class="col-lg-3"></div>
 
         <div class="col-lg-3"></div>
         <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
-            <a id="btnagregarTurno" class="mt-4 btn btn-primary btn-lg" style="color: aliceblue">Agregar turno</a>
-            <input type="time" id="itiempoini">
+            <a id="btnagregarTurno" class="mr-5 btn btn-primary btn-lg" style="color: aliceblue">Agregar turno</a>
+            
+            <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:400px; color:#1d59a7" name="combo">                       
+                <option value="1">05:00 - 09:00</option>
+                <option value="2">07:00 - 12:30</option>
+                <option value="3">12:00 - 18:00</option> 
+            </select>
+            
         </div>
         <div class="col-lg-3"></div>
 
@@ -65,8 +71,6 @@
             </div>
         </div>
 
-
-
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
             <a href="{{ URL::previous() }}" class="mt-4 btn btn-primary btn-lg btn-block">Volver</a>
@@ -85,6 +89,7 @@ window.onload = function() {
     document.getElementById("nombrePag").textContent="Horario Automático";
     var opcion = document.getElementById("listapersonal");
     var agregarTurno = document.getElementById("btnagregarTurno");
+    var turnoseleccionado = document.getElementById("seleccionturno");
     
 
     google.charts.load('current', {'packages':['timeline']});
@@ -98,10 +103,6 @@ window.onload = function() {
         dataTable.addColumn({ type: 'string', id: 'President' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
-        dataTable.addRows([
-            [ 'Sin asignar',       new Date(0, 0, 0, 5), new Date(0, 0, 0, 9) ],
-            [ 'Sin asignar',      new Date(0, 0, 0, 7),  new Date(0, 0, 0, 12, 30) ],
-            [ 'Sin asignar',  new Date(0, 0, 0, 12),  new Date(0, 0, 0, 18) ]]);
 
             var options = {
                 height: 450,
@@ -113,7 +114,6 @@ window.onload = function() {
                 }                
             };
     
-        chart.draw(dataTable, options); 
 
         //metodo escuchar seleccion barra grafico
         google.visualization.events.addListener(chart, 'select', selectHandler);
@@ -145,18 +145,16 @@ window.onload = function() {
         agregarTurno.addEventListener("click", function(){
                
                 var nom = "Sin asignar"; 
-                var x = $('#itiempoini').val();
-                var d = "asdad";
-                 
-                alert(x.substr(0,2));
+                var x = $('select[name="seleccionturno"] option:selected').text();
+                
+                var ini = x.substr(0,2);
+                var fin = x.substr(7,3);
+
                 dataTable.addRows([
-                [nom,  new Date(0, 0, 0, 11, 0),  new Date(0, 0, 0, 17, 0) ]]);
+                [nom,  new Date(0, 0, 0, ini, 0),  new Date(0, 0, 0, fin, 0) ]]);
                 chart.draw(dataTable, options);       
         });
              
     }
-
-    
-
 }
 </script>
