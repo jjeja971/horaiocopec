@@ -6,11 +6,11 @@
     <div class="row">
         <div class="col-lg-12" style="text-align: center"><h1>Ingreso manual de Turnos</h1></div>
 
-        <div class="col-lg-3"></div>
-        <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
+        <div class="col-lg-2"></div>
+        <div class="mb-5 mt-5 col-lg-8"  style="text-align: center">
             <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
         </div>
-        <div class="col-lg-3"></div>
+        <div class="col-lg-2"></div>
 
         <div class="col-lg-3"></div>
         <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
@@ -20,6 +20,7 @@
                 <option value="1">05:00 - 09:00</option>
                 <option value="2">07:00 - 12:30</option>
                 <option value="3">12:00 - 18:00</option> 
+                <option value="3">23:00 - 02:00</option>
             </select>
             
         </div>
@@ -73,7 +74,7 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="{{ URL::previous() }}" class="mt-4 btn btn-primary btn-lg btn-block">Volver</a>
+            <a href="{{ URL::previous() }}" style="margin-top: 7em" class="btn btn-primary btn-lg btn-block">Volver</a>
         </div>
         <div class="col-lg-4"></div>
     </div>
@@ -150,11 +151,17 @@ window.onload = function() {
                 var HorIni = x.substr(0,2);
                 var MinIni = x.substr(3,2);
 
-                var HorFin = x.substr(7,3);
+                var HorFin = x.substr(8,2);
                 var MinFin = x.substr(11,2);
 
+                var Dia = 0;
+                if(HorIni>HorFin){
+                    Dia = 1;
+                }
+
                 dataTable.addRows([
-                [nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, 0, HorFin, MinFin) ]]);
+                [nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, Dia, HorFin, MinFin) ]]);
+
                 chart.draw(dataTable, options);       
         });
              
