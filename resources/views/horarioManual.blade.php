@@ -6,13 +6,16 @@
     <div class="row">
         <div class="col-lg-12" style="text-align: center"><h1>Ingreso manual de turnos</h1></div>
 
-        <div class="col-lg-3">
-
-            
-
-        </div>
+        <div class="col-lg-3"></div>
         <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
             <div id="timeline" style="height: 180px;"></div>
+        </div>
+        <div class="col-lg-3"></div>
+
+        <div class="col-lg-3"></div>
+        <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
+            <a id="btnagregarTurno" class="mt-4 btn btn-primary btn-lg" style="color: aliceblue">Agregar turno</a>
+            <input type="time" id="itiempoini">
         </div>
         <div class="col-lg-3"></div>
 
@@ -81,6 +84,8 @@ window.onload = function() {
     
     document.getElementById("nombrePag").textContent="Horario Automático";
     var opcion = document.getElementById("listapersonal");
+    var agregarTurno = document.getElementById("btnagregarTurno");
+    
 
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
@@ -94,9 +99,9 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
         dataTable.addRows([
-            [ 'Sin asignar',       new Date(2020, 3, 1, 5), new Date(2020, 3, 1, 9) ],
-            [ 'Sin asignar 2',      new Date(2020, 3, 1, 7),  new Date(2020, 3, 1, 12, 30) ],
-            [ 'Sin asignar 3',  new Date(2020, 3, 1, 12),  new Date(2020, 3, 1, 18) ]]);
+            [ 'Sin asignar',       new Date(0, 0, 0, 5), new Date(0, 0, 0, 9) ],
+            [ 'Sin asignar',      new Date(0, 0, 0, 7),  new Date(0, 0, 0, 12, 30) ],
+            [ 'Sin asignar',  new Date(0, 0, 0, 12),  new Date(0, 0, 0, 18) ]]);
 
             var options = {
                 height: 450,
@@ -109,12 +114,15 @@ window.onload = function() {
             };
     
         chart.draw(dataTable, options); 
+
         //metodo escuchar seleccion barra grafico
         google.visualization.events.addListener(chart, 'select', selectHandler);
             
         function selectHandler() {
+  
             $('#exampleModal').modal('show');
             var selection = chart.getSelection();
+            
 
             for (var i = 0; i < selection.length; i++) {
                 var item = selection[i];             
@@ -124,22 +132,28 @@ window.onload = function() {
                 var seleccionpersonal = opcion.options[opcion.selectedIndex].text;
                 dataTable.setCell(item.row, 0, seleccionpersonal);        
                 $("#listapersonal").val("0");
-                chart.draw(dataTable, options);
-                
+                chart.draw(dataTable, options);              
             }
-            
-    
-            opcion.addEventListener("change", function(){
-                $('#exampleModal').modal('hide');
-                selectHandler();
-            });
-            
-
         } 
 
-
-
+        opcion.addEventListener("change", function(){
+                $('#exampleModal').modal('hide');
+                selectHandler();
+        });    
+    
         
+        agregarTurno.addEventListener("click", function(){
+               
+                var nom = "Sin asignar"; 
+                var x = $('#itiempoini').val();
+                var d = "asdad";
+                 
+                alert(x.substr(0,2));
+                dataTable.addRows([
+                [nom,  new Date(0, 0, 0, 11, 0),  new Date(0, 0, 0, 17, 0) ]]);
+                chart.draw(dataTable, options);       
+        });
+             
     }
 
     
