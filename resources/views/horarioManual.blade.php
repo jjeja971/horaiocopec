@@ -147,11 +147,14 @@ window.onload = function() {
                 var nom = "Sin asignar"; 
                 var x = $('select[name="seleccionturno"] option:selected').text();
                 
-                var ini = x.substr(0,2);
-                var fin = x.substr(7,3);
+                var HorIni = x.substr(0,2);
+                var MinIni = x.substr(3,2);
+
+                var HorFin = x.substr(7,3);
+                var MinFin = x.substr(11,2);
 
                 dataTable.addRows([
-                [nom,  new Date(0, 0, 0, ini, 0),  new Date(0, 0, 0, fin, 0) ]]);
+                [nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, 0, HorFin, MinFin) ]]);
                 chart.draw(dataTable, options);       
         });
              
