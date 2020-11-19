@@ -44,21 +44,17 @@
                             <div class="col-md-12 order-md-1">
                             
                                 <div class="row" >
-
                                     <div class="col-md-3">
                                         <a href="#" id="btnRemoverTurno" class="btn btn-warning btn-lg"><b>Remover este turno</b></a>
                                     </div>
                                     <div class="col-md-4">
                                         
-                                        <!-- Lista de selección múltiple -->
-                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>
-                                                                              
+                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>                                                     
                                             <option value="1">Nedd Stark</option>
                                             <option value="2">Jon Snow</option>
                                             <option value="3">Sansa Stark</option>
-                                   
                                         </select>
-                                       
+                                                   
                                     </div>
                                     <div class="col-md-5"></div>
                                 </div>
@@ -96,6 +92,7 @@ window.onload = function() {
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
 
+    //dibujar graf
     function drawChart() {
                 
         var chart = new google.visualization.Timeline(document.getElementById('timeline'));
@@ -115,7 +112,7 @@ window.onload = function() {
                 }                
             };
     
-        //metodo escuchar seleccion barra grafico
+        //escuchar seleccion barra grafico
         google.visualization.events.addListener(chart, 'select', selectHandler);
         var opcion = document.getElementById("listapersonal");
         function selectHandler() {
@@ -140,6 +137,7 @@ window.onload = function() {
                 $('#exampleModal').modal('hide');
         });    
         
+        //agregar turno
         agregarTurno.addEventListener("click", function(){
                
                 var nom = "Sin asignar"; 
@@ -162,36 +160,25 @@ window.onload = function() {
                 chart.draw(dataTable, options);       
         });
              
-
+        //quitar turno
         var removerTurno = document.getElementById("btnRemoverTurno");
         removerTurno.addEventListener("click", function(){
             
             var seleccion = chart.getSelection();
-            
             for (var i = 0; i < seleccion.length; i++) {       
                 var seleccionfila = seleccion[i];      
             }
               
-            if(seleccionfila){
-                
+            if(seleccionfila){             
                 dataTable.removeRow(seleccionfila.row);
                 chart.draw(dataTable, options);
-                
-
                 if((dataTable.getNumberOfRows()) == 0){
                     location.reload();
                 }
-
-                $('#exampleModal').modal('hide');
-
-                
-            }
-            
-          
+                $('#exampleModal').modal('hide');        
+            }          
         });
-                  
-    }
 
-    
-}
+    } //final dibujar graf
+}//final window onload
 </script>
