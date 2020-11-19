@@ -26,49 +26,43 @@
         </div>
         <div class="col-lg-3"></div>
 
-
         <!-- Modal -->
                                         
-        <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                            
+        <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">                                      
             <div class="modal-dialog modal-xl">
-                
-              <div class="modal-content">
-                
-                <div class="modal-header" style="z-index:90;background: #3955cf">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
-                <div class="modal-body">
-                    <div class="container-fluid" style="text-align: center">
-                        <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
-                        <div class="col-md-12 order-md-1">
+                <div class="modal-content">
+                    <div class="modal-header" style="z-index:90;background: #3955cf">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
+                    <div class="modal-body">
+                        <div class="container-fluid" style="text-align: center">
+                            <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
+                            <div class="col-md-12 order-md-1">
                             
-                            <div class="row" >
-                                <div class="col-md-3"></div>
-                                <div class="col-md-4">
-                                    <form name="formulario" class="mt-5">
+                                <div class="row" >
+                                    <div class="col-md-3"></div>
+                                    <div class="col-md-4">
+                                        <form name="formulario" class="mt-5">
                                         <!-- Lista de selección múltiple -->
                                         <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>
-                                      
-                                         
+                                                                              
                                             <option value="1">Nedd Stark</option>
                                             <option value="2">Jon Snow</option>
                                             <option value="3">Sansa Stark</option>
-           
                                    
                                         </select>
-                                      </form>
+                                        </form>
+                                    </div>
+                                    <div class="col-md-5"></div>
                                 </div>
-                                <div class="col-md-5"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-              </div>
             </div>
         </div>
 
@@ -80,7 +74,6 @@
     </div>
 </div>
 
-
 @endsection
 
 <script>
@@ -91,7 +84,6 @@ window.onload = function() {
     var opcion = document.getElementById("listapersonal");
     var agregarTurno = document.getElementById("btnagregarTurno");
     var turnoseleccionado = document.getElementById("seleccionturno");
-    
 
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
@@ -115,7 +107,6 @@ window.onload = function() {
                 }                
             };
     
-
         //metodo escuchar seleccion barra grafico
         google.visualization.events.addListener(chart, 'select', selectHandler);
             
@@ -123,8 +114,7 @@ window.onload = function() {
   
             $('#exampleModal').modal('show');
             var selection = chart.getSelection();
-            
-
+    
             for (var i = 0; i < selection.length; i++) {
                 var item = selection[i];             
             }
@@ -141,7 +131,6 @@ window.onload = function() {
                 $('#exampleModal').modal('hide');
                 selectHandler();
         });    
-    
         
         agregarTurno.addEventListener("click", function(){
                
