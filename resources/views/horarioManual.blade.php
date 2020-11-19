@@ -82,9 +82,14 @@
 <script>
     
 window.onload = function() {
+
+    //mantener siempre lista deseleccionada para evitar errores
+    var divGraf = document.getElementById("timeline");
+    divGraf.addEventListener("mousemove", function(){
+        $("#listapersonal").val([]);     
+    });
     
     document.getElementById("nombrePag").textContent="Horario Automático";
-    var opcion = document.getElementById("listapersonal");
     var agregarTurno = document.getElementById("btnagregarTurno");
     var turnoseleccionado = document.getElementById("seleccionturno");
 
@@ -112,27 +117,27 @@ window.onload = function() {
     
         //metodo escuchar seleccion barra grafico
         google.visualization.events.addListener(chart, 'select', selectHandler);
+        var opcion = document.getElementById("listapersonal");
         function selectHandler() {
-            
+           
             $('#exampleModal').modal('show');
             var selection = chart.getSelection();
             
             for (var i = 0; i < selection.length; i++) {
                 var item = selection[i];             
             }
-                            
-            if (opcion.options[opcion.selectedIndex]) {
+                              
+            if (opcion.options[opcion.selectedIndex]) {   
                 var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
                 dataTable.setCell(item.row, 0, seleccionpersonal);        
                 chart.draw(dataTable, options);  
                 $("#listapersonal").val([]);         
             }
-            
         } 
 
-        opcion.addEventListener("change", function(){
-                $('#exampleModal').modal('hide');
+        opcion.addEventListener("change", function(){            
                 selectHandler();     
+                $('#exampleModal').modal('hide');
         });    
         
         agregarTurno.addEventListener("click", function(){
