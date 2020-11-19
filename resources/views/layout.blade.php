@@ -173,7 +173,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="control-sidebar control-sidebar-dark">
     <!-- Control sidebar content goes here -->
     <div class="p-3">
-      <h5>Menu desplegable</h5>
+      <h5>Informacion adicional</h5>
       <div class="date">
         <span id="weekDay" class="weekDay"></span>, 
         <span id="day" class="day"></span> de
