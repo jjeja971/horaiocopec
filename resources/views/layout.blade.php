@@ -104,25 +104,23 @@ scratch. This page gets rid of all links and provides the needed markup only.
                with font-awesome or any other icon font library -->
           <li class="nav-item has-treeview menu-open">
             <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <i class="nav-icon fas fa-th"></i>
               <p>
-                Añadir horarios
-                <i class="right fas fa-angle-left"></i>
+                Administracion
               </p>
             </a>
-            <ul class="nav nav-treeview">
+           
               <li class="nav-item">
-                <a href="menuHorario" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
+                <a href="menuHorario" class="nav-link">
+                  <i class="far fa-calendar-minus nav-icon"></i>
                   <p>Ir a Menú de Horarios</p>
                 </a>
               </li>
-              
-            </ul>
+       
           </li>
           <li class="nav-item">
             <a href="listaratendedores" class="nav-link">
-              <i class="nav-icon fas fa-th"></i>
+              <i class="fas fa-users-cog nav-icon"></i>
               <p>
                 Gestionar atendedores
               </p>
