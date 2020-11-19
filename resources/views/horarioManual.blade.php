@@ -44,9 +44,12 @@
                             <div class="col-md-12 order-md-1">
                             
                                 <div class="row" >
-                                    <div class="col-md-3"></div>
+
+                                    <div class="col-md-3">
+                                        <a href="#" id="btnRemoverTurno" class="btn btn-warning btn-lg"><b>Remover este turno</b></a>
+                                    </div>
                                     <div class="col-md-4">
-                                        <form name="formulario" class="mt-5">
+                                        
                                         <!-- Lista de selección múltiple -->
                                         <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>
                                                                               
@@ -55,7 +58,7 @@
                                             <option value="3">Sansa Stark</option>
                                    
                                         </select>
-                                        </form>
+                                       
                                     </div>
                                     <div class="col-md-5"></div>
                                 </div>
@@ -96,7 +99,7 @@ window.onload = function() {
         dataTable.addColumn({ type: 'string', id: 'President' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
-
+               
             var options = {
                 height: 450,
                 timeline: {
@@ -109,27 +112,27 @@ window.onload = function() {
     
         //metodo escuchar seleccion barra grafico
         google.visualization.events.addListener(chart, 'select', selectHandler);
-            
         function selectHandler() {
-  
+            
             $('#exampleModal').modal('show');
             var selection = chart.getSelection();
-    
+            
             for (var i = 0; i < selection.length; i++) {
                 var item = selection[i];             
             }
                             
-            if ((opcion.options[opcion.selectedIndex])) {
-                var seleccionpersonal = opcion.options[opcion.selectedIndex].text;
+            if (opcion.options[opcion.selectedIndex]) {
+                var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
                 dataTable.setCell(item.row, 0, seleccionpersonal);        
-                $("#listapersonal").val("0");
-                chart.draw(dataTable, options);              
+                chart.draw(dataTable, options);  
+                $("#listapersonal").val([]);         
             }
+            
         } 
 
         opcion.addEventListener("change", function(){
                 $('#exampleModal').modal('hide');
-                selectHandler();
+                selectHandler();     
         });    
         
         agregarTurno.addEventListener("click", function(){
@@ -154,6 +157,36 @@ window.onload = function() {
                 chart.draw(dataTable, options);       
         });
              
+
+        var removerTurno = document.getElementById("btnRemoverTurno");
+        removerTurno.addEventListener("click", function(){
+            
+            var seleccion = chart.getSelection();
+            
+            for (var i = 0; i < seleccion.length; i++) {       
+                var seleccionfila = seleccion[i];      
+            }
+              
+            if(seleccionfila){
+                
+                dataTable.removeRow(seleccionfila.row);
+                chart.draw(dataTable, options);
+                
+
+                if((dataTable.getNumberOfRows()) == 0){
+                    location.reload();
+                }
+
+                $('#exampleModal').modal('hide');
+
+                
+            }
+            
+          
+        });
+                  
     }
+
+    
 }
 </script>
