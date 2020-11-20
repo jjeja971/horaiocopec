@@ -16,10 +16,17 @@
             <a href="horarioAutomatico" class="mt-4 btn btn-primary btn-lg btn-block">Ingresar horario automático</a>
         </div>
         <div class="col-lg-4"></div>
+        
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4"  style="text-align: center">
+            <a href="horarioAutomatico" class="mt-4 btn btn-warning btn-lg btn-block"><b>Ingresar Turno</b></a>
+        </div>
+        <div class="col-lg-4"></div>
+        
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="." class="mt-4 btn btn-primary btn-lg btn-block">Volver</a>
+            <a href="." style="margin-top: 5em" class="btn btn-primary btn-lg btn-block">Volver</a>
         </div>
         <div class="col-lg-4"></div>
     </div>
