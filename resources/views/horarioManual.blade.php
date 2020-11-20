@@ -4,7 +4,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12" style="text-align: center"><h1>Ingreso manual de Turnos</h1></div>
+        <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
 
         <div class="col-lg-2"></div>
         <div class="mb-5 mt-5 col-lg-8"  style="text-align: center">
@@ -112,7 +112,7 @@ window.onload = function() {
                 }                
             };
     
-        //escuchar seleccion barra grafico
+        //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
         var opcion = document.getElementById("listapersonal");
         function selectHandler() {
@@ -172,6 +172,7 @@ window.onload = function() {
             if(seleccionfila){             
                 dataTable.removeRow(seleccionfila.row);
                 chart.draw(dataTable, options);
+                
                 if((dataTable.getNumberOfRows()) == 0){
                     location.reload();
                 }
