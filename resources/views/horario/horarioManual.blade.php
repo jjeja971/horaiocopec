@@ -96,7 +96,10 @@ window.onload = function() {
                 
         var chart = new google.visualization.Timeline(document.getElementById('timeline'));
         var dataTable = new google.visualization.DataTable();
+        var view = new google.visualization.DataView(dataTable);
+        
 
+        dataTable.addColumn({ type: 'string', id: 'id' });
         dataTable.addColumn({ type: 'string', id: 'President' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
@@ -125,8 +128,9 @@ window.onload = function() {
                               
             if (opcion.options[opcion.selectedIndex]) {   
                 var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
-                dataTable.setCell(item.row, 0, seleccionpersonal);        
-                chart.draw(dataTable, options);  
+                dataTable.setCell(item.row, 0, seleccionpersonal);  
+                view.setColumns([1,2,3]);       
+                chart.draw(view, options);  
                 $("#listapersonal").val([]);         
             }
         } 
@@ -154,9 +158,9 @@ window.onload = function() {
                 }
 
                 dataTable.addRows([
-                [nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, Dia, HorFin, MinFin) ]]);
-
-                chart.draw(dataTable, options);       
+                ["asd",nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, Dia, HorFin, MinFin) ]]);
+                view.setColumns([1,2,3]); 
+                chart.draw(view, options);       
         });
              
         //quitar turno
@@ -170,7 +174,8 @@ window.onload = function() {
               
             if(seleccionfila){             
                 dataTable.removeRow(seleccionfila.row);
-                chart.draw(dataTable, options);
+                view.setColumns([1,2,3]); 
+                chart.draw(view, options);
                 
                 if((dataTable.getNumberOfRows()) == 0){
                     location.reload();
