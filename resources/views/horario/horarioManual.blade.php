@@ -19,13 +19,7 @@
             <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:400px; color:#1d59a7" name="combo"> 
                 @foreach ($turno as $item) 
                     <option value="{{ $item->id_turno }}">{{ substr($item->hora_entrada,11,5) }} - {{ substr($item->hora_salida,11,5) }}</option>   
-                @endforeach
-                
-                
-                    
-                             
-                
-                
+                @endforeach  
             </select>
             
         </div>
