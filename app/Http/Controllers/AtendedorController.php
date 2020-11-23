@@ -116,7 +116,7 @@ class AtendedorController extends Controller
 
     public function horarioManual(){
           
-        $turno = DB::select('select * from turnos order by hora_entrada asc;');
+        $turno = DB::select('exec listar_turnos');
         return view ('horario/horarioManual', compact('turno'));
     }
     
