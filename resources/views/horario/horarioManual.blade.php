@@ -16,11 +16,16 @@
         <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
             <a id="btnagregarTurno" class="mr-5 btn btn-primary btn-lg" style="color: aliceblue">Agregar turno</a>
             
-            <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:400px; color:#1d59a7" name="combo">                       
-                <option value="1">05:00 - 09:00</option>
-                <option value="2">07:00 - 12:30</option>
-                <option value="3">12:00 - 18:00</option> 
-                <option value="3">23:00 - 02:00</option>
+            <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:400px; color:#1d59a7" name="combo"> 
+                @foreach ($turno as $item) 
+                    <option value="{{ $item->id_turno }}">{{ substr($item->hora_entrada,11,5) }} - {{ substr($item->hora_salida,11,5) }}</option>   
+                @endforeach
+                
+                
+                    
+                             
+                
+                
             </select>
             
         </div>

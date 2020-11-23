@@ -98,7 +98,7 @@ class AtendedorController extends Controller
 
 
     public function login(){
-        return view ('login');
+        return view ('login/login');
     }
 
     public function probando(){
@@ -111,17 +111,18 @@ class AtendedorController extends Controller
 
     public function menuHorario(){
           
-        return view ('horario');
+        return view ('horario/horario');
     }
 
     public function horarioManual(){
           
-        return view ('horarioManual');
+        $turno = DB::select('select * from turnos order by hora_entrada asc;');
+        return view ('horario/horarioManual', compact('turno'));
     }
     
     public function horarioAutomatico(){
           
-        return view ('horarioAutomatico');
+        return view ('horario/horarioAutomatico');
     }
 
 }
