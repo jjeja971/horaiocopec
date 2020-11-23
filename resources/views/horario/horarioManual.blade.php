@@ -20,8 +20,7 @@
                 @foreach ($turno as $item) 
                     <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
                 @endforeach  
-            </select>
-            
+            </select>      
         </div>
         <div class="col-lg-3"></div>
 
@@ -128,7 +127,7 @@ window.onload = function() {
                               
             if (opcion.options[opcion.selectedIndex]) {   
                 var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
-                dataTable.setCell(item.row, 0, seleccionpersonal);  
+                dataTable.setCell(item.row, 1, seleccionpersonal);  
                 view.setColumns([1,2,3]);       
                 chart.draw(view, options);  
                 $("#listapersonal").val([]);         
@@ -158,7 +157,7 @@ window.onload = function() {
                 }
 
                 dataTable.addRows([
-                ["asd",nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, Dia, HorFin, MinFin) ]]);
+                ["asd", nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, Dia, HorFin, MinFin) ]]);
                 view.setColumns([1,2,3]); 
                 chart.draw(view, options);       
         });
