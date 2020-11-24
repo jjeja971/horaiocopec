@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
 
-        <div class="col-lg-2"></div>
+        <div class="col-lg-2"><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
         <div class="mb-5 mt-5 col-lg-8"  style="text-align: center">
             <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
         </div>
@@ -77,7 +77,11 @@
     
 window.onload = function() {
 
-    //mantener siempre lista deseleccionada para evitar errores
+    var hr1 = document.getElementById("hora1p");
+    var hr2 = document.getElementById("hora2p");
+    
+
+    //se mantiene siempre lista deseleccionada para evitar errores
     var divGraf = document.getElementById("timeline");
     divGraf.addEventListener("mousemove", function(){
         $("#listapersonal").val([]);     
@@ -86,7 +90,7 @@ window.onload = function() {
     document.getElementById("nombrePag").textContent="Horario Automático";
     var agregarTurno = document.getElementById("btnagregarTurno");
     var turnoseleccionado = document.getElementById("seleccionturno");
-
+     
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -97,20 +101,19 @@ window.onload = function() {
         var dataTable = new google.visualization.DataTable();
         var view = new google.visualization.DataView(dataTable);
         
-
         dataTable.addColumn({ type: 'string', id: 'id' });
         dataTable.addColumn({ type: 'string', id: 'President' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
+        
                
+        var formatter_short = new google.visualization.DateFormat({formatType: 'short'});
+        formatter_short.format(dataTable, 2);
+        
             var options = {
                 height: 450,
-                timeline: {
-                    legend: 'none'
-                },
-                tooltip: {
-                    trigger: 'selection'
-                }                
+                timeline: { legend: 'none' },
+                tooltip: { trigger: 'selection' },              
             };
     
         //escuchar selección barra gráfico
@@ -126,8 +129,12 @@ window.onload = function() {
             }
                               
             if (opcion.options[opcion.selectedIndex]) {   
+                var idpersonal = $('select[id="listapersonal"] option:selected').val();   
                 var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
+                
+                dataTable.setCell(item.row, 0, idpersonal)
                 dataTable.setCell(item.row, 1, seleccionpersonal);  
+            
                 view.setColumns([1,2,3]);       
                 chart.draw(view, options);  
                 $("#listapersonal").val([]);         
@@ -137,13 +144,15 @@ window.onload = function() {
         opcion.addEventListener("change", function(){            
                 selectHandler();     
                 $('#exampleModal').modal('hide');
+                hr1.innerHTML = dataTable.getValue(0,2);
+                hr2.innerHTML = dataTable.getValue(0,3);
         });    
         
         //agregar turno
         agregarTurno.addEventListener("click", function(){
-               
+                var idx = "Sin asignar"; 
                 var nom = "Sin asignar"; 
-                var x = $('select[name="seleccionturno"] option:selected').text();
+                var x = $('select[name="seleccionturno"] option:selected').text();               
                 
                 var HorIni = x.substr(0,2);
                 var MinIni = x.substr(3,2);
@@ -157,7 +166,7 @@ window.onload = function() {
                 }
 
                 dataTable.addRows([
-                ["asd", nom,  new Date(0, 0, 0, HorIni, MinIni),  new Date(0, 0, Dia, HorFin, MinFin) ]]);
+                [idx, nom, new Date(0, 0, 0, HorIni, MinIni), new Date(0, 0, Dia, HorFin, MinFin) ]]);
                 view.setColumns([1,2,3]); 
                 chart.draw(view, options);       
         });
