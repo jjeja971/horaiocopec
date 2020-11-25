@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
 
-
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 
 <table id="example" class="display" style="width:100%">
   <thead>
