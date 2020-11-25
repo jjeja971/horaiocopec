@@ -90,13 +90,14 @@ window.onload = function() {
     document.getElementById("nombrePag").textContent="Horario Automático";
     var agregarTurno = document.getElementById("btnagregarTurno");
     var turnoseleccionado = document.getElementById("seleccionturno");
+    
      
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
 
     //dibujar graf
     function drawChart() {
-                
+     
         var chart = new google.visualization.Timeline(document.getElementById('timeline'));
         var dataTable = new google.visualization.DataTable();
         var view = new google.visualization.DataView(dataTable);
@@ -106,7 +107,6 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
         
-               
         var formatter_short = new google.visualization.DateFormat({formatType: 'short'});
         formatter_short.format(dataTable, 2);
         
