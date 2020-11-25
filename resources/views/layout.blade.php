@@ -10,8 +10,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Menu Administrador | Inicio</title>
-  <!-- Modelo Datatable -->
-  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
@@ -209,6 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
 <!-- dataTable -->
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
 <!--Reloj js -->
