@@ -10,7 +10,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <meta http-equiv="x-ua-compatible" content="ie=edge">
 
   <title>Menu Administrador | Inicio</title>
-
+  <!-- Modelo Datatable -->
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
@@ -201,15 +202,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
-
 <!-- jQuery -->
 <script src="adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
+<!-- dataTable -->
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
 <!--Reloj js -->
-<script>
+<>
   
   var udateTime = function() {
     let currentDate = new Date(),
@@ -267,7 +270,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
  
   udateTime();
   setInterval(udateTime, 1000);
-</script>
+</>
 
 
 </body>

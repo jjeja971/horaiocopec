@@ -484,15 +484,14 @@
   </tfoot>
 </table>
   
-
-  @endsection
-  <script src="https://code.jquery.com/jquery-3.5.1.js" ></script>
-  <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+@endsection
 
   <script>
-    $(document).ready(function() {
-    $('#example').DataTable();
-} );
+      window.onload = function() {
+        $(document).ready(function() {
+            $('#example').DataTable();
+        } );
+      }
   </script>
   
  

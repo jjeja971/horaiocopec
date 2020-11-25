@@ -108,7 +108,7 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'End' });
         
         var formatter_short = new google.visualization.DateFormat({formatType: 'short'});
-        formatter_short.format(dataTable, 2);
+        formatter_short.format(dataTable, 3);
         
             var options = {
                 height: 450,
