@@ -201,6 +201,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- REQUIRED SCRIPTS -->
 
+
 <!-- jQuery -->
 <script src="adminlte/plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
@@ -208,7 +209,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
 <!--Reloj js -->
-<script src="js/clock.js"></script>
+<!--<script src="js/clock.js"></script>-->
 <script>
   
   var udateTime = function() {
