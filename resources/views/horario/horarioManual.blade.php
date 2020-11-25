@@ -6,7 +6,7 @@
     <div class="row">
         <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
 
-        <div class="col-lg-2"><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
+        <div class="col-lg-2"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
         <div class="mb-5 mt-5 col-lg-8"  style="text-align: center">
             <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
         </div>
@@ -39,22 +39,20 @@
                     <div class="modal-body">
                         <div class="container-fluid" style="text-align: center">
                             <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
-                            <div class="col-md-12 order-md-1">
+                            <div class="col-lg-12">
                             
                                 <div class="row" >
-                                    <div class="col-md-3">
-                                        <a href="#" id="btnRemoverTurno" class="btn btn-warning btn-lg"><b>Remover este turno</b></a>
-                                    </div>
-                                    <div class="col-md-4">
+                                    <div class="col-lg-4"></div>
+                                    <div class="col-lg-2">
                                         
-                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>                                                     
-                                            <option value="1">Nedd Stark</option>
-                                            <option value="2">Jon Snow</option>
-                                            <option value="3">Sansa Stark</option>
-                                        </select>
-                                                   
+                                        <select id="listapersonal" class="mb-5 mt-5" style="font-size: 1.3em; width:17em; height:550px; color:#1d59a7" name="combo" multiple>                                                     
+                                            @foreach ($personalrec as $item) 
+                                                <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
+                                            @endforeach  
+                                        </select>   
+                                        <a href="#" id="btnRemoverTurno" style="width: 16em;" class="btn btn-warning btn-lg mb-3"><b>Remover este turno</b></a>
                                     </div>
-                                    <div class="col-md-5"></div>
+                                    <div class="col-lg-2"></div>
                                 </div>
                             </div>
                         </div>
@@ -77,6 +75,7 @@
     
 window.onload = function() {
 
+    var hr0 = document.getElementById("hora0p");
     var hr1 = document.getElementById("hora1p");
     var hr2 = document.getElementById("hora2p");
     
@@ -140,12 +139,18 @@ window.onload = function() {
             }
         } 
 
-        opcion.addEventListener("change", function(){            
+        opcion.addEventListener("change", function(){    
+                var selection = chart.getSelection();             
+                for (var i = 0; i < selection.length; i++) {
+                    var item = selection[i];             
+                }
                 selectHandler();
+                
+                hr0.innerHTML = dataTable.getValue(item.row,1);
+                hr1.innerHTML = dataTable.getValue(item.row,2).getHours()+":"+dataTable.getValue(item.row,2).getMinutes();
+                hr2.innerHTML = dataTable.getValue(item.row,3).getHours()+":"+dataTable.getValue(item.row,3).getMinutes();
                 $('#exampleModal').modal('hide');
                
-                hr1.innerHTML = dataTable.getValue(0,2).getHours()+":"+dataTable.getValue(0,2).getMinutes();
-                hr2.innerHTML = dataTable.getValue(0,3).getHours()+":"+dataTable.getValue(0,3).getMinutes();
         });    
         
         //agregar turno

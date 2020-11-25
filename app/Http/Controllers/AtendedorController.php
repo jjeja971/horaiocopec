@@ -18,7 +18,6 @@ class AtendedorController extends Controller
     public function matendedor($rut){
 
         $datos = DB::select('select * from atendedor');
-
         return view('atendedores/modificar_atendedor');
     }
 
@@ -26,7 +25,6 @@ class AtendedorController extends Controller
     public function listaratendedores(){
 
         $lista = DB::select('select * from atendedor');
-
         return view('atendedores/list_atendedores',compact('lista'));
     }
 
@@ -41,25 +39,16 @@ class AtendedorController extends Controller
         }
 
         $nombre = $recuperar->nombre;
-
         $numero = $recuperar->numero;
-
         $email=$recuperar->email;
-
         $eds = 20012;
-        
         $estado = 'Activo';
-    
         $direccion = $recuperar->direccion;
-    
         $jornada = $recuperar->jornada;
-
-        
 
             if ($valido == 0){
                 echo "validar 0";
-               // return back()->with('error','Por favor ingrese un rut valido');
-                
+               // return back()->with('error','Por favor ingrese un rut valido');            
             }
 
             if ($valido == 1){
@@ -75,62 +64,59 @@ class AtendedorController extends Controller
 
     public function valida_rut($rut)
     {
-        $rut = preg_replace('/[^k0-9]/i', '', $rut);
-        $dv  = substr($rut, -1);
-        $numero = substr($rut, 0, strlen($rut)-1);
-        $i = 2;
-        $suma = 0;
-        foreach(array_reverse(str_split($numero)) as $v)
-        {
-            if($i==8)
-                $i = 2;
-    
-            $suma += $v * $i;
-            ++$i;
-        }
-    
-        $dvr = 11 - ($suma % 11);
+            $rut = preg_replace('/[^k0-9]/i', '', $rut);
+            $dv  = substr($rut, -1);
+            $numero = substr($rut, 0, strlen($rut)-1);
+            $i = 2;
+            $suma = 0;
+            foreach(array_reverse(str_split($numero)) as $v)
+            {
+                if($i==8)
+                    $i = 2;
         
-        if($dvr == 11)
-            $dvr = 0;
-        if($dvr == 10)
-            $dvr = 'K';
-    
-        if($dvr == strtoupper($dv))
-            return true;
-        else
-            return false;
+                $suma += $v * $i;
+                ++$i;
+            }
+        
+            $dvr = 11 - ($suma % 11);
+            
+            if($dvr == 11)
+                $dvr = 0;
+            if($dvr == 10)
+                $dvr = 'K';
+        
+            if($dvr == strtoupper($dv))
+                return true;
+            else
+                return false;
     }
 
 
 
 
     public function login(){
-        return view ('login/login');
+            return view ('login/login');
     }
 
     public function probando(){
-        $dato = DB::select('select nombre_atendedor
-                            from atendedor
-                            where rut_atendedor = 2');
-            
-        return view ('proban2', compact('dato'));
+            $dato = DB::select('select nombre_atendedor
+                                from atendedor
+                                where rut_atendedor = 2');
+            return view ('proban2', compact('dato'));
     }
 
     public function menuHorario(){
-          
-        return view ('horario/horario');
+            return view ('horario/horario');
     }
 
     public function horarioManual(){
-          
-        $turno = DB::select('exec listar_turnos');
-        return view ('horario/horarioManual', compact('turno'));
+            $personalrec = DB::select('exec listar_atendedor');
+            $turno = DB::select('exec listar_turnos');
+            return view ('horario/horarioManual', compact('turno','personalrec'));
     }
     
-    public function horarioAutomatico(){
-          
-        return view ('horario/horarioAutomatico');
+    public function horarioAutomatico(){    
+            return view ('horario/horarioAutomatico');
     }
 
 }
