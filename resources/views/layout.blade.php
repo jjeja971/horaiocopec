@@ -207,12 +207,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
-<!-- dataTable -->
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
-
 <!--Reloj js -->
-<>
+<script>
   
   var udateTime = function() {
     let currentDate = new Date(),
@@ -270,8 +266,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
  
   udateTime();
   setInterval(udateTime, 1000);
-</>
-
+</script>
+<!-- dataTable -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
 
 </body>
 </html>
