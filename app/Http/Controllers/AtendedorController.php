@@ -15,7 +15,7 @@ class AtendedorController extends Controller
         return view('atendedores/agregaratendedor');
     }
 
-    public function matendedor(){
+    public function matendedor($rut){
 
         $datos = DB::select('select * from atendedor');
 

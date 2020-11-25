@@ -29,7 +29,7 @@
                 <td>{{$item->numero}}</td>
                 <td>{{$item->email}}</td>
                 <td>{{$item->direccion}}</td>
-                <td><a href="modatendedor" class="btn btn-app"><i class="fas fa-edit"></i> Editar</a></td>
+                <td><a href="{{route(modatendedor,$item->rut_atendedor)}}" class="btn btn-app"><i class="fas fa-edit"></i> Editar</a></td>
             </tr>
             @endforeach
           </tbody>

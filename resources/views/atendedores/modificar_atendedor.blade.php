@@ -5,7 +5,7 @@
     <div class="card-header">
       <h3 class="card-title">Nuevo Atendedor</h3>
     </div>
-    <form method="POST" action="modificaratendedor" role="form">
+    <form role="form">
         @csrf
       <div class="card-body">
         <div class="form-group">
