@@ -107,15 +107,14 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
         
-        var formatter_short = new google.visualization.DateFormat({formatType: 'short'});
-        formatter_short.format(dataTable, 3);
         
-            var options = {
+            options = {
                 height: 450,
                 timeline: { legend: 'none' },
                 tooltip: { trigger: 'selection' },              
             };
     
+        
         //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
         var opcion = document.getElementById("listapersonal");
@@ -142,10 +141,11 @@ window.onload = function() {
         } 
 
         opcion.addEventListener("change", function(){            
-                selectHandler();     
+                selectHandler();
                 $('#exampleModal').modal('hide');
-                hr1.innerHTML = dataTable.getValue(0,2);
-                hr2.innerHTML = dataTable.getValue(0,3);
+               
+                hr1.innerHTML = dataTable.getValue(0,2).getHours()+":"+dataTable.getValue(0,2).getMinutes();
+                hr2.innerHTML = dataTable.getValue(0,3).getHours()+":"+dataTable.getValue(0,3).getMinutes();
         });    
         
         //agregar turno
