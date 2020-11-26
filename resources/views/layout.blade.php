@@ -208,6 +208,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- AdminLTE App -->
 <script src="adminlte/js/adminlte.min.js"></script>
 
+
 <!--Reloj js -->
 <script>
   
@@ -268,9 +269,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
   udateTime();
   setInterval(udateTime, 1000);
 </script>
-<!-- dataTable -->
 
+<!-- dataTable -->
 <script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+
 
 </body>
 </html>

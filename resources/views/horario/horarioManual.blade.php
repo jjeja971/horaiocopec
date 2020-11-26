@@ -1,14 +1,32 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @extends('layout')
 @section('content')
 
 <div class="container-fluid">
+    @if(session()->has('message'))
+    <div>
+        <script>
+        swal({
+            title: "Horario Registrado!",
+            text: "Actualizado",
+            icon: "success",
+            button: false,
+            timer:800,
+        });
+
+        </script>
+    </div>
+    @endif
+
     <div class="row">
         <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
 
         <div class="col-lg-2"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
         <div class="mb-5 mt-5 col-lg-8"  style="text-align: center">
-            <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
+            <form>
+                <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
+            </form>
         </div>
         <div class="col-lg-2"></div>
 
@@ -187,18 +205,18 @@ window.onload = function() {
             
             var seleccion = chart.getSelection();
             for (var i = 0; i < seleccion.length; i++) {       
-                var seleccionfila = seleccion[i];      
+                    var seleccionfila = seleccion[i];      
             }
               
             if(seleccionfila){             
-                dataTable.removeRow(seleccionfila.row);
-                view.setColumns([1,2,3]); 
-                chart.draw(view, options);
-                
-                if((dataTable.getNumberOfRows()) == 0){
-                    location.reload();
-                }
-                $('#exampleModal').modal('hide');        
+                    dataTable.removeRow(seleccionfila.row);
+                    view.setColumns([1,2,3]); 
+                    chart.draw(view, options);
+                    
+                    if((dataTable.getNumberOfRows()) == 0){
+                        location.reload();
+                    }
+                    $('#exampleModal').modal('hide');        
             }          
         });
 
