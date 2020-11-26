@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtendedorController;
+use App\Http\Controllers\HorariosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,6 +31,8 @@ Route::get('/horarioAutomatico', [AtendedorController::class, 'horarioAutomatico
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
+
+Route::get('/regHorario', [HorariosController::class, 'registrarHorario']);
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'Modificaratendedor']);
