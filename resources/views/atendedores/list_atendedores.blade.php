@@ -41,7 +41,20 @@
 
   <script>
       window.onload = function() { 
-          $('#example').DataTable(); 
+          $('#example').DataTable({
+            "language":{
+            "lengthMenu": "Mostrar _MENU_ por paginación",
+            "zeroRecords": "No se encontraron resultados",
+            "info": "Total mostrados:  _TOTAL_",
+            "infoEmpty": "",
+            "infoFiltered": "",
+            "search":"Buscar: ",
+            "paginate":{
+              "next": "Siguiente",
+              "previous": "Anterior"
+            }
+            }
+          }); 
       }
   </script>
   
