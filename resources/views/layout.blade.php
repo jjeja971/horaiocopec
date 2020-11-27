@@ -111,7 +111,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
            
               <li class="nav-item">
-                <a href="menuHorario" class="nav-link">
+                <a href="/menuHorario" class="nav-link">
                   <i class="far fa-calendar-minus nav-icon"></i>
                   <p>Ir a Horarios y Turnos</p>
                 </a>
@@ -119,7 +119,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
        
           </li>
           <li class="nav-item">
-            <a href="listaratendedores" class="nav-link">
+            <a href="/listaratendedores" class="nav-link">
               <i class="fas fa-users-cog nav-icon"></i>
               <p>
                 Ir a Atendedores
