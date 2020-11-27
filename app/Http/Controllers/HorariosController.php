@@ -8,12 +8,12 @@ use Illuminate\Support\Facades\DB;
 class HorariosController extends Controller
 {
     public function registrarHorario(){
-            return back()->with('message','You added new items, follow next step!');
+        return back()->with('message','You added new items, follow next step!');
     }
 
     public function menuHorario(){
         return view ('horario/horario');
-}
+    }       
 
     public function horarioManual(){
             $personalrec = DB::select('exec listar_atendedor');
@@ -28,6 +28,11 @@ class HorariosController extends Controller
     public function ITurnos(){    
         $turno = DB::select('exec listar_turnos');
         return view ('horario/turnos', compact('turno'));
-}
+    }
     
+    public function modTurno($idturno){    
+        $turnos = DB::select('select * from turnos where id_turno=1');
+        return view ('horario/modTurno', compact('turnos'));
+    }
+
 }

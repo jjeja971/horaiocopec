@@ -20,12 +20,12 @@
       </thead>
       <tbody>
         @foreach ($turno as $item)
-          <tr>
-              <td>{{$item->id_turno}}</td>
-              <td>{{$item->hora_entrada}}</td>
-              <td>{{$item->hora_salida}}</td>        
-          <td><a href="/modatendedor/{{$item->id_turno}}"  class="btn btn-primary btn-sm disabled"><i class="fas fa-edit"></i> Editar</a></td>
-          </tr>
+            <tr>
+                <td>{{$item->id_turno}}</td>
+                <td>{{$item->hora_entrada}}</td>
+                <td>{{$item->hora_salida}}</td>        
+                <td><a href="/modificarTurno/{{$item->id_turno}}"  class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a></td>
+            </tr>
         @endforeach
       </tbody>
     </table>
