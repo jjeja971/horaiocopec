@@ -24,4 +24,9 @@ class HorariosController extends Controller
     public function horarioAutomatico(){    
             return view ('horario/horarioAutomatico');
     }
+
+    public function ITurnos(){    
+        return view ('horario/turnos');
+}
+    
 }

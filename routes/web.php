@@ -33,6 +33,7 @@ Route::get('/regHorario', [HorariosController::class, 'registrarHorario']);
 Route::get('/menuHorario', [HorariosController::class, 'menuHorario']);
 Route::get('/horarioManual', [HorariosController::class, 'horarioManual']);
 Route::get('/horarioAutomatico', [HorariosController::class, 'horarioAutomatico']);
+Route::get('/interfazTurnos', [HorariosController::class, 'ITurnos']);
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);

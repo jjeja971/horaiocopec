@@ -19,7 +19,7 @@
         
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/horarioAutomatico" class="mt-4 btn btn-warning btn-lg btn-block"><b>Ingresar Turno</b></a>
+            <a href="/interfazTurnos" class="mt-4 btn btn-warning btn-lg btn-block"><b>Turnos</b></a>
         </div>
         <div class="col-lg-4"></div>
         
