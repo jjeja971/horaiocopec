@@ -28,7 +28,7 @@
               <td>{{$item->numero}}</td>
               <td>{{$item->email}}</td>
               <td>{{$item->direccion}}</td>
-              <td><a href="#"  class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a></td>
+          <td><a href="{{url('modatendedor', ['asd'])}}"  class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a></td>
           </tr>
         @endforeach
       </tbody>

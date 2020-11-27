@@ -12,12 +12,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <title>Menu Administrador | Inicio</title>
 
   <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="adminlte/plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
   <!-- Theme style -->
   
-  <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
+  <link rel="stylesheet" href="{{ URL::asset('adminlte/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
-  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+  <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet') }}">
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -30,7 +30,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="." class="nav-link">Inicio</a>
+        <a href="/" class="nav-link">Inicio</a>
       </li>
     </ul>
 
@@ -79,8 +79,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="." class="brand-link">
-      <img src="adminlte/img/Copec_Logo.svg" alt="Copec Logo" class="brand-image elevation-5"
+    <a href="/" class="brand-link">
+      <img src="{{ URL::asset('adminlte/img/Copec_Logo.svg')}}" alt="Copec Logo" class="brand-image elevation-5"
            style="opacity: .9">
       <span><br></span>
     </a>
@@ -90,10 +90,10 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="adminlte/img/default-user.png" class="img-circle elevation-2" alt="Imagen usuario">
+          <img src="{{ URL::asset('adminlte/img/default-user.png')}}" class="img-circle elevation-2" alt="Imagen usuario">
         </div>
         <div class="info">
-          <a href="login" class="d-block">Nedd Stark</a>
+          <a href="/login" class="d-block">Nedd Stark</a>
         </div>
       </div>
 
@@ -127,7 +127,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li> 
           <li class="nav-item">
-            <a href="login" class="nav-link">       
+            <a href="/login" class="nav-link">       
               <i class="mt-4 fas fa-sign-out-alt nav-icon"></i>
               <p>Salir</p>
             </a>
@@ -150,7 +150,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href=".">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
               <li class="breadcrumb-item active" id="nombrePag">Página principal</li>
             </ol>
           </div><!-- /.col -->
@@ -202,11 +202,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <!-- REQUIRED SCRIPTS -->
 
 <!-- jQuery -->
-<script src="adminlte/plugins/jquery/jquery.min.js"></script>
+<script src="{{ URL::asset('adminlte/plugins/jquery/jquery.min.js') }}"></script>
 <!-- Bootstrap 4 -->
-<script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{ URL::asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
-<script src="adminlte/js/adminlte.min.js"></script>
+<script src="{{ URL::asset('adminlte/js/adminlte.min.js') }}"></script>
 
 
 <!--Reloj js -->
@@ -271,7 +271,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </script>
 
 <!-- dataTable -->
-<script src="https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script src="{{ URL::asset('https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')}}"></script>
 
 
 </body>

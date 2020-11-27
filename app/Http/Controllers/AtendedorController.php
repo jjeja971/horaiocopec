@@ -16,9 +16,8 @@ class AtendedorController extends Controller
     }
 
     public function matendedor($rut){
-
-        
-        return view('atendedores/modificar_atendedor');
+        $datoAt = $rut;
+        return view('atendedores/modificar_atendedor', compact('datoAt'));
     }
 
 
