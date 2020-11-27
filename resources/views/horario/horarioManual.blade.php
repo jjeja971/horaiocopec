@@ -86,7 +86,7 @@
         <div class="col-lg-4"></div>
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="{{ URL::previous() }}" style="margin-top: 2em" class="btn btn-primary btn-lg btn-block">Volver</a>
+            <a href="/menuHorario" style="margin-top: 2em" class="btn btn-primary btn-lg btn-block">Volver</a>
         </div>
         <div class="col-lg-4"></div>
     </div>
