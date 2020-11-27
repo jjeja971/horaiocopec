@@ -24,15 +24,15 @@ Route::get('/', function () {
 });*/
 Route::get('/login', [AtendedorController::class, 'login']);
 Route::get('/probando', [AtendedorController::class, 'probando']);
-Route::get('/menuHorario', [AtendedorController::class, 'menuHorario']);
-Route::get('/horarioManual', [AtendedorController::class, 'horarioManual']);
-Route::get('/horarioAutomatico', [AtendedorController::class, 'horarioAutomatico']);
 
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
 
 Route::get('/regHorario', [HorariosController::class, 'registrarHorario']);
+Route::get('/menuHorario', [HorariosController::class, 'menuHorario']);
+Route::get('/horarioManual', [HorariosController::class, 'horarioManual']);
+Route::get('/horarioAutomatico', [HorariosController::class, 'horarioAutomatico']);
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);

@@ -15,7 +15,7 @@ class AtendedorController extends Controller
         return view('atendedores/agregaratendedor');
     }
 
-    public function matendedor($rut){
+    public function matendedor($rut=2){
         $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
         $dato2 = DB::select('exec select_jornada');
         return view('atendedores/modificar_atendedor', compact('dato','dato2'));
@@ -105,18 +105,6 @@ class AtendedorController extends Controller
             return view ('proban2', compact('dato'));
     }
 
-    public function menuHorario(){
-            return view ('horario/horario');
-    }
-
-    public function horarioManual(){
-            $personalrec = DB::select('exec listar_atendedor');
-            $turno = DB::select('exec listar_turnos');
-            return view ('horario/horarioManual', compact('turno','personalrec'));
-    }
     
-    public function horarioAutomatico(){    
-            return view ('horario/horarioAutomatico');
-    }
 
 }
