@@ -16,8 +16,9 @@ class AtendedorController extends Controller
     }
 
     public function matendedor($rut){
-        $datoAt = $rut;
-        return view('atendedores/modificar_atendedor', compact('datoAt'));
+        $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
+        $dato2 = DB::select('exec select_jornada');
+        return view('atendedores/modificar_atendedor', compact('dato','dato2'));
     }
 
 
