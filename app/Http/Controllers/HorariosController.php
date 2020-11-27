@@ -26,7 +26,8 @@ class HorariosController extends Controller
     }
 
     public function ITurnos(){    
-        return view ('horario/turnos');
+        $turno = DB::select('exec listar_turnos');
+        return view ('horario/turnos', compact('turno'));
 }
     
 }
