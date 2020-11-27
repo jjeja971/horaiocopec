@@ -5,7 +5,7 @@
 @endforeach
 <div class="card card-primary">
   <div class="card-header">
-    <h3 class="card-title">Nuevo Atendedor</h3>
+    <h3 class="card-title">Modificar Atendedor</h3>
   </div>
   <form role="form">
     @csrf
@@ -32,7 +32,7 @@
           <input type="text" class="form-control" id="direccion" name="direccion" value="{{$item->direccion}}">
       </div>
       <div class="form-group">
-        <label>Select</label>
+        <label>Jornada</label>
         <select id="jornada" name="jornada" class="form-control">
             @foreach ($dato2 as $item2)
               <option value="{{$item2->id_jornada}}">{{$item2->tipo}}</option>
@@ -44,7 +44,7 @@
 
     <!-- /.card-body -->
     <div class="card-footer">
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Modificar</button>
     </div>
   </form>
 </div>
@@ -52,6 +52,7 @@
 
 <script> 
  window.onload = function() { 
+    document.getElementById("nombrePag").textContent="Modificar Atendedor";
     document.getElementById("jornada").value = {{$item->id_jornada}};
  }
 </script>

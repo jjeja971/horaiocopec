@@ -41,6 +41,7 @@
 
   <script>
       window.onload = function() { 
+          document.getElementById("nombrePag").textContent="Tabla Atendedores";
           $('#example').DataTable({
             "language":{
             "lengthMenu": "Mostrar _MENU_ por paginación",
