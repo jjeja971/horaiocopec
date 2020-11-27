@@ -1,4 +1,3 @@
-
 @extends('layout')
 @section('content')
 
@@ -11,7 +10,7 @@
       <div class="card-body">
         <div class="form-group">
           <label for="rut">Rut</label>
-          <input type="text" class="form-control" id="rut" name="rut">
+          <input type="text" class="form-control" id="rut" name="rut" value={{$datoAt}}>
         </div>
         <div class="form-group">
           <label for="nombre">Nombre</label>
