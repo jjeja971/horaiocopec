@@ -44,8 +44,7 @@
 @endsection
 <script>
     
-window.onload = function() {
-    document.getElementById("nombrePag").textContent="Modificar Turno";
+window.onload = function() { 
+document.getElementById("nombrePag").textContent="Modificar Turno";
 }
-
-<script>
+</script>

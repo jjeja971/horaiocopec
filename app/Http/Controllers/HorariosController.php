@@ -30,8 +30,8 @@ class HorariosController extends Controller
         return view ('horario/turnos', compact('turno'));
     }
     
-    public function modTurno($idturno){    
-        $turnos = DB::select('select * from turnos where id_turno=1');
+    public function modTurno($id){    
+        $turnos = DB::select('exec turno_porid ?;', [$id]);
         return view ('horario/modTurno', compact('turnos'));
     }
 
