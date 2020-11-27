@@ -28,7 +28,7 @@
           </div>
           <div class="form-group">
             <label for="direccion">Direccion</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" value="{{$item->id_jornada}}">
+            <input type="text" class="form-control" id="direccion" name="direccion" value="{{$item->direccion}}">
           </div>
           <div class="form-group">
             <label>Select</label>
@@ -39,7 +39,7 @@
 
             </select>
             <script> 
-              document.getElementById("opciones").value = {{$item->id_jornada}};
+              document.getElementById("jornada").value = {{$item->id_jornada}};
             </script>
             
            

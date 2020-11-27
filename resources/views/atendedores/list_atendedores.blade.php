@@ -27,7 +27,7 @@
               <td>{{$item->nombre_atendedor}}</td>
               <td>{{$item->numero}}</td>
               <td>{{$item->email}}</td>
-              <td>{{$item->direccion}}</td>
+              <td>{{$item->id_jornada}}</td>
           <td><a href="modatendedor/{{$item->rut_atendedor}}"  class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a></td>
           </tr>
         @endforeach
