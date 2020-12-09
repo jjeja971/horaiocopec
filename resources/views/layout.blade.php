@@ -13,6 +13,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
+  <link rel="stylesheet" href="adminlte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
   <!-- Theme style -->
   
   <link rel="stylesheet" href="{{ URL::asset('adminlte/css/adminlte.min.css') }}">
@@ -209,6 +210,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ URL::asset('adminlte/js/adminlte.min.js') }}"></script>
 
 
+
 <!--Reloj js -->
 <script>
   
@@ -272,6 +274,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 <!-- dataTable -->
 <script src="{{ URL::asset('https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')}}"></script>
+<script src="adminlte/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
 
 
 </body>

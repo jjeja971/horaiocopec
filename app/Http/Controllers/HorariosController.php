@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class HorariosController extends Controller
 {
+
+    
     public function registrarHorario(){
         return back()->with('message','You added new items, follow next step!');
     }

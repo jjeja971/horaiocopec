@@ -1,5 +1,5 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
 @extends('layout')
 @section('content')
 
