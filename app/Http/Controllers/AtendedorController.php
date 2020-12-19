@@ -23,8 +23,7 @@ class AtendedorController extends Controller
 
 
     public function listaratendedores(){
-
-        $lista = DB::select('select * from atendedor');
+        $lista = DB::select('exec listar_atendedor');
         return view('atendedores/list_atendedores',compact('lista'));
     }
 
