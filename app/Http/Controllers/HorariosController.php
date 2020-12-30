@@ -15,7 +15,11 @@ class HorariosController extends Controller
 
     public function menuHorario(){
         return view ('horario/horario');
-    }       
+    }      
+    
+    public function listahorario(){
+        return view ('horario/listaHorario');
+    }  
 
     public function horarioManual(){
             $personalrec = DB::select('exec listar_atendedor');

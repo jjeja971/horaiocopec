@@ -13,7 +13,7 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4" style="text-align: center">
-            <a href="/horarioManual2" class="mt-5 btn btn-primary btn-lg btn-block">Ingresar Horario manual 2</a>
+            <a href="/listahorario" class="mt-5 btn btn-primary btn-lg btn-block">Ingresar Horario manual 2</a>
         </div>
         <div class="col-lg-4"></div>
 
