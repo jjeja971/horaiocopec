@@ -1,4 +1,5 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 @extends('layout')
 @section('content')
@@ -102,7 +103,6 @@ window.onload = function() {
     var hr1 = document.getElementById("hora1p");
     var hr2 = document.getElementById("hora2p");
     
-
     //se mantiene siempre lista deseleccionada para evitar errores
     var divGraf = document.getElementById("timeline");
     divGraf.addEventListener("mousemove", function(){
@@ -113,7 +113,6 @@ window.onload = function() {
     var agregarTurno = document.getElementById("btnagregarTurno");
     var turnoseleccionado = document.getElementById("seleccionturno");
     
-     
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
 
@@ -129,14 +128,12 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
         
-        
             options = {
                 height: 450,
                 timeline: { legend: 'none' },
                 tooltip: { trigger: 'selection' },              
             };
     
-        
         //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
         var opcion = document.getElementById("listapersonal");
@@ -172,8 +169,7 @@ window.onload = function() {
                 hr0.innerHTML = dataTable.getValue(item.row,1);
                 hr1.innerHTML = dataTable.getValue(item.row,2).getHours()+":"+dataTable.getValue(item.row,2).getMinutes();
                 hr2.innerHTML = dataTable.getValue(item.row,3).getHours()+":"+dataTable.getValue(item.row,3).getMinutes();
-                $('#exampleModal').modal('hide');
-               
+                $('#exampleModal').modal('hide');             
         });    
         
         //agregar turno
