@@ -32,12 +32,13 @@ Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
 Route::get('/regHorario', [HorariosController::class, 'registrarHorario']);
 Route::get('/menuHorario', [HorariosController::class, 'menuHorario']);
 Route::get('/horarioManual', [HorariosController::class, 'horarioManual']);
-Route::get('/listahorario', [HorariosController::class, 'listahorario']);
+
 Route::get('/horarioAutomatico', [HorariosController::class, 'horarioAutomatico']);
 Route::get('/interfazTurnos', [HorariosController::class, 'ITurnos']);
 Route::get('/modificarTurno/{id}', [HorariosController::class, 'modTurno']);
 
 Route::get('/horarioManual2', [ControllerHorarioDos::class, 'horarioManual2']);
+Route::get('/listahorario', [ControllerHorarioDos::class, 'listahorario']);
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);
