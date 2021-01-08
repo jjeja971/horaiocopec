@@ -37,8 +37,10 @@ Route::get('/horarioAutomatico', [HorariosController::class, 'horarioAutomatico'
 Route::get('/interfazTurnos', [HorariosController::class, 'ITurnos']);
 Route::get('/modificarTurno/{id}', [HorariosController::class, 'modTurno']);
 
-Route::get('/horarioManual2', [ControllerHorarioDos::class, 'horarioManual2']);
+
 Route::get('/listahorario', [ControllerHorarioDos::class, 'listahorario']);
+Route::get('/nuevohorario', [ControllerHorarioDos::class, 'nuevohorario']);
+
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);

@@ -5,48 +5,31 @@
 
 @extends('layout')
 @section('content')
-<div class="card card-default">
-    <div class="card-header">
-      <h3 class="card-title">Bootstrap Duallistbox</h3>
 
-      <div class="card-tools">
-        <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i></button>
-      </div>
-    </div>
-    <!-- /.card-header -->
-    <div class="card-body">
-      <div class="row">
-        <div class="col-12">
-          <div class="form-group">
-            <label>Multiple</label>
-            <select class="duallistbox"  multiple="multiple">
-              <option selected>Alabama</option>
-              <option>Alaska</option>
-              <option>California</option>
-              <option>Delaware</option>
-              <option>Tennessee</option>
-              <option>Texas</option>
-              <option>Washington</option>
-            </select>
-          </div>
-          <!-- /.form-group -->
-        </div>
-        <!-- /.col -->
-      </div>
-      <!-- /.row -->
-    </div>
-
-  </div>
+  <form id="demoform" action="#" method="post">
+    <select multiple="multiple" size="10" name="duallistbox_demo1[]" title="duallistbox_demo1[]">
+      @foreach ($atendedor as $item)
+              <option value="{{$item->rut_atendedor}}" name="{{$item->nombre_atendedor}}">{{$item->nombre_atendedor}}</option>
+              @endforeach
+    </select>
+    <br>
+    <button type="submit" class="btn btn-default btn-block">Submit data</button>
+  </form>
+  
+  
 
 @endsection
-
 
 
 <script>
     window.onload = (function () {
   
-      //Bootstrap Duallistbox
-      $('.duallistbox').bootstrapDualListbox()
+      var demo1 = $('select[name="duallistbox_demo1[]"]').bootstrapDualListbox();
+  $("#demoform").submit(function() {
+    alert($('[name="duallistbox_demo1[]"]').val());
+
+    return false;
+  });
   
     })
   </script>
