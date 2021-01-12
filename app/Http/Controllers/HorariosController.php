@@ -18,14 +18,16 @@ class HorariosController extends Controller
     }      
     
     public function horarioManual(){
-            $personalrec = DB::select('exec listar_atendedor');
-            $turno = DB::select('exec listar_turnos');
-            return view ('horario/horarioManual', compact('turno','personalrec'));
+        $personalrec = DB::select('exec listar_atendedor');
+        $turno = DB::select('exec listar_turnos');
+        return view ('horario/horarioManual', compact('turno','personalrec'));
     }
 
     public function horarioAutomatico(){    
-            $turnosRecomendados = DB::select("exec ultimaFaseSinDivision '2019-11-25', 9");
-            return view ('horario/horarioAutomatico', compact('turnosRecomendados'));
+        
+        $turnosRecomendados = DB::update("exec ultimaFaseSinDivision '2019-11-25', 9");
+        echo($turnosRecomendados);
+        //return view ('horario/horarioAutomatico');
     }
 
     public function ITurnos(){    
