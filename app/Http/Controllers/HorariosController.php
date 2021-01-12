@@ -17,8 +17,6 @@ class HorariosController extends Controller
         return view ('horario/horario');
     }      
     
-    
-
     public function horarioManual(){
             $personalrec = DB::select('exec listar_atendedor');
             $turno = DB::select('exec listar_turnos');
@@ -26,7 +24,8 @@ class HorariosController extends Controller
     }
 
     public function horarioAutomatico(){    
-            return view ('horario/horarioAutomatico');
+            $turnosRecomendados = DB::select("exec ultimaFaseSinDivision '2019-11-25', 9");
+            return view ('horario/horarioAutomatico', compact('turnosRecomendados'));
     }
 
     public function ITurnos(){    
