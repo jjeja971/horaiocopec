@@ -94,9 +94,11 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
         dataTable.addRows([
-            [ 'Sin asignar',       new Date(2020, 3, 1, 5), new Date(2020, 3, 1, 9) ],
-            [ 'Sin asignar 2',      new Date(2020, 3, 1, 7),  new Date(2020, 3, 1, 12, 30) ],
-            [ 'Sin asignar 3',  new Date(2020, 3, 1, 12),  new Date(2020, 3, 1, 18) ]]);
+      
+            @foreach($turnosRecomendados as $item)
+            [ 'Sin asignar',       new Date(2020, 3, 1, {{$item->hora}}), new Date(2020, 3, 2, 9) ],
+            @endforeach
+            ]);
 
             var options = {
                 height: 450,

@@ -25,9 +25,8 @@ class HorariosController extends Controller
 
     public function horarioAutomatico(){    
         
-        $turnosRecomendados = DB::update("exec ultimaFaseSinDivision '2019-11-25', 9");
-        echo($turnosRecomendados);
-        //return view ('horario/horarioAutomatico');
+        $turnosRecomendados=DB::select('exec ultimaFaseSinDivision "2019-11-25",9');
+        return view ('horario/horarioAutomatico', compact('turnosRecomendados'));
     }
 
     public function ITurnos(){    
