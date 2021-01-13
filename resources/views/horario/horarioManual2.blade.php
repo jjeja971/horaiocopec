@@ -9,7 +9,7 @@
   <form id="demoform" action="#" method="post">
     <select multiple="multiple" size="10" name="duallistbox_demo1[]" title="duallistbox_demo1[]">
       @foreach ($atendedor as $item)
-              <option value="{{$item->rut_atendedor}}" name="{{$item->nombre_atendedor}}">{{$item->nombre_atendedor}}</option>
+              <option value="{{$item->nombre_atendedor}}" name="{{$item->nombre_atendedor}}">{{$item->nombre_atendedor}}</option>
               @endforeach
     </select>
     <br>
