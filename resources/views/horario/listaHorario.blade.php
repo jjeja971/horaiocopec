@@ -1,6 +1,6 @@
 @extends('layout')
 @section('content')
-<a href="nuevohorario" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Atendedor</a>
+<a href="nuevohorario" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Horario</a>
 <div class="card-header">
   <h3 class="card-title">Año 2021</h3>
 </div>
@@ -52,3 +52,7 @@
 </div>
 
 @endsection
+<script>
+  window.onload = function() { 
+      document.getElementById("nombrePag").textContent="Tabla Registro por Fecha";}
+</script>
