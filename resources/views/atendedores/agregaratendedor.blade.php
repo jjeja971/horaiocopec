@@ -32,7 +32,7 @@
               <input type="text" class="form-control" id="direccion" name="direccion">
             </div>
             <div class="form-group">
-              <label>Select</label>
+              <label>Jornada</label>
               <select id="jornada" name="jornada" class="form-control">
                 <option value="1">Full</option>
                 <option value="2">Par-Time 20Hr</option>
