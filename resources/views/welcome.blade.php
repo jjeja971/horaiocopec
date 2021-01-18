@@ -8,10 +8,10 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Promedio de <b>transacciones</b> de hasta 5 semanas anteriores en relacion al dia actual</h5>
+            <h5 class="card-title">PROMEDIO DE <b>TRANSACCIONES POR HORA</b> DE HASTA 5 SEMANAS ANTERIORES EN RELACION AL DIA ACTUAL</h5>
 
             <p class="card-text">
-              <canvas id="GraficoIni" width="400" height="100"></canvas>
+              <canvas id="GraficoIni" width="400" height="60"></canvas>
             </p>
 
             <!-- <a href="#" class="card-link">Más detalles</a>
@@ -20,11 +20,11 @@
         </div>
       </div>
 
-      <!-- SegundaA columna 
+      <!-- SegundaA columna -->
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Gráfico Sabado 8 de Noviembre 2020</h5>
+            <h5 class="card-title"><b>CANTIDAD DE TRANSACCIONES</b> DURANTE ESTE DIA DE LA SEMANA ANTERIOR</h5>
 
             <p class="card-text">
               <canvas id="GraficoIni2" width="400" height="60"></canvas>
@@ -32,7 +32,19 @@
           </div>
         </div>
       </div>
--->
+
+      <div class="col-lg-12">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title"><b>DIFERENCIA DE TRANSACCIONES</b> ENTRE EL PRIMER GRAFICO Y EL SEGUNDO </h5>
+
+            <p class="card-text">
+              <canvas id="GraficoIni3" width="400" height="60"></canvas>
+            </p>
+          </div>
+        </div>
+      </div>
+
    
 
     </div>
@@ -117,12 +129,21 @@
     });
     }
 
-    @foreach($promedioHrsDia as $item)
+    @foreach($promedioHrsDiaCincoSemanasAnteriores as $item)
       graficoDia("GraficoIni",{{$item->h00}}, {{$item->h01}}, {{$item->h02}}, {{$item->h03}}, {{$item->h04}}, {{$item->h05}},
                               {{$item->h06}}, {{$item->h07}}, {{$item->h08}}, {{$item->h09}}, {{$item->h10}}, {{$item->h11}},
                               {{$item->h12}}, {{$item->h13}}, {{$item->h14}}, {{$item->h15}}, {{$item->h16}}, {{$item->h17}},
                               {{$item->h18}}, {{$item->h19}}, {{$item->h20}}, {{$item->h21}}, {{$item->h22}}, {{$item->h23}});
     @endforeach
+
+    @foreach($promedioHrsDiaSemanaAnterior as $item)
+      graficoDia("GraficoIni2",{{$item->h00}}, {{$item->h01}}, {{$item->h02}}, {{$item->h03}}, {{$item->h04}}, {{$item->h05}},
+                              {{$item->h06}}, {{$item->h07}}, {{$item->h08}}, {{$item->h09}}, {{$item->h10}}, {{$item->h11}},
+                              {{$item->h12}}, {{$item->h13}}, {{$item->h14}}, {{$item->h15}}, {{$item->h16}}, {{$item->h17}},
+                              {{$item->h18}}, {{$item->h19}}, {{$item->h20}}, {{$item->h21}}, {{$item->h22}}, {{$item->h23}});                      
+    @endforeach
+
+    
     
   
   

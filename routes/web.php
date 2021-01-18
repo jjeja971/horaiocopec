@@ -17,8 +17,9 @@ use App\Http\Controllers\ControllerHorarioDos;
 */
 
 Route::get('/', function () {
-                                $promedioHrsDia = DB::select('exec CrearPromedioDeDiasAnteriores "2019-11-25"');
-                                return view('welcome', compact('promedioHrsDia'));
+                                $promedioHrsDiaCincoSemanasAnteriores = DB::select('exec CrearPromedioDeDiasAnteriores "2019-11-25"');
+                                $promedioHrsDiaSemanaAnterior = DB::select('exec listar_transasccionesxhora_semana_anterior "2019-11-25"');
+                                return view('welcome', compact('promedioHrsDiaCincoSemanasAnteriores','promedioHrsDiaSemanaAnterior'));
                             });
 
 /*Route::get('/probando', function () {
