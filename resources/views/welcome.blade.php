@@ -8,10 +8,10 @@
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">Gráfico dia Sabado 1 de Noviembre 2020</h5>
+            <h5 class="card-title">Promedio de <b>transacciones</b> de hasta 5 semanas anteriores en relacion al dia actual</h5>
 
             <p class="card-text">
-              <canvas id="GraficoIni" width="400" height="50"></canvas>
+              <canvas id="GraficoIni" width="400" height="100"></canvas>
             </p>
 
             <!-- <a href="#" class="card-link">Más detalles</a>
@@ -20,7 +20,7 @@
         </div>
       </div>
 
-      <!-- SegundaA columna -->
+      <!-- SegundaA columna 
       <div class="col-lg-12">
         <div class="card">
           <div class="card-body">
@@ -32,48 +32,8 @@
           </div>
         </div>
       </div>
-
-      <!-- TerceraA columna -->
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Gráfico Sabado 15 de Noviembre 2020</h5>
-
-            <p class="card-text">
-              <canvas id="GraficoIni3" width="400" height="60"></canvas>
-            </p>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- PrimeraB columna -->
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Gráfico Sabado 22 de Noviembre 2020</h5>
-
-            <p class="card-text">
-              <canvas id="GraficoIni4" width="400" height="60"></canvas>
-            </p>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- SegundaB columna -->
-      <div class="col-lg-12">
-        <div class="card">
-          <div class="card-body">
-            <h5 class="card-title">Gráfico Sabado 29 de Noviembre 2020</h5>
-
-            <p class="card-text">
-              <canvas id="GraficoIni5" width="400" height="60"></canvas>
-            </p>
-
-          </div>
-        </div>
-      </div>
+-->
+   
 
     </div>
   </div>
@@ -157,12 +117,13 @@
     });
     }
 
-
-    graficoDia("GraficoIni",2, 6, 8, 2, 12, 9, 2, 6, 2, 9, 8, 2, 2, 6, 8, 2, 12, 9, 2, 6, 2, 9, 8, 2);
-    graficoDia("GraficoIni2",6, 2, 9, 8, 2, 3, 8, 9, 8, 2, 2, 6, 8, 2, 12, 9, 2, 6, 2, 2, 2, 6, 8, 11);
-    graficoDia("GraficoIni3",8, 9, 3, 7, 8, 6, 6, 8, 2, 3, 8, 9, 8, 2, 2, 6, 8, 2, 12, 9, 2, 6, 2, 6);
-    graficoDia("GraficoIni4",6, 7, 4, 9, 6, 7, 1, 12, 9, 2, 6, 2, 9, 8, 2, 2, 6, 8, 28, 2, 3, 8, 9, 8);
-    graficoDia("GraficoIni5",7, 2, 8, 2, 6, 1, 8, 7, 1, 12, 9, 2, 6, 2, 8, 2, 2, 6, 3, 7, 8, 6, 3, 5);
+    @foreach($promedioHrsDia as $item)
+      graficoDia("GraficoIni",{{$item->h00}}, {{$item->h01}}, {{$item->h02}}, {{$item->h03}}, {{$item->h04}}, {{$item->h05}},
+                              {{$item->h06}}, {{$item->h07}}, {{$item->h08}}, {{$item->h09}}, {{$item->h10}}, {{$item->h11}},
+                              {{$item->h12}}, {{$item->h13}}, {{$item->h14}}, {{$item->h15}}, {{$item->h16}}, {{$item->h17}},
+                              {{$item->h18}}, {{$item->h19}}, {{$item->h20}}, {{$item->h21}}, {{$item->h22}}, {{$item->h23}});
+    @endforeach
+    
   
   
   </script>
