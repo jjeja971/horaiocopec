@@ -32,7 +32,7 @@
                     <br>
                     <div class="form-group">
                         <label >Fecha:</label>
-                        <input type="date" name="bday" max="3000-12-31" 
+                        <input id="fechaHorario" type="date" name="bday" max="3000-12-31" 
                                min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control">
                     </div>
                 </div>
@@ -42,7 +42,7 @@
                 <div class="mb-4  col-sm-5">
                     <label>Atendedor: </label>
                     <br>
-                    <select id="seleccionpersonal1" name="seleccionpersonal1" style="font-size: 1.6em; width:100%; color:#1d59a7" name="combo"> 
+                    <select id="seleccionpersonal1" name="seleccionpersonal1" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
                         @foreach ($personalrec as $item) 
                             <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
                         @endforeach  
@@ -52,7 +52,7 @@
                 <div class="col-sm-5">
                     <label>Turno: </label>
                         <br>
-                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:100%; color:#1d59a7" name="combo"> 
+                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
                             @foreach ($turno as $item) 
                                 <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
                             @endforeach  
@@ -137,10 +137,26 @@
 <script>
     
 window.onload = function() {
+ 
+    $("#btnagregarTurno").hide();
+    var fHora = document.getElementById("fechaHorario");
+    var agregarTurno = document.getElementById("btnagregarTurno");
 
     var hr0 = document.getElementById("hora0p");
     var hr1 = document.getElementById("hora1p");
     var hr2 = document.getElementById("hora2p");
+
+
+    fHora.addEventListener("change", function(){
+        $("#fechaHorario").prop( "disabled", true );
+        $("#seleccionturno").prop( "disabled", false );
+        $("#seleccionpersonal1").prop( "disabled", false );
+        $("#btnagregarTurno").show();
+
+    });
+
+
+ 
     
     //se mantiene siempre lista deseleccionada para evitar errores
     var divGraf = document.getElementById("timeline");
@@ -148,9 +164,7 @@ window.onload = function() {
         $("#listapersonal").val([]);     
     });
     
-    document.getElementById("nombrePag").textContent="Horario Automático";
-    var agregarTurno = document.getElementById("btnagregarTurno");
-    var turnoseleccionado = document.getElementById("seleccionturno");
+    document.getElementById("nombrePag").textContent="Horario Manual";
     
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
