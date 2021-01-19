@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AtendedorController;
 use App\Http\Controllers\HorariosController;
 use App\Http\Controllers\ControllerHorarioDos;
+use App\Http\Controllers\Controller;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,13 +17,9 @@ use App\Http\Controllers\ControllerHorarioDos;
 |
 */
 
-Route::get('/', function () {
-                                $promedioHrsDiaCincoSemanasAnteriores = DB::select('exec CrearPromedioDeDiasAnteriores "2019-11-25"');
-                                $promedioHrsDiaSemanaAnterior = DB::select('exec listar_transasccionesxhora_semana_anterior "2019-11-25"');
-                            
-                                return view('welcome', compact('promedioHrsDiaCincoSemanasAnteriores',
-                                                               'promedioHrsDiaSemanaAnterior'));
-                            });
+
+
+Route::get('/', [Controller::class, 'Inicio']);
 
 /*Route::get('/probando', function () {
     return view('proban2');
