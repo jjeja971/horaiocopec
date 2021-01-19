@@ -67,9 +67,7 @@
                 <div class="mb-4 col-sm-1"></div>
 
         </div>   
-        <div class="col-sm-3" style="text-align: right">
-            <a href="/menuHorario"  class="btn btn-danger"><b>Cancelar horario completo</b></a>
-        </div>
+        <div class="col-sm-3"> </div>
 
 
         <div class="col-sm-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
@@ -79,6 +77,12 @@
             </form>
         </div>
         <div class="col-sm-1"></div>
+
+        <div class="col-sm-10"></div>
+        <div class="col-sm-2 mb-4" style="margin-top: 35em;">
+            <a href="/menuHorario"  class="btn btn-danger"><b>Cancelar horario completo</b></a>
+        </div>
+        
 
         <!-- Modal -->
                                         
@@ -164,7 +168,7 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'End' });
         
             options = {
-                height: 450,
+                height: 820,
                 timeline: { legend: 'none' },
                 tooltip: { trigger: 'selection' },              
             };
