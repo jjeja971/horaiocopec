@@ -19,7 +19,7 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/horarioAutomatico" class="mt-4 btn btn-success btn-lg btn-block">Generar Horario automático</a>
+            <a href="/horarioAutomatico" class="mt-4 mb-5 btn btn-success btn-lg btn-block">Generar Horario automático</a>
         </div>
         <div class="col-lg-4"></div>
         
@@ -32,7 +32,7 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="." style="margin-top: 5em" class="btn btn-primary btn-lg btn-block">Volver</a>
+            <a href="." style="font-size:1.5em;margin-top: 5em; color: #4340e7" class="btn btn-lg btn-block">Volver a Inicio</a>
         </div>
         <div class="col-lg-4"></div>
     </div>
