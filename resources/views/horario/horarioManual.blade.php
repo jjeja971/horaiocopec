@@ -21,27 +21,52 @@
     @endif
 
     <div class="row">
-        <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
+        <div class="col-sm-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
 
-        <div class="col-lg-2"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
-        <div class="mb-5 mt-5 col-lg-8"  style="text-align: center">
+        
+        <div class="col-sm-3"></div>
+            <div class="row col-sm-6">
+                <div class="mb-5 mt-5 col-sm-6"  style="text-align: center">
+                    <div class="form-group">
+                        <label>Atendedor: </label>
+                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:10em; color:#1d59a7" name="combo"> 
+                            @foreach ($turno as $item) 
+                                <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
+                            @endforeach  
+                        </select>   
+                        <label>Turno: </label>
+                        <select id="seleccionpersonal" name="seleccionpersonal" style="font-size: 1.6em; width:10em; color:#1d59a7" name="combo"> 
+                            @foreach ($turno as $item) 
+                                <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
+                            @endforeach  
+                        </select>       
+                    </div>
+                </div>
+
+                <div class="mb-5 mt-5 col-sm-6"  style="text-align: center">
+                
+                    <label>Turno: </label>
+                    <select id="seleccionpersonal" name="seleccionpersonal" style="font-size: 1.6em; width:10em; color:#1d59a7" name="combo"> 
+                        @foreach ($turno as $item) 
+                            <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
+                        @endforeach  
+                    </select>  
+                    <a id="btnagregarTurno" class="btn btn-primary btn-sm btn-block mt-4" style="color: aliceblue">Agregar turno</a>
+                </div>
+
+        </div>   
+        <div class="col-sm-3" style="text-align: right">
+            <a href="/menuHorario"  class="btn btn-danger"><b>Cancelar horario completo</b></a>
+        </div>
+
+
+        <div class="col-sm-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
+        <div class="mb-5 mt-5 col-sm-10"  style="text-align: center">
             <form>
                 <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
             </form>
         </div>
-        <div class="col-lg-2"></div>
-
-        <div class="col-lg-3"></div>
-        <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
-            <a id="btnagregarTurno" class="mr-5 btn btn-primary btn-lg" style="color: aliceblue">Agregar turno</a>
-            
-            <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:400px; color:#1d59a7" name="combo"> 
-                @foreach ($turno as $item) 
-                    <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
-                @endforeach  
-            </select>      
-        </div>
-        <div class="col-lg-3"></div>
+        <div class="col-sm-1"></div>
 
         <!-- Modal -->
                                         
@@ -80,16 +105,14 @@
             </div>
         </div>
 
-        <div class="col-lg-4"></div>
+     <!--   <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
             <a href="/regHorario" style="margin-top: 7em" class="btn btn-success btn-lg btn-block">Agregar</a>
         </div>
         <div class="col-lg-4"></div>
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4"  style="text-align: center">
-            <a href="/menuHorario" style="margin-top: 2em" class="btn btn-primary btn-lg btn-block">Volver</a>
-        </div>
-        <div class="col-lg-4"></div>
+    -->
+        
+       
     </div>
 </div>
 

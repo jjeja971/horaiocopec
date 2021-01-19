@@ -4,17 +4,20 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12" style="text-align: center"><h1>Ingreso automático de horario</h1></div>
+        <div class="col-lg-3" style="text-align: center"></div>
+        <div class="col-lg-6" style="text-align: center"><h1>Ingreso automático de horario</h1></div>
+        <div class="col-lg-3" style="text-align: center"></div>
 
-        <div class="col-lg-3">
+        <div class="col-lg-3" style="text-align: center"></div>
+        <div class="col-lg-6" style="text-align: center"><a href="{{ URL::previous() }}" class="mt-5 btn btn-warning btn-lg"><b>Cancelar horario completo</b></a></div>
+        <div class="col-lg-3" style="text-align: center"></div>
 
-            
-
+        <div class="col-lg-1">
         </div>
-        <div class="mb-5 mt-5 col-lg-6"  style="text-align: center">
+        <div class="mb-5 mt-5 col-lg-10"  style="text-align: center">
             <div id="timeline" style="height: 180px;"></div>
         </div>
-        <div class="col-lg-3"></div>
+        <div class="col-lg-1"></div>
 
 
         <!-- Modal -->
@@ -64,11 +67,11 @@
 
 
 
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4"  style="text-align: center">
-            <a href="{{ URL::previous() }}" class="mt-4 btn btn-primary btn-lg btn-block">Volver</a>
-        </div>
-        <div class="col-lg-4"></div>
+     
+        
+
+        
+  
     </div>
 </div>
 
@@ -101,7 +104,7 @@ window.onload = function() {
             ]);
 
             var options = {
-                height: 450,
+                height: 580,
                 timeline: {
                     legend: 'none'
                 },

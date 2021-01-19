@@ -169,8 +169,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.content-wrapper -->
 
   <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
+  <!--<aside class="control-sidebar control-sidebar-dark">
+   
     <div class="p-3">
       <h5>Informacion adicional</h5>
       <div class="date">
@@ -185,7 +185,17 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <span id="seconds" class="seconds"></span>
     </div>
     </div>
-  </aside>
+
+    <div class="row m-3">
+      <div class="col-sm-6">
+        as
+      </div>
+      <div class="col-sm-6">
+        as
+      </div>
+    </div>
+  </aside>-->
+  
   <!-- /.control-sidebar -->
 
   <!-- Main Footer -->
