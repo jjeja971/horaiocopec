@@ -222,7 +222,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
 
 <!--Reloj js -->
-<script>
+<!-- <script>
   
   var udateTime = function() {
     let currentDate = new Date(),
@@ -280,7 +280,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
  
   udateTime();
   setInterval(udateTime, 1000);
-</script>
+</script> -->
 
 <!-- dataTable -->
 <script src="{{ URL::asset('https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')}}"></script>
