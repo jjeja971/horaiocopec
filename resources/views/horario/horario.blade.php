@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12" style="text-align: center"><h1>Menú Horario y Turno</h1></div>
+        <div class="col-lg-12" style="text-align: center"><h1>Menú de Horario y Turno</h1></div>
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4" style="text-align: center">
