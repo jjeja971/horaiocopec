@@ -19,13 +19,13 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/horarioAutomatico" class="mt-4 btn btn-primary btn-lg btn-block">Ingresar Horario automático</a>
+            <a href="/horarioAutomatico" class="mt-4 btn btn-success btn-lg btn-block">Generar Horario automático</a>
         </div>
         <div class="col-lg-4"></div>
         
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/interfazTurnos" class="mt-4 btn btn-warning btn-lg btn-block"><b>Turnos</b></a>
+            <a href="/interfazTurnos" class="mt-5 btn btn-primary btn-lg btn-block"><b>Turnos</b></a>
         </div>
         <div class="col-lg-4"></div>
         

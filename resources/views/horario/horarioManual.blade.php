@@ -62,7 +62,7 @@
                 
                 <div class="mb-4 col-sm-1"></div>
                 <div class="mb-4 mt-4 col-sm-10">
-                    <a id="btnagregarTurno" class="btn btn-primary btn-sm btn-block" style="font-size: 1.2em; color: aliceblue">Agregar turno</a>
+                    <a id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></a>
                 </div>
                 <div class="mb-4 col-sm-1"></div>
 
