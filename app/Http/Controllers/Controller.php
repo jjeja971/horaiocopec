@@ -13,6 +13,11 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
+
+    public function login (Request $request){
+        session(['Ned Stark']);
+    }
+
     public function Inicio(){
         $promedioHrsDiaCincoSemanasAnteriores = DB::select('exec CrearPromedioDeDiasAnteriores "2019-11-25"');
         $promedioHrsDiaSemanaAnterior = DB::select('exec listar_transasccionesxhora_semana_anterior "2019-11-25"');
