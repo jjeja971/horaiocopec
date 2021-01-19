@@ -25,34 +25,46 @@
 
         
         <div class="col-sm-3"></div>
-            <div class="row col-sm-6">
-                <div class="mb-5 mt-5 col-sm-6"  style="text-align: center">
+            <div class="row col-sm-6"  style="text-align: center">
+                
+                <div class="col-sm-1"></div>
+                <div class="mb-2 mt-2 col-sm-10">
+                    <br>
                     <div class="form-group">
-                        <label>Atendedor: </label>
-                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:10em; color:#1d59a7" name="combo"> 
-                            @foreach ($turno as $item) 
-                                <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
-                            @endforeach  
-                        </select>   
-                        <label>Turno: </label>
-                        <select id="seleccionpersonal" name="seleccionpersonal" style="font-size: 1.6em; width:10em; color:#1d59a7" name="combo"> 
-                            @foreach ($turno as $item) 
-                                <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
-                            @endforeach  
-                        </select>       
+                        <label >Fecha:</label>
+                        <input type="date" name="bday" max="3000-12-31" 
+                               min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control">
                     </div>
                 </div>
-
-                <div class="mb-5 mt-5 col-sm-6"  style="text-align: center">
-                
-                    <label>Turno: </label>
-                    <select id="seleccionpersonal" name="seleccionpersonal" style="font-size: 1.6em; width:10em; color:#1d59a7" name="combo"> 
-                        @foreach ($turno as $item) 
-                            <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
+                <div class="col-sm-1"></div>
+        
+                <div class="col-sm-1"></div>
+                <div class="mb-4  col-sm-5">
+                    <label>Atendedor: </label>
+                    <br>
+                    <select id="seleccionpersonal1" name="seleccionpersonal1" style="font-size: 1.6em; width:100%; color:#1d59a7" name="combo"> 
+                        @foreach ($personalrec as $item) 
+                            <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
                         @endforeach  
-                    </select>  
-                    <a id="btnagregarTurno" class="btn btn-primary btn-sm btn-block mt-4" style="color: aliceblue">Agregar turno</a>
+                    </select>      
                 </div>
+               
+                <div class="col-sm-5">
+                    <label>Turno: </label>
+                        <br>
+                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:100%; color:#1d59a7" name="combo"> 
+                            @foreach ($turno as $item) 
+                                <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
+                            @endforeach  
+                        </select>    
+                </div>
+                <div class="col-sm-1"></div>
+                
+                <div class="mb-4 col-sm-1"></div>
+                <div class="mb-4 mt-4 col-sm-10">
+                    <a id="btnagregarTurno" class="btn btn-primary btn-sm btn-block" style="font-size: 1.2em; color: aliceblue">Agregar turno</a>
+                </div>
+                <div class="mb-4 col-sm-1"></div>
 
         </div>   
         <div class="col-sm-3" style="text-align: right">
