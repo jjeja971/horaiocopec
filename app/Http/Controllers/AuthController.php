@@ -10,12 +10,14 @@ class AuthController extends Controller
     function usuario(Request $request){
         $data = $request->input();
         $consultaexiste = DB::select('exec verificarUsuario ?, ?', [$data['usuario'], $data['contrasena']]);
-        echo ((object) $consultaexiste[0]);
-
-        /*if($consultaexiste=1)
-            echo ("existe");
+       
+        $datoveri = ($consultaexiste[0]->nombre_usuario);
+        if($datoveri=='0')
+            return view ('login/login');
         else
-            echo ($consultaexiste);*/
+            echo ($consultaexiste[0]->nombre_usuario);
+            echo ($consultaexiste[0]->contrasena);
+            echo ($consultaexiste[0]->EDS);
         
         /*$request->session()->put('usuario',$data['usuario']);
         $request->session()->put('EDS','asdasd');
