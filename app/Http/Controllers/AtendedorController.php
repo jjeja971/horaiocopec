@@ -12,59 +12,72 @@ class AtendedorController extends Controller
 {
 
     public function natendedor(){
-        return view('atendedores/agregaratendedor');
+        if(session('usuario')){
+            return view('atendedores/agregaratendedor');
+        }else
+        return redirect ('/');
     }
 
     public function matendedor($rut){
-        $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
-        $dato2 = DB::select('exec select_jornada');
-        return view('atendedores/modificar_atendedor', compact('dato','dato2'));
+        if(session('usuario')){
+            $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
+            $dato2 = DB::select('exec select_jornada');
+            return view('atendedores/modificar_atendedor', compact('dato','dato2'));
+        }else
+        return redirect ('/');
     }
 
 
     public function listaratendedores(){
-        $lista = DB::select('exec listar_atendedor');
-        return view('atendedores/list_atendedores',compact('lista'));
+        if(session('usuario')){
+            $lista = DB::select('exec listar_atendedor');
+            return view('atendedores/list_atendedores',compact('lista'));
+        }else
+        return redirect ('/');
     }
 
     public function creaatendedor(Request $recuperar){
+        if(session('usuario')){
+            $rut = preg_replace('/[^k0-9]/i', '', $recuperar->rut);
+            $nombre = $recuperar->nombre;
+            $numero = $recuperar->numero;
+            $email=$recuperar->email;
+            $eds = 20012;
+            $estado = 'Activo';
+            $direccion = $recuperar->direccion;
+            $jornada = $recuperar->jornada;
 
-        $rut = preg_replace('/[^k0-9]/i', '', $recuperar->rut);
-        $nombre = $recuperar->nombre;
-        $numero = $recuperar->numero;
-        $email=$recuperar->email;
-        $eds = 20012;
-        $estado = 'Activo';
-        $direccion = $recuperar->direccion;
-        $jornada = $recuperar->jornada;
+            if($this->valida_rut($rut) == true){
+                $dato = DB::update('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
+                
+                return back();
+            }else{
+                return back()->with('error','Por favor ingrese un rut valido');  
+            }
 
-        if($this->valida_rut($rut) == true){
-            $dato = DB::update('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
-            
-            return back();
-        }else{
-            return back()->with('error','Por favor ingrese un rut valido');  
-        }
-
-                        
+        }else
+        return redirect ('/');             
     }
 
     public function modicaratendedor(Request $rec){
-
-        $rut = preg_replace('/[^k0-9]/i', '', $rec->rut);
-        $nombre = $rec->nombre;
-        $numero = $rec->numero;
-        $email=$rec->email;
-        $estado = 'Activo';
-        $direccion = $rec->direccion;
-        $jornada = $rec->jornada;
+        if(session('usuario')){
+            $rut = preg_replace('/[^k0-9]/i', '', $rec->rut);
+            $nombre = $rec->nombre;
+            $numero = $rec->numero;
+            $email=$rec->email;
+            $estado = 'Activo';
+            $direccion = $rec->direccion;
+            $jornada = $rec->jornada;
 
             //DB::select ('exec modificar_atendedor ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
-            return back();              
+            return back();  
+        }else
+        return redirect ('/');            
     }
 
-    public function valida_rut($rut)
-    {
+    public function valida_rut($rut){
+
+        if(session('usuario')){
             $rut = preg_replace('/[^k0-9]/i', '', $rut);
             $dv  = substr($rut, -1);
             $numero = substr($rut, 0, strlen($rut)-1);
@@ -90,16 +103,21 @@ class AtendedorController extends Controller
                 return true;
             else
                 return false;
+        }else
+        return redirect ('/');
     }
 
     
 
 
     public function probando(){
+        if(session('usuario')){
             $dato = DB::select('select nombre_atendedor
                                 from atendedor
                                 where rut_atendedor = 2');
             return view ('proban2', compact('dato'));
+        }else
+        return redirect ('/');
     }
 
     
