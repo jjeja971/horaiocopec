@@ -1,9 +1,17 @@
 @extends('layout')
 @section('content')
 <div class="row">
-
   <div class="col-lg-4"></div>
   <div class="col-lg-4">
+
+    @if(Session::has('error'))
+    <div class="alert alert-danger alert-dismissible" role="alert">
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      {{Session::get('error')}}
+    </div>
+    @endif
+
+
     <div class="card card-primary">
       <div class="card-header">
         <h3 class="card-title">Nuevo Atendedor</h3>
@@ -13,23 +21,23 @@
         <div class="card-body">
           <div class="form-group">
             <label for="rut">Rut</label>
-            <input type="text" class="form-control" id="rut" name="rut">
+            <input type="text" class="form-control" id="rut" name="rut" required>
           </div>
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre">
+            <input type="text" class="form-control" id="nombre" name="nombre" required>
           </div>
           <div class="form-group">
               <label for="numero">Telefono</label>
-              <input type="text" class="form-control" id="numero" name="numero">
+              <input type="text" class="form-control" id="numero" name="numero" required>
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" name="email">
+              <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
               <label for="direccion">Direccion</label>
-              <input type="text" class="form-control" id="direccion" name="direccion">
+              <input type="text" class="form-control" id="direccion" name="direccion" required>
             </div>
             <div class="form-group">
               <label>Jornada</label>

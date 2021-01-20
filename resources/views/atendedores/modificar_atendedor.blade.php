@@ -12,13 +12,13 @@
     <div class="card-header">
       <h3 class="card-title">Modificar Atendedor</h3>
     </div>
-    <form role="form">
+    <form method="POST" action="modificaratendedor">
       @csrf
       <div class="card-body">
 
         <div class="form-group">
           <label for="rut">Rut</label>
-          <input type="text" class="form-control" id="rut" name="rut" value="{{$item->rut_atendedor}}">
+          <input type="text" class="form-control" id="rut" name="rut" value="{{$item->rut_atendedor}}" disabled>
         </div>
         <div class="form-group">
             <label for="nombre">Nombre</label>
