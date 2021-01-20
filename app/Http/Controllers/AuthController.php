@@ -24,6 +24,7 @@ class AuthController extends Controller
 
     function cerrar_sesion(){
         session()->pull('usuario');
+        session()->pull('EDS');
         return redirect('/');
     }
 }
