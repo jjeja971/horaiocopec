@@ -15,7 +15,7 @@ class AtendedorController extends Controller
         return view('atendedores/agregaratendedor');
     }
 
-    public function matendedor($rut=2){
+    public function matendedor($rut){
         $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
         $dato2 = DB::select('exec select_jornada');
         return view('atendedores/modificar_atendedor', compact('dato','dato2'));
@@ -30,13 +30,6 @@ class AtendedorController extends Controller
     public function creaatendedor(Request $recuperar){
 
         $rut = preg_replace('/[^k0-9]/i', '', $recuperar->rut);
-
-        if($this->valida_rut($rut) == true){
-            $valido = 1;
-        }else{
-            $valido = 0;
-        }
-
         $nombre = $recuperar->nombre;
         $numero = $recuperar->numero;
         $email=$recuperar->email;
@@ -45,20 +38,29 @@ class AtendedorController extends Controller
         $direccion = $recuperar->direccion;
         $jornada = $recuperar->jornada;
 
-            if ($valido == 0){
-                echo "validar 0";
-               // return back()->with('error','Por favor ingrese un rut valido');            
-            }
-
-            if ($valido == 1){
-                
-            //$dato = DB::select('call agregar_usuario(?,?,?,?,?,?,?)', [$rut,$nombre,md5($pass1),$tipo,$estado,$telefono,$email]);
+        if($this->valida_rut($rut) == true){
             $dato = DB::update('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
             
-            //$dato = DB::select('select * from atendedor');
             return back();
-                
-            }              
+        }else{
+            return back()->with('error','Por favor ingrese un rut valido');  
+        }
+
+                        
+    }
+
+    public function modicaratendedor(Request $rec){
+
+        $rut = preg_replace('/[^k0-9]/i', '', $rec->rut);
+        $nombre = $rec->nombre;
+        $numero = $rec->numero;
+        $email=$rec->email;
+        $estado = 'Activo';
+        $direccion = $rec->direccion;
+        $jornada = $rec->jornada;
+
+            //DB::select ('exec modificar_atendedor ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
+            return back();              
     }
 
     public function valida_rut($rut)
@@ -89,6 +91,8 @@ class AtendedorController extends Controller
             else
                 return false;
     }
+
+    
 
 
 
