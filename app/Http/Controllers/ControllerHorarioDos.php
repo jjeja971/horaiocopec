@@ -10,20 +10,27 @@ class ControllerHorarioDos extends Controller
 {
     
     public function listahorario(){
-        $mes = DB::select('exec SelectMes');
-        $turno = DB::select('exec SelectHorarioDia');
-        return view ('horario/listaHorario', compact('mes','turno'));
+        if(session('usuario')){
+            $mes = DB::select('exec SelectMes');
+            $turno = DB::select('exec SelectHorarioDia');
+            return view ('horario/listaHorario', compact('mes','turno'));
+        }else
+            return redirect ('/');
     } 
     
     public function nuevohorario(){
-        $atendedor = DB::select('select rut_atendedor,nombre_atendedor from atendedor');
-        return view ('horario/horarioManual2', compact('atendedor'));
+        if(session('usuario')){
+            $atendedor = DB::select('select rut_atendedor,nombre_atendedor from atendedor');
+            return view ('horario/horarioManual2', compact('atendedor'));
+        }else
+        return redirect ('/');
     }
 
     public function insertarhorario(Request $recuperar){
-
-        $rut = $recuperar->rut;
-        echo $rut;
-          
+        if(session('usuario')){
+            $rut = $recuperar->rut;
+            echo $rut;
+        }else
+        return redirect ('/');
     }
 }
