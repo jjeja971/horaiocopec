@@ -15,7 +15,7 @@ class AtendedorController extends Controller
         if(session('usuario')){
             return view('atendedores/agregaratendedor');
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
 
     public function matendedor($rut){
@@ -24,7 +24,7 @@ class AtendedorController extends Controller
             $dato2 = DB::select('exec select_jornada');
             return view('atendedores/modificar_atendedor', compact('dato','dato2'));
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
 
 
@@ -33,7 +33,7 @@ class AtendedorController extends Controller
             $lista = DB::select('exec listar_atendedor');
             return view('atendedores/list_atendedores',compact('lista'));
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
 
     public function creaatendedor(Request $recuperar){
@@ -56,7 +56,7 @@ class AtendedorController extends Controller
             }
 
         }else
-        return redirect ('/');             
+            return redirect ('/');             
     }
 
     public function modicaratendedor(Request $rec){
@@ -72,7 +72,7 @@ class AtendedorController extends Controller
             //DB::select ('exec modificar_atendedor ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
             return back();  
         }else
-        return redirect ('/');            
+            return redirect ('/');            
     }
 
     public function valida_rut($rut){
@@ -104,7 +104,7 @@ class AtendedorController extends Controller
             else
                 return false;
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
 
     
@@ -117,7 +117,7 @@ class AtendedorController extends Controller
                                 where rut_atendedor = 2');
             return view ('proban2', compact('dato'));
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
 
     
