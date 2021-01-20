@@ -54,6 +54,19 @@
                     <button type="submit" class="mt-4 btn btn-primary btn-lg btn-block">Iniciar sesion</button>
                 </div>
                 <div class="col-lg-4"></div>
+
+                
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 mt-4" style="text-align: center">
+                    @if(session('status'))
+                        <div>
+                            <div class="alert" id="mensaje_error" style="background: #ff4141; color:#ffffff">
+                                {{session('status')}}
+                            </div>
+                        </div>
+                    @endif
+                </div>
+                <div class="col-lg-4"></div>
             </div>
         </form>
     </div>
@@ -73,5 +86,10 @@
 <!-- Bootstrap 4 -->
 <script src="adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 </body>
+
+<!--<script>
+    window.onload = function() {}
+    }
+</script>-->
 
 </html>

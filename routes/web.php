@@ -46,7 +46,8 @@ Route::get('/nuevohorario', [ControllerHorarioDos::class, 'nuevohorario']);
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);
 
-Route::post('/registrarse', [AuthController::class, 'usuario']);
+Route::post('/registrarse', [AuthController::class, 'iniciar_sesion']);
+Route::get('/cerrar_sesion',[AuthController::class, 'cerrar_sesion']);
 
 
 
