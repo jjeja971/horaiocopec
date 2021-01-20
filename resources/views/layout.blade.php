@@ -31,7 +31,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="/" class="nav-link">Inicio</a>
+        <a href="/Inicio" class="nav-link">Inicio</a>
       </li>
     </ul>
 
@@ -80,7 +80,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="/" class="brand-link">
+    <a href="/Inicio" class="brand-link">
       <img src="{{ URL::asset('adminlte/img/Copec_Logo.svg')}}" alt="Copec Logo" class="brand-image elevation-5"
            style="opacity: .9">
       <span><br></span>
@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{ URL::asset('adminlte/img/default-user.png')}}" class="img-circle elevation-2" alt="Imagen usuario">
         </div>
         <div class="info">
-          <a href="/login" class="d-block">Nedd Stark</a>
+          <a href="/" class="d-block">{{session('usuario')}}</a>
         </div>
       </div>
 
@@ -128,7 +128,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li> 
           <li class="nav-item">
-            <a href="/login" class="nav-link">       
+            <a href="/" class="nav-link">       
               <i class="mt-4 fas fa-sign-out-alt nav-icon"></i>
               <p>Salir</p>
             </a>
@@ -151,7 +151,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="/">Inicio</a></li>
+              <li class="breadcrumb-item"><a href="/Inicio">Inicio</a></li>
               <li class="breadcrumb-item active" id="nombrePag">Página principal</li>
             </ol>
           </div><!-- /.col -->

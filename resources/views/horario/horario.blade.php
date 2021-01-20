@@ -32,7 +32,7 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="." style="font-size:1.5em;margin-top: 5em; color: #4340e7" class="btn btn-lg btn-block">Volver a Inicio</a>
+            <a href="/Inicio" style="font-size:1.5em;margin-top: 5em; color: #4340e7" class="btn btn-lg btn-block">Volver a Inicio</a>
         </div>
         <div class="col-lg-4"></div>
     </div>

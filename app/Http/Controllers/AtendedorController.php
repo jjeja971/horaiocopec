@@ -91,12 +91,6 @@ class AtendedorController extends Controller
     }
 
 
-
-
-    public function login(){
-            return view ('login/login');
-    }
-
     public function probando(){
             $dato = DB::select('select nombre_atendedor
                                 from atendedor

@@ -14,8 +14,8 @@ class Controller extends BaseController
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
 
-    public function login (Request $request){
-        session(['Ned Stark']);
+    public function login(){
+        return view ('login/login');
     }
 
     public function Inicio(){
