@@ -42,7 +42,7 @@ class HorariosController extends Controller
             $turno = DB::select('exec listar_turnos');
             return view ('horario/turnos', compact('turno'));
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
     
     public function modTurno($id){   
@@ -50,7 +50,7 @@ class HorariosController extends Controller
             $turnos = DB::select('exec turno_porid ?;', [$id]);
             return view ('horario/modTurno', compact('turnos'));
         }else
-        return redirect ('/');
+            return redirect ('/');
     }
 
 }
