@@ -53,4 +53,17 @@ class HorariosController extends Controller
             return redirect ('/');
     }
 
+    public function registrar_horario(Request $request){  
+        if(session('usuario')){  
+            $rut=$request->seleccionpersonal1;
+            $turno=$request->seleccionturno;
+            $fechas=$request->date;
+            //$respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', ['2',$fecha,$turno,'gasolina',session('EDS')]); 
+            //return redirect ('/horarioManual');
+            
+            dd($request->date);
+        }else
+            return redirect ('/');
+    }
+
 }

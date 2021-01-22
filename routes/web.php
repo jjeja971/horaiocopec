@@ -26,10 +26,17 @@ Route::get('/Inicio', [Controller::class, 'Inicio']);
     return view('proban2');
 });*/
 
+//---------------------ATENDEDOR CONTROLLER----
+
 Route::get('/probando', [AtendedorController::class, 'probando']);
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
+
+Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
+Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);
+
+//---------------------HORARIO CONTROLLER----
 
 Route::get('/regHorario', [HorariosController::class, 'registrarHorario']);
 Route::get('/menuHorario', [HorariosController::class, 'menuHorario']);
@@ -38,16 +45,20 @@ Route::get('/horarioAutomatico', [HorariosController::class, 'horarioAutomatico'
 Route::get('/interfazTurnos', [HorariosController::class, 'ITurnos']);
 Route::get('/modificarTurno/{id}', [HorariosController::class, 'modTurno']);
 
+Route::post('/registrarhorarios', [HorariosController::class, 'registrar_horario']);
+
+//---------------------HORARIO2 CONTROLLER----
 
 Route::get('/listahorario', [ControllerHorarioDos::class, 'listahorario']);
 Route::get('/nuevohorario', [ControllerHorarioDos::class, 'nuevohorario']);
 
 
-Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
-Route::post('/modificaratendedor', [AtendedorController::class, 'matendedor']);
+//---------------------AUTENTICACION CONTROLLER----
+
+Route::get('/cerrar_sesion',[AuthController::class, 'cerrar_sesion']);
 
 Route::post('/registrarse', [AuthController::class, 'iniciar_sesion']);
-Route::get('/cerrar_sesion',[AuthController::class, 'cerrar_sesion']);
+
 
 
 

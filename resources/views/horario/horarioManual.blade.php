@@ -25,15 +25,18 @@
 
         
         <div class="col-sm-3"></div>
-            <div class="row col-sm-6"  style="text-align: center">
-                
+
+        
+        
+            <form action="/registrarhorarios" method="POST"  class="row col-sm-6"  style="text-align: center">
+                @csrf
                 <div class="col-sm-1"></div>
                 <div class="mb-2 mt-2 col-sm-10">
                     <br>
                     <div class="form-group">
                         <label >Fecha:</label>
-                        <input id="fechaHorario" type="date" name="bday" max="3000-12-31" 
-                               min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control">
+                        <input id="date" type="date" name="date" max="3000-12-31" 
+                               min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control datepicker">
                     </div>
                 </div>
                 <div class="col-sm-1"></div>
@@ -62,13 +65,13 @@
                 
                 <div class="mb-4 col-sm-1"></div>
                 <div class="mb-4 mt-4 col-sm-10">
-                    <a id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></a>
+                    <button type="submit" id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></button>
                 </div>
                 <div class="mb-4 col-sm-1"></div>
 
-        </div>   
-        <div class="col-sm-3"> </div>
+            </form>  
 
+        <div class="col-sm-3"> </div>
 
         <div class="col-sm-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
         <div class="mb-5 mt-5 col-sm-10"  style="text-align: center">
@@ -135,23 +138,28 @@
 @endsection
 
 <script>
-    
+
+
 window.onload = function() {
  
+ 
     $("#btnagregarTurno").hide();
-    var fHora = document.getElementById("fechaHorario");
+    
+    var fHora = document.getElementById("date");
     var agregarTurno = document.getElementById("btnagregarTurno");
 
     var hr0 = document.getElementById("hora0p");
     var hr1 = document.getElementById("hora1p");
     var hr2 = document.getElementById("hora2p");
 
-
+    
     fHora.addEventListener("change", function(){
-        $("#fechaHorario").prop( "disabled", true );
+
+        $("#date").prop( "disabled", true );
         $("#seleccionturno").prop( "disabled", false );
         $("#seleccionpersonal1").prop( "disabled", false );
         $("#btnagregarTurno").show();
+        
 
     });
 
@@ -270,5 +278,9 @@ window.onload = function() {
         });
 
     } //final dibujar graf
+
+    
 }//final window onload
+
+    
 </script>
