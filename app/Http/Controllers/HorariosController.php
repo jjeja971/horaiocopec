@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Carbon\Carbon;
 
 class HorariosController extends Controller
 {
@@ -57,11 +58,12 @@ class HorariosController extends Controller
         if(session('usuario')){  
             $rut=$request->seleccionpersonal1;
             $turno=$request->seleccionturno;
-            $fechas=$request->date;
-            //$respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', ['2',$fecha,$turno,'gasolina',session('EDS')]); 
-            //return redirect ('/horarioManual');
-            
-            dd($request->date);
+            $fecha = Carbon::parse($request->input('date'))->format('Y-m-d');
+            $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,'gasolina',session('EDS')]); 
+            return redirect ('/horarioManual');
+           //dd($fecha);
+
+        
         }else
             return redirect ('/');
     }
