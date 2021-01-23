@@ -58,12 +58,10 @@ class HorariosController extends Controller
         if(session('usuario')){  
             $rut=$request->seleccionpersonal1;
             $turno=$request->seleccionturno;
-            $fecha = Carbon::parse($request->input('date'))->format('Y-m-d');
+            $fecha = $request->date;
             $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,'gasolina',session('EDS')]); 
             return redirect ('/horarioManual');
-           //dd($fecha);
-
-        
+           // dd($request->date);    
         }else
             return redirect ('/');
     }

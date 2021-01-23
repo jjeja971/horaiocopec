@@ -40,6 +40,7 @@
                                
                     </div>
                 </div>
+                
                 <div class="col-sm-1"></div>
         
                 <div class="col-sm-1"></div>
@@ -155,7 +156,7 @@ window.onload = function() {
     
     fHora.addEventListener("change", function(){
 
-        $("#date").prop( "disabled", true );
+        $("#date").prop( "readonly", true );
         $("#seleccionturno").prop( "disabled", false );
         $("#seleccionpersonal1").prop( "disabled", false );
         $("#btnagregarTurno").show();
