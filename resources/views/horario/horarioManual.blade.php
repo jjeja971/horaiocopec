@@ -198,13 +198,23 @@ window.onload = function() {
         dataTable.addColumn({ type: 'string', id: 'President' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
-        
+
             options = {
                 height: 820,
                 timeline: { legend: 'none' },
                 tooltip: { trigger: 'selection' },              
             };
     
+        if($('#date').val()){
+            @foreach($verificarFecha as $item2)
+                dataTable.addRows([
+                    [ 'Sin asignar', 'asdasd', new Date(0, 0, 0, {{$item2->hora_entrada}}, 0), new Date(0, 0, 0, {{$item2->hora_salida}}, 0) ]
+                ]);
+            @endforeach
+            view.setColumns([1,2,3]); 
+            chart.draw(view, options);     
+        }
+
         //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
         var opcion = document.getElementById("listapersonal");

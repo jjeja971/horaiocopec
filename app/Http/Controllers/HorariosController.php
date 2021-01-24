@@ -21,15 +21,6 @@ class HorariosController extends Controller
             return redirect ('/');
     }      
     
-    public function horarioManual(){
-        if(session('usuario')){
-            $personalrec = DB::select('exec listar_atendedor');
-            $turno = DB::select('exec listar_turnos');
-            $fechaHorario = session('usuario');
-            return view ('horario/horarioManual', compact('turno','personalrec'));
-        }else
-            return redirect ('/');
-    }
 
     public function horarioAutomatico(){    
         if(session('usuario')){
@@ -51,6 +42,20 @@ class HorariosController extends Controller
         if(session('usuario')){  
             $turnos = DB::select('exec turno_porid ?;', [$id]);
             return view ('horario/modTurno', compact('turnos'));
+        }else
+            return redirect ('/');
+    }
+
+    public function horarioManual(){
+        if(session('usuario')){
+            $personalrec = DB::select('exec listar_atendedor');
+            $turno = DB::select('exec listar_turnos');
+            $verificarFecha=DB::select('exec listar_turnos');
+            if(session('fecha_horario_m'))
+                $verificarFecha = DB::select('exec listar_turnos_por_fecha ?', [session('fecha_horario_m')]);
+
+            return view ('horario/horarioManual', compact('turno','personalrec','verificarFecha'));
+            
         }else
             return redirect ('/');
     }
