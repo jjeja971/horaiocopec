@@ -23,11 +23,7 @@
     <div class="row">
         <div class="col-sm-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
 
-        
-        <div class="col-sm-3"></div>
-
-        
-        
+        <div class="col-sm-3"></div> 
             <form action="/registrarhorarios" method="POST"  class="row col-sm-6"  style="text-align: center">
                 @csrf
                 <div class="col-sm-1"></div>
@@ -35,17 +31,23 @@
                     <br>
                     <div class="form-group">
                         <label >Fecha:</label>
-                        <input id="date" type="date" name="date" max="3000-12-31" 
-                               min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control">
-                               
+                        @if (session("fecha_horario_m"))
+                            <input id="date" type="date" name="date" max="3000-12-31" 
+                             min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}"> 
+                        @else
+                            <input id="date" type="date" name="date" max="3000-12-31" 
+                             min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control"> 
+                        @endif
+                        
                     </div>
+  
                 </div>
                 
                 <div class="col-sm-1"></div>
         
                 <div class="col-sm-1"></div>
                 <div class="mb-4  col-sm-5">
-                    <label>Atendedor: </label>
+                    <label id="proban3">Atendedor: </label>
                     <br>
                     <select id="seleccionpersonal1" name="seleccionpersonal1" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
                         @foreach ($personalrec as $item) 
@@ -70,7 +72,6 @@
                     <button type="submit" id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></button>
                 </div>
                 <div class="mb-4 col-sm-1"></div>
-
             </form>  
 
         <div class="col-sm-3"> </div>
@@ -139,13 +140,21 @@
 
 @endsection
 
+
 <script>
 
 
 window.onload = function() {
-    
+
     $("#btnagregarTurno").hide();
     
+    if($('#date').val()){
+        $("#date").prop( "readonly", true );
+        $("#seleccionturno").prop( "disabled", false );
+        $("#seleccionpersonal1").prop( "disabled", false );
+        $("#btnagregarTurno").show();
+    }
+
     var fHora = document.getElementById("date");
     var agregarTurno = document.getElementById("btnagregarTurno");
 
