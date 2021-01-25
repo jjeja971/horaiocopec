@@ -163,19 +163,6 @@ window.onload = function() {
     var hr2 = document.getElementById("hora2p");
 
     
-    fHora.addEventListener("change", function(){
-
-        $("#date").prop( "readonly", true );
-        $("#seleccionturno").prop( "disabled", false );
-        $("#seleccionpersonal1").prop( "disabled", false );
-        $("#btnagregarTurno").show();
-        
-
-    });
-
-
- 
-    
     //se mantiene siempre lista deseleccionada para evitar errores
     var divGraf = document.getElementById("timeline");
     divGraf.addEventListener("mousemove", function(){
@@ -204,15 +191,18 @@ window.onload = function() {
                 timeline: { legend: 'none' },
                 tooltip: { trigger: 'selection' },              
             };
-    
+        //CARGA DE DATOS A GRAFICO CUANDO EXISTA UNA FECHA INGRESADA
         if($('#date').val()){
             @foreach($verificarFecha as $item2)
                 dataTable.addRows([
-                    [ "{{$item2->rut_atendedor}}", "{{$item2->nombre_atendedor}}", new Date(0, 0, 0, {{$item2->hora_entrada}}, 0), new Date(0, 0, 0, {{$item2->hora_salida}}, 0) ]
+                    [ "{{$item2->rut_atendedor}}", "{{$item2->nombre_atendedor}}", new Date(0, 0, 0, {{$item2->hora_entrada}}, {{$item2->min_entrada}}), new Date(0, 0, 0, {{$item2->hora_salida}}, {{$item2->min_salida}}) ]
                 ]);
             @endforeach
-            view.setColumns([1,2,3]); 
-            chart.draw(view, options);     
+            //DIBUJAR GRAFICO SOLO CUANDO EXISTAN 1 O MAS DATOS
+            if(dataTable.getNumberOfRows()>0){
+                view.setColumns([1,2,3]); 
+                chart.draw(view, options);   
+            }  
         }
 
         //escuchar selección barra gráfico
@@ -254,7 +244,7 @@ window.onload = function() {
         });    
         
         //agregar turno
-        agregarTurno.addEventListener("click", function(){
+       /* agregarTurno.addEventListener("click", function(){
                 var idx = "Sin asignar"; 
                 var nom = "Sin asignar"; 
                 var x = $('select[name="seleccionturno"] option:selected').text();               
@@ -274,7 +264,7 @@ window.onload = function() {
                 [idx, nom, new Date(0, 0, 0, HorIni, MinIni), new Date(0, 0, Dia, HorFin, MinFin) ]]);
                 view.setColumns([1,2,3]); 
                 chart.draw(view, options);       
-        });
+        });*/
              
         //quitar turno
         var removerTurno = document.getElementById("btnRemoverTurno");
@@ -295,6 +285,17 @@ window.onload = function() {
                     }
                     $('#exampleModal').modal('hide');        
             }          
+        });
+
+        fHora.addEventListener("change", function(){
+
+            
+            $("#btnagregarTurno").click();
+   
+            $("#date").prop( "readonly", true );
+            $("#seleccionturno").prop( "disabled", false );
+            $("#seleccionpersonal1").prop( "disabled", false );
+            $("#btnagregarTurno").show();
         });
 
     } //final dibujar graf
