@@ -12,13 +12,13 @@
     <div class="card-header">
       <h3 class="card-title">Modificar Atendedor</h3>
     </div>
-    <form method="POST" action="modificaratendedor">
+    <form method="POST" action="/modificaratendedor">
       @csrf
       <div class="card-body">
 
         <div class="form-group">
           <label for="rut">Rut</label>
-          <input type="text" class="form-control" id="rut" name="rut" value="{{$item->rut_atendedor}}" disabled>
+          <input type="text" class="form-control" id="rut" name="rut" value="{{$item->rut_atendedor}}" readonly>
         </div>
         <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="numero">Telefono</label>
-            <input type="text" class="form-control" id="numero" name="numero" value="{{$item->numero}}">
+            <input type="text" class="form-control" maxlength="11" id="numero" name="numero" value="{{$item->numero}}">
         </div>
         <div class="form-group">
             <label for="email">E-mail</label>

@@ -129,7 +129,7 @@
 
      <!--   <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/regHorario" style="margin-top: 7em" class="btn btn-success btn-lg btn-block">Agregar</a>
+            <a href="" style="margin-top: 7em" class="btn btn-success btn-lg btn-block">Agregar</a>
         </div>
         <div class="col-lg-4"></div>
     -->
@@ -208,7 +208,7 @@ window.onload = function() {
         if($('#date').val()){
             @foreach($verificarFecha as $item2)
                 dataTable.addRows([
-                    [ 'Sin asignar', 'asdasd', new Date(0, 0, 0, {{$item2->hora_entrada}}, 0), new Date(0, 0, 0, {{$item2->hora_salida}}, 0) ]
+                    [ "{{$item2->rut_atendedor}}", "{{$item2->nombre_atendedor}}", new Date(0, 0, 0, {{$item2->hora_entrada}}, 0), new Date(0, 0, 0, {{$item2->hora_salida}}, 0) ]
                 ]);
             @endforeach
             view.setColumns([1,2,3]); 

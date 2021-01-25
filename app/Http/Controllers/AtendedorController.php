@@ -59,18 +59,19 @@ class AtendedorController extends Controller
             return redirect ('/');             
     }
 
-    public function modicaratendedor(Request $rec){
+    public function modicaratendedor(Request $request){
         if(session('usuario')){
-            $rut = preg_replace('/[^k0-9]/i', '', $rec->rut);
-            $nombre = $rec->nombre;
-            $numero = $rec->numero;
-            $email=$rec->email;
+            //dd($request);
+            $rut = preg_replace('/[^k0-9]/i', '', $request->rut);
+            $nombre = $request->nombre;
+            $numero = $request->numero;
+            $email=$request->email;
+            $direccion = $request->direccion;
+            $jornada = $request->jornada;
             $estado = 'Activo';
-            $direccion = $rec->direccion;
-            $jornada = $rec->jornada;
 
-            //DB::select ('exec modificar_atendedor ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
-            return back();  
+            DB::update('exec [modificar_atendedor] ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
+            return redirect('/listaratendedores');  
         }else
             return redirect ('/');            
     }

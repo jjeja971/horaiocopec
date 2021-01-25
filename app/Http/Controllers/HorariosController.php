@@ -9,11 +9,6 @@ use Carbon\Carbon;
 class HorariosController extends Controller
 {
 
-    
-    public function registrarHorario(){
-        return back()->with('message','You added new items, follow next step!');
-    }
-
     public function menuHorario(){
         if(session('usuario'))
             return view ('horario/horario');
@@ -50,10 +45,9 @@ class HorariosController extends Controller
         if(session('usuario')){
             $personalrec = DB::select('exec listar_atendedor');
             $turno = DB::select('exec listar_turnos');
-            $verificarFecha=DB::select('exec listar_turnos');
-            if(session('fecha_horario_m'))
-                $verificarFecha = DB::select('exec listar_turnos_por_fecha ?', [session('fecha_horario_m')]);
-
+            $verificarFecha = DB::select('exec listar_turnos_por_fecha ?', [session('fecha_horario_m')]);
+           
+            //dd($verificarFecha);
             return view ('horario/horarioManual', compact('turno','personalrec','verificarFecha'));
             
         }else
@@ -66,7 +60,7 @@ class HorariosController extends Controller
             $turno=$request->seleccionturno;
             $fecha = $request->date;
             session()->flash('fecha_horario_m', $fecha);
-            //$respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,'gasolina',session('EDS')]); 
+            $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,'gasolina',session('EDS')]); 
             return redirect ('/horarioManual');
             //dd(session('fecha_horario_m'));    
         }else
