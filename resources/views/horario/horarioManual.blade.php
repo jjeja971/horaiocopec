@@ -31,14 +31,20 @@
                     <br>
                     <div class="form-group">
                         <label >Fecha:</label>
-                        @if (session("fecha_horario_m"))
-                            <input id="date" type="date" name="date" max="3000-12-31" 
-                             min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}"> 
-                        @else
-                            <input id="date" type="date" name="date" max="3000-12-31" 
-                             min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control"> 
-                        @endif
-                        
+                        <div class="input-group">
+                            @if (session("fecha_horario_m"))
+                                <input id="date" type="date" name="date" max="3000-12-31" 
+                                min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}"> 
+                            @else
+                                <input id="date" type="date" name="date" max="3000-12-31" 
+                                min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control"> 
+                            @endif
+                            <span class="input-group-btn">
+                                <a class="btn btn-danger" href="/horarioManual" style="height: 100%"> 
+                                    <span class="fas fa-broom p-1"></span>
+                                </a>
+                            </span>
+                        </div>
                     </div>
   
                 </div>
