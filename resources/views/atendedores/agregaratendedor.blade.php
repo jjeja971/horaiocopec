@@ -28,7 +28,7 @@
             <input type="text" class="form-control" id="nombre" name="nombre" required>
           </div>
           <div class="form-group">
-              <label for="numero">Telefono</label>
+              <label for="numero">Teléfono</label>
               <input type="text" class="form-control" id="numero" name="numero" minlength="9" maxlength="11" onkeypress='return validaNumericos(event)' required>
             </div>
             <div class="form-group">
@@ -36,7 +36,7 @@
               <input type="email" class="form-control" id="email" name="email" required>
             </div>
             <div class="form-group">
-              <label for="direccion">Direccion</label>
+              <label for="direccion">Dirección</label>
               <input type="text" class="form-control" id="direccion" name="direccion" required>
             </div>
             <div class="form-group">
