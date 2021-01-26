@@ -26,7 +26,7 @@
         </div>
         <div class="form-group">
             <label for="numero">Telefono</label>
-            <input type="text" class="form-control" maxlength="11" id="numero" name="numero" value="{{$item->numero}}">
+            <input type="text" class="form-control" maxlength="11" id="numero" name="numero" minlength="9" maxlength="11" onkeypress='return validaNumericos(event)' value="{{$item->numero}}">
         </div>
         <div class="form-group">
             <label for="email">E-mail</label>

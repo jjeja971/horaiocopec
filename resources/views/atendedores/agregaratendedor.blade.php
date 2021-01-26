@@ -21,7 +21,7 @@
         <div class="card-body">
           <div class="form-group">
             <label for="rut">Rut</label>
-            <input type="text" class="form-control" id="rut" name="rut" required>
+            <input type="text" class="form-control" id="rut" name="rut" minlength="8" maxlength="9" onkeypress='return validaNumericos(event)' required>
           </div>
           <div class="form-group">
             <label for="nombre">Nombre</label>
@@ -29,7 +29,7 @@
           </div>
           <div class="form-group">
               <label for="numero">Telefono</label>
-              <input type="text" class="form-control" id="numero" name="numero" required>
+              <input type="text" class="form-control" id="numero" name="numero" minlength="9" maxlength="11" onkeypress='return validaNumericos(event)' required>
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
