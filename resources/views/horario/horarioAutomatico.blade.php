@@ -99,7 +99,7 @@ window.onload = function() {
         dataTable.addRows([
       
             @foreach($turnosRecomendados as $item)
-            [ 'Sin asignar',       new Date(2020, 3, 1, {{$item->hora}}), new Date(2020, 3, 2, 9) ],
+            [ 'Sin asignar',       new Date(2020, 3, 1, {{$item->hora}}), new Date(2020, 3, 1, {{$item->hora}}+{{$item->cantidadHoras_recomendadas}}) ],
             @endforeach
             ]);
 
