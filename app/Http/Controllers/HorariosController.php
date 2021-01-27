@@ -69,4 +69,14 @@ class HorariosController extends Controller
             return redirect ('/');
     }
 
+    public function modificarTurnoHorario(Request $request){
+        if(session('usuario')){  
+            $rut=$request->seleccionpersonal1;
+            $turno=$request->seleccionturno;
+            $fecha = $request->date;
+        }else
+            return redirect ('/');
+    }
+
+
 }

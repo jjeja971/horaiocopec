@@ -119,11 +119,12 @@
                                         <div class="col-lg-4"></div>
                                         <div class="col-lg-2">
                                             
-                                            <select id="listapersonal" class="mb-5 mt-5" style="font-size: 1.3em; width:17em; height:550px; color:#1d59a7" name="combo" multiple>                                                     
+         
+                                            <select id="listapersonal" name="listapersonal" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
                                                 @foreach ($personalrec as $item) 
                                                     <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
                                                 @endforeach  
-                                            </select>   
+                                            </select>    
                                             <button type="submit" id="btnRemoverTurno" style="width: 16em;" class="btn btn-warning btn-lg mb-3"><b>Remover este turno</b></button>
                                             
                                         </div>
@@ -246,7 +247,7 @@ window.onload = function() {
                     var item = selection[i];             
                 }
                 selectHandler();
-                
+                $("#seleccionpersonal1").val(dataTable.getValue(item.row,0));
                 hr0.innerHTML = dataTable.getValue(item.row,1);
                 hr1.innerHTML = dataTable.getValue(item.row,2).getHours()+":"+dataTable.getValue(item.row,2).getMinutes();
                 hr2.innerHTML = dataTable.getValue(item.row,3).getHours()+":"+dataTable.getValue(item.row,3).getMinutes();
