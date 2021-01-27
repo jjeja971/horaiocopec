@@ -45,14 +45,10 @@
                                 <div class="col-md-4">
                                     <form name="formulario" class="mt-5">
                                         <!-- Lista de selección múltiple -->
-                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>
-                                      
-                                         
-                                            <option value="1">Nedd Stark</option>
-                                            <option value="2">Jon Snow</option>
-                                            <option value="3">Sansa Stark</option>
-           
-                                   
+                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>           
+                                            @foreach ($personalrec as $item) 
+                                                <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
+                                            @endforeach                                   
                                         </select>
                                       </form>
                                 </div>

@@ -99,38 +99,42 @@
         <!-- Modal -->
                                         
         <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">                                      
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header" style="z-index:90;background: #3955cf">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
-                    <div class="modal-body">
-                        <div class="container-fluid" style="text-align: center">
-                            <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
-                            <div class="col-lg-12">
-                            
-                                <div class="row" >
-                                    <div class="col-lg-4"></div>
-                                    <div class="col-lg-2">
-                                        
-                                        <select id="listapersonal" class="mb-5 mt-5" style="font-size: 1.3em; width:17em; height:550px; color:#1d59a7" name="combo" multiple>                                                     
-                                            @foreach ($personalrec as $item) 
-                                                <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
-                                            @endforeach  
-                                        </select>   
-                                        <a href="#" id="btnRemoverTurno" style="width: 16em;" class="btn btn-warning btn-lg mb-3"><b>Remover este turno</b></a>
+            <form action="" method="POST">
+            @csrf
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header" style="z-index:90;background: #3955cf">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
+                        <div class="modal-body">
+                            <div class="container-fluid" style="text-align: center">
+                                <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
+                                <div class="col-lg-12">
+                                
+                                    <div class="row" >
+                                        <div class="col-lg-4"></div>
+                                        <div class="col-lg-2">
+                                            
+                                            <select id="listapersonal" class="mb-5 mt-5" style="font-size: 1.3em; width:17em; height:550px; color:#1d59a7" name="combo" multiple>                                                     
+                                                @foreach ($personalrec as $item) 
+                                                    <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
+                                                @endforeach  
+                                            </select>   
+                                            <button type="submit" id="btnRemoverTurno" style="width: 16em;" class="btn btn-warning btn-lg mb-3"><b>Remover este turno</b></button>
+                                            
+                                        </div>
+                                        <div class="col-lg-2"></div>
                                     </div>
-                                    <div class="col-lg-2"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </form>
         </div>
 
      <!--   <div class="col-lg-4"></div>
