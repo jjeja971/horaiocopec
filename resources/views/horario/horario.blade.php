@@ -3,7 +3,7 @@
 
 <div class="container-fluid">
     <div class="row">
-        <div class="col-lg-12" style="text-align: center"><h1>Menú de Horario y Turno</h1></div>
+        <div class="col-lg-12" style="text-align: center; color:rgb(248, 47, 47)"><h1><b>Menú de Horario y Turno</b></h1></div>
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4" style="text-align: center">
@@ -19,13 +19,13 @@
 
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/horarioAutomatico" class="mt-4 mb-5 btn btn-success btn-lg btn-block">Generar Horario automático</a>
+            <a href="/horarioAutomatico" class="mt-4 mb-5 btn btn-primary btn-lg btn-block">Generar Horario automático</a>
         </div>
         <div class="col-lg-4"></div>
         
         <div class="col-lg-4"></div>
         <div class="col-lg-4"  style="text-align: center">
-            <a href="/interfazTurnos" class="mt-5 btn btn-primary btn-lg btn-block"><b>Turnos</b></a>
+            <a href="/interfazTurnos" class="mt-3 btn btn-primary btn-lg btn-block">Turnos</a>
         </div>
         <div class="col-lg-4"></div>
         
