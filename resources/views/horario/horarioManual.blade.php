@@ -124,21 +124,32 @@
                                              @endif
                                         </div>
                                         <div class="col-lg-3"> 
-                                            <select id="modturno" name="modturno" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
-                                                @foreach ($turno as $item) 
-                                                    <option value="{{ $item->id_turno }}">{{ $item->hora_entrada }} - {{ $item->hora_salida }}</option>   
-                                                @endforeach  
+                                            <select id="modlugar" name="modlugar" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                                <option value="Gasolina">Gasolina</option>
+                                                <option value="petroleo">Petroleo</option>
                                             </select>    
                                         </div>
                                         <div class="col-lg-3"></div>
 
                                         <div class="col-lg-3"></div>
                                         <div class="col-lg-6 mt-4">
-                                            <select id="listapersonal" name="listapersonal" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                            <h3 class="mt-5">Atendedor actual</h3>
+                                          
+                                            <select class="mt-4" id="personalseleccionado" name="personalseleccionado" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
                                                 @foreach ($personalrec as $item) 
                                                     <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
                                                 @endforeach  
                                             </select>  
+                                            
+                                            <h2 class="mt-5">Cambiar Atendedor a</h2>
+                                           
+                                            <select class="mt-4" id="modificarpersonal" name="modificarpersonal" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                                @foreach ($personalrec as $item) 
+                                                    <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
+                                                @endforeach  
+                                            </select>  
+                                            
+                                            <hr class="mt-4">
                                         </div>
                                         <div class="col-lg-3"></div>
 
@@ -155,16 +166,7 @@
                     </div>
                 </div>
             </form>
-        </div>
-
-     <!--   <div class="col-lg-4"></div>
-        <div class="col-lg-4"  style="text-align: center">
-            <a href="" style="margin-top: 7em" class="btn btn-success btn-lg btn-block">Agregar</a>
-        </div>
-        <div class="col-lg-4"></div>
-    -->
-        
-       
+        </div>   
     </div>
 </div>
 
@@ -194,10 +196,10 @@ window.onload = function() {
 
     
     //se mantiene siempre lista deseleccionada para evitar errores
-    var divGraf = document.getElementById("timeline");
+    /*var divGraf = document.getElementById("timeline");
     divGraf.addEventListener("mousemove", function(){
         $("#listapersonal").val([]);     
-    });
+    });*/
     
     document.getElementById("nombrePag").textContent="Horario Manual";
     
@@ -206,7 +208,7 @@ window.onload = function() {
 
     //dibujar graf
     function drawChart() {
-     
+        
         var chart = new google.visualization.Timeline(document.getElementById('timeline'));
         var dataTable = new google.visualization.DataTable();
         var view = new google.visualization.DataView(dataTable);
@@ -215,6 +217,9 @@ window.onload = function() {
         dataTable.addColumn({ type: 'string', id: 'President' });
         dataTable.addColumn({ type: 'date', id: 'Start' });
         dataTable.addColumn({ type: 'date', id: 'End' });
+        dataTable.addColumn({ type: 'string', id: 'Lugar' });
+        dataTable.addColumn({ type: 'number', id: 'Turno' });
+     
 
             options = {
                 height: 820,
@@ -230,7 +235,10 @@ window.onload = function() {
                       new Date(0, 0, 0, {{$item2->hora_entrada}},
                       {{$item2->min_entrada}}),
                       new Date(0, 0, 0, {{$item2->hora_salida}},
-                      {{$item2->min_salida}}) ]
+                      {{$item2->min_salida}}),
+                      "{{$item2->lugar}}",
+                      {{$item2->turno}}
+                      ]
                 ]);
             @endforeach
             //DIBUJAR GRAFICO SOLO CUANDO EXISTAN 1 O MAS DATOS
@@ -242,41 +250,48 @@ window.onload = function() {
 
         //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
-        var opcion = document.getElementById("listapersonal");
+        var opcion = document.getElementById("personalseleccionado");
         function selectHandler() {
            
             $('#exampleModal').modal('show');
+            //se guarda la variable objeto de la barra seleccionada del grafico
             var selection = chart.getSelection();
             
-            for (var i = 0; i < selection.length; i++) {
-                var item = selection[i];             
-            }
-                              
-            if (opcion.options[opcion.selectedIndex]) {   
-                var idpersonal = $('select[id="listapersonal"] option:selected').val();   
-                var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
+            $("#personalseleccionado").val(dataTable.getValue(selection[0].row, 0)); 
+            $("#modificarpersonal").val(dataTable.getValue(selection[0].row, 1)); 
+            $("#modlugar").val(dataTable.getValue(selection[0].row, 4).trim());
+           
+            //alert(dataTable.getValue(selection[0].row, 2));
+                        
+          /*  if (opcion.options[opcion.selectedIndex]) {   
                 
+                var idpersonal = $('select[id="personalseleccionado"] option:selected').val();   
+                var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
+
                 dataTable.setCell(item.row, 0, idpersonal)
                 dataTable.setCell(item.row, 1, seleccionpersonal);  
             
                 view.setColumns([1,2,3]);       
                 chart.draw(view, options);  
-                $("#listapersonal").val([]);         
-            }
+                
+        
+            }*/
         } 
 
-        opcion.addEventListener("change", function(){    
+      /*  opcion.addEventListener("change", function(){    
                 var selection = chart.getSelection();             
                 for (var i = 0; i < selection.length; i++) {
                     var item = selection[i];             
                 }
-                selectHandler();
-                $("#seleccionpersonal1").val(dataTable.getValue(item.row,0));
+            
                 hr0.innerHTML = dataTable.getValue(item.row,1);
                 hr1.innerHTML = dataTable.getValue(item.row,2).getHours()+":"+dataTable.getValue(item.row,2).getMinutes();
                 hr2.innerHTML = dataTable.getValue(item.row,3).getHours()+":"+dataTable.getValue(item.row,3).getMinutes();
-                $('#exampleModal').modal('hide');             
-        });    
+                view.setColumns([1,2,3]);       
+                chart.draw(view, options);  
+                $('#exampleModal').modal('hide');   
+                      
+        });  */  
         
         //agregar turno
        /* agregarTurno.addEventListener("click", function(){
