@@ -22,13 +22,13 @@
 
     <div class="row">
     <!-- Primera fila -->
-        <div class="col-sm-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
+        <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
     <!-- Segunda fila -->
-        <div class="col-sm-3"></div> 
-            <form action="/registrarhorarios" method="POST"  class="row col-sm-6"  style="text-align: center">
+        <div class="col-lg-2"></div> 
+            <form action="/registrarhorarios" method="POST"  class="row col-lg-8"  style="text-align: center">
                 @csrf
-                <div class="col-sm-1"></div>
-                <div class="mb-2 mt-2 col-sm-5">
+                <div class="col-lg-1"></div>
+                <div class="mb-2 mt-2 col-lg-5">
                     <br>
                     <div class="form-group">
                         <label >Fecha:</label>
@@ -48,20 +48,20 @@
                         </div>
                     </div>
                 </div>
-                <div class="mb-2 mt-2 col-sm-5">
+                <div class="mb-3 mt-2 col-lg-5">
                     <br>
-                    <div class="input-group">
+               
                         <label>Lugar: </label>
                         <select id="seleccionlugar" name="seleccionlugar" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
                             <option value="Gasolina" selected>Gasolina</option>   
                             <option value="Petroleo">Petroleo</option>  
                         </select> 
-                    </div>
+               
                 </div>
-                <div class="col-sm-1"></div>
+                <div class="col-lg-1"></div>
     <!-- Tercera fila -->
-                <div class="col-sm-1"></div>
-                <div class="mb-4  col-sm-5">
+                <div class="col-lg-1"></div>
+                <div class="mb-4  col-lg-5">
                     <label id="proban3">Atendedor: </label>
                     <br>
                     <select id="seleccionpersonal1" name="seleccionpersonal1" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
@@ -71,7 +71,7 @@
                     </select>      
                 </div>
                
-                <div class="col-sm-5">
+                <div class="col-lg-5">
                     <label>Turno: </label>
                         <br>
                         <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
@@ -80,29 +80,29 @@
                             @endforeach  
                         </select>    
                 </div>
-                <div class="col-sm-1"></div>
+                <div class="col-lg-1"></div>
 
     <!-- Cuarta fila -->           
-                <div class="mb-4 col-sm-1"></div>
-                <div class="mb-4 mt-4 col-sm-10">
+                <div class="mb-4 col-lg-1"></div>
+                <div class="mb-4 mt-4 col-lg-10">
                     <button type="submit" id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></button>
                 </div>
-                <div class="mb-4 col-sm-1"></div>
+                <div class="mb-4 col-lg-1"></div>
             </form>             
-        <div class="col-sm-3"> </div>
+        <div class="col-lg-2"> </div>
 
     <!-- Quinta fila --> 
-        <div class="col-sm-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
-        <div class="mb-5 mt-5 col-sm-10"  style="text-align: center">
+        <div class="col-lg-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
+        <div class="mb-5 mt-5 col-lg-10"  style="text-align: center">
             <form>
                 <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
             </form>
         </div>
-        <div class="col-sm-1"></div>
+        <div class="col-lg-1"></div>
 
     <!-- Sexta fila --> 
-        <div class="col-sm-10"></div>
-        <div class="col-sm-2 mb-4" style="margin-top: 35em;">
+        <div class="col-lg-10"></div>
+        <div class="col-lg-2 mb-4" style="margin-top: 35em;">
             <a href="/menuHorario"  class="btn btn-danger"><b>Cancelar horario completo</b></a>
         </div>
         
@@ -110,7 +110,7 @@
         <!-- Modal -->
                                         
         <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">                                      
-            <form action="" method="POST">
+            <form method="POST" id="formmodal" name="formmodal">
             @csrf
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -124,26 +124,26 @@
                         <div class="modal-body">
                             <div class="container-fluid" style="text-align: center">
                                 <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
-                                <div class="col-lg-12 mt-5">
+                                <div class="col-lg-sm mt-5">
                                 
                                     <div class="row" >
-                                        <div class="col-lg-3"></div>
-                                        <div class="col-lg-3">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-3">
                                             @if (session("fecha_horario_m"))
                                                 <input id="date" type="date" name="date" max="3000-12-31" min="1000-01-01" 
                                                 style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}" readonly> 
                                              @endif
                                         </div>
-                                        <div class="col-lg-3"> 
+                                        <div class="col-sm-3"> 
                                             <select id="modlugar" name="modlugar" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
                                                 <option value="Gasolina">Gasolina</option>
                                                 <option value="Petroleo">Petroleo</option>
                                             </select>    
                                         </div>
-                                        <div class="col-lg-3"></div>
+                                        <div class="col-sm-3"></div>
 
-                                        <div class="col-lg-3"></div>
-                                        <div class="col-lg-6 mt-4">
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-6 mt-4">
                                             <h3 class="mt-5">Atendedor actual</h3>
                                           
                                             <select class="mt-4" id="personalseleccionado" name="personalseleccionado" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
@@ -162,13 +162,18 @@
                                             
                                             <hr class="mt-4">
                                         </div>
-                                        <div class="col-lg-3"></div>
+                                        <div class="col-sm-3"></div>
 
-                                        <div class="col-lg-3"></div>
-                                        <div class="col-lg-6">
-                                            <button type="submit" id="btnRemoverTurno" style="width: 16em;" class="btn btn-danger btn-lg mb-3 mt-5"><b>Remover este turno</b></button>
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-3">
+                                            <button type="submit" id="btnRemoverTurno" style="width: 13em;" class="btn btn-primary btn-lg mb-3 mt-5" onclick="document.formmodal.action = '/modificaturnohorario'; 
+                                            document.formmodal.submit()"><b>Modificar</b></button>
                                         </div>
-                                        <div class="col-lg-3"></div>
+                                        <div class="col-sm-3">
+                                            <button type="submit" id="btnRemoverTurno" style="width: 13em;" class="btn btn-danger btn-lg mb-3 mt-5 ml-4" onclick="document.formmodal.action = '/modificaturnohorario'; 
+                                            document.formmodal.submit()"><b>Eliminar del horario</b></button>
+                                        </div>
+                                        <div class="col-sm-3"></div>
                                         
                                     </div>
                                 </div>
