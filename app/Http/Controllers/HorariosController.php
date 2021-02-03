@@ -72,10 +72,25 @@ class HorariosController extends Controller
 
     public function modificarTurnoHorario(Request $request){
         if(session('usuario')){  
-            $rut=$request->seleccionpersonal1;
-            $turno=$request->seleccionturno;
+            $rut=$request->personalmodal;
             $fecha = $request->date;
-            $lugar = $request->seleccionlugar;
+            
+            $rutnuevo=$request->modificarpersonal;
+            $lugarnuevo = $request->modlugar;
+
+            $turno=$request->seleccionturno;
+
+            dd($lugar);
+        }else
+            return redirect ('/');
+    }
+    
+    public function eliminarturnohorario(Request $request){
+        if(session('usuario')){  
+            $rut=$request->personalmodal;
+            $fecha = $request->date;
+            
+            dd($rut);
         }else
             return redirect ('/');
     }

@@ -146,7 +146,7 @@
                                         <div class="col-sm-6 mt-4">
                                             <h3 class="mt-5">Atendedor actual</h3>
                                           
-                                            <select class="mt-4" id="personalseleccionado" name="personalseleccionado" style="font-size: 1.6em; width:100%; color:#1d59a7" disabled> 
+                                            <select class="mt-4" id="personalmodal" name="personalmodal" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
                                                 @foreach ($personalrec as $item) 
                                                     <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
                                                 @endforeach  
@@ -166,11 +166,11 @@
 
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-3">
-                                            <button type="submit" id="btnRemoverTurno" style="width: 13em;" class="btn btn-primary btn-lg mb-3 mt-5" onclick="document.formmodal.action = '/modificaturnohorario'; 
+                                            <button type="submit" id="modificarTurno" style="width: 13em;" class="btn btn-primary btn-lg mb-3 mt-5" onclick="document.formmodal.action = '/modificaturnohorario'; 
                                             document.formmodal.submit()"><b>Modificar</b></button>
                                         </div>
                                         <div class="col-sm-3">
-                                            <button type="submit" id="btnRemoverTurno" style="width: 13em;" class="btn btn-danger btn-lg mb-3 mt-5 ml-4" onclick="document.formmodal.action = '/modificaturnohorario'; 
+                                            <button type="submit" id="btnRemoverTurno" style="width: 13em;" class="btn btn-danger btn-lg mb-3 mt-5 ml-4" onclick="document.formmodal.action = '/eliminarturnohorario'; 
                                             document.formmodal.submit()"><b>Eliminar del horario</b></button>
                                         </div>
                                         <div class="col-sm-3"></div>
@@ -265,14 +265,14 @@ window.onload = function() {
 
         //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
-        var opcion = document.getElementById("personalseleccionado");
+        var opcion = document.getElementById("personalmodal");
         function selectHandler() {
            
             $('#exampleModal').modal('show');
             //se guarda la variable objeto de la barra seleccionada del grafico
             var selection = chart.getSelection();
             
-            $("#personalseleccionado").val(dataTable.getValue(selection[0].row, 0)); 
+            $("#personalmodal").val(dataTable.getValue(selection[0].row, 0)); 
             $("#modificarpersonal").val(dataTable.getValue(selection[0].row, 1)); 
             $("#modlugar").val(dataTable.getValue(selection[0].row, 4).trim());
            
@@ -280,7 +280,7 @@ window.onload = function() {
                         
           /*  if (opcion.options[opcion.selectedIndex]) {   
                 
-                var idpersonal = $('select[id="personalseleccionado"] option:selected').val();   
+                var idpersonal = $('select[id="personalmodal"] option:selected').val();   
                 var seleccionpersonal = opcion.options[opcion.selectedIndex].text; 
 
                 dataTable.setCell(item.row, 0, idpersonal)
