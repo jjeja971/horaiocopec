@@ -137,7 +137,7 @@
                                         <div class="col-lg-3"> 
                                             <select id="modlugar" name="modlugar" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
                                                 <option value="Gasolina">Gasolina</option>
-                                                <option value="petroleo">Petroleo</option>
+                                                <option value="Petroleo">Petroleo</option>
                                             </select>    
                                         </div>
                                         <div class="col-lg-3"></div>
