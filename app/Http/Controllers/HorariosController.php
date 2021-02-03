@@ -60,9 +60,10 @@ class HorariosController extends Controller
             $rut=$request->seleccionpersonal1;
             $turno=$request->seleccionturno;
             $fecha = $request->date;
+            $lugar = $request->seleccionlugar;
             session()->flash('fecha_horario_m', $fecha);
             if($rut);
-                $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,'Gasolina',session('EDS')]); 
+                $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,$lugar,session('EDS')]); 
             return redirect ('/horarioManual');
             //dd(session('fecha_horario_m'));    
         }else
@@ -74,6 +75,7 @@ class HorariosController extends Controller
             $rut=$request->seleccionpersonal1;
             $turno=$request->seleccionturno;
             $fecha = $request->date;
+            $lugar = $request->seleccionlugar;
         }else
             return redirect ('/');
     }
