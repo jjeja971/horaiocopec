@@ -27,7 +27,7 @@
             <form action="/registrarhorarios" method="POST"  class="row col-sm-6"  style="text-align: center">
                 @csrf
                 <div class="col-sm-1"></div>
-                <div class="mb-2 mt-2 col-sm-10">
+                <div class="mb-2 mt-2 col-sm-5">
                     <br>
                     <div class="form-group">
                         <label >Fecha:</label>
@@ -43,10 +43,19 @@
                                 <a class="btn btn-danger" href="/horarioManual" style="height: 100%"> 
                                     <span class="fas fa-broom p-1"></span>
                                 </a>
-                            </span>
+                            </span>   
                         </div>
                     </div>
-  
+                </div>
+                <div class="mb-2 mt-2 col-sm-5">
+                    <br>
+                    <div class="input-group">
+                        <label>Lugar: </label>
+                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                            <option value="Gasolina" selected>Gasolina</option>   
+                            <option value="Petroleo">Petroleo</option>  
+                        </select> 
+                    </div>
                 </div>
                 
                 <div class="col-sm-1"></div>
@@ -72,6 +81,7 @@
                         </select>    
                 </div>
                 <div class="col-sm-1"></div>
+
                 
                 <div class="mb-4 col-sm-1"></div>
                 <div class="mb-4 mt-4 col-sm-10">
@@ -219,8 +229,7 @@ window.onload = function() {
         dataTable.addColumn({ type: 'date', id: 'End' });
         dataTable.addColumn({ type: 'string', id: 'Lugar' });
         dataTable.addColumn({ type: 'number', id: 'Turno' });
-     
-
+    
             options = {
                 height: 820,
                 timeline: { legend: 'none' },
