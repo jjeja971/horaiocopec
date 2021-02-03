@@ -21,8 +21,9 @@
     @endif
 
     <div class="row">
+    <!-- Primera fila -->
         <div class="col-sm-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
-
+    <!-- Segunda fila -->
         <div class="col-sm-3"></div> 
             <form action="/registrarhorarios" method="POST"  class="row col-sm-6"  style="text-align: center">
                 @csrf
@@ -51,15 +52,14 @@
                     <br>
                     <div class="input-group">
                         <label>Lugar: </label>
-                        <select id="seleccionturno" name="seleccionturno" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                        <select id="seleccionlugar" name="seleccionlugar" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
                             <option value="Gasolina" selected>Gasolina</option>   
                             <option value="Petroleo">Petroleo</option>  
                         </select> 
                     </div>
                 </div>
-                
                 <div class="col-sm-1"></div>
-        
+    <!-- Tercera fila -->
                 <div class="col-sm-1"></div>
                 <div class="mb-4  col-sm-5">
                     <label id="proban3">Atendedor: </label>
@@ -82,16 +82,16 @@
                 </div>
                 <div class="col-sm-1"></div>
 
-                
+    <!-- Cuarta fila -->           
                 <div class="mb-4 col-sm-1"></div>
                 <div class="mb-4 mt-4 col-sm-10">
                     <button type="submit" id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></button>
                 </div>
                 <div class="mb-4 col-sm-1"></div>
-            </form>  
-
+            </form>             
         <div class="col-sm-3"> </div>
 
+    <!-- Quinta fila --> 
         <div class="col-sm-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
         <div class="mb-5 mt-5 col-sm-10"  style="text-align: center">
             <form>
@@ -100,6 +100,7 @@
         </div>
         <div class="col-sm-1"></div>
 
+    <!-- Sexta fila --> 
         <div class="col-sm-10"></div>
         <div class="col-sm-2 mb-4" style="margin-top: 35em;">
             <a href="/menuHorario"  class="btn btn-danger"><b>Cancelar horario completo</b></a>
