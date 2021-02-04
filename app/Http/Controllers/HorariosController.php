@@ -95,8 +95,14 @@ class HorariosController extends Controller
         if(session('usuario')){  
             $rut=$request->personalmodal;
             $fecha = $request->date;
+
+            session()->flash('fecha_horario_m', $fecha);
+            $respuesta = DB::update('exec eliminar_turno_horario ?, ?;', [$rut,$fecha]);
+            if($respuesta==1)
+                return redirect ('/horarioManual');
+            else
+                return redirect ('/horarioManual');
             
-            dd($rut);
         }else
             return redirect ('/');
     }
