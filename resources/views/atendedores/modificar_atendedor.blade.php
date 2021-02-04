@@ -22,7 +22,7 @@
         </div>
         <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" value="{{$item->nombre_atendedor}}">
+            <input type="text" class="form-control" id="nombre" name="nombre" onkeypress='return validaletras(event)' value="{{$item->nombre_atendedor}}">
         </div>
         <div class="form-group">
             <label for="numero">Teléfono</label>
@@ -30,11 +30,11 @@
         </div>
         <div class="form-group">
             <label for="email">E-mail</label>
-            <input type="email" class="form-control" id="email" name="email" value="{{$item->email}}">
+            <input type="email" class="form-control" id="email" name="email" onkeypress='return validaemail(event)' value="{{$item->email}}">
         </div>
         <div class="form-group">
             <label for="direccion">Dirección</label>
-            <input type="text" class="form-control" id="direccion" name="direccion" value="{{$item->direccion}}">
+            <input type="text" class="form-control" id="direccion" name="direccion" onkeypress='return validaletraynumeroconespacio(event)' value="{{$item->direccion}}">
         </div>
         <div class="form-group">
           <label>Jornada</label>

@@ -37,12 +37,12 @@
                             </h2>
                             <div class="form-group">
                                 <label class="mt-5">Nombre de usuario</label>
-                                <input name="usuario" class="mb-4 form-control" placeholder="Ingrese nombre usuario" required>
+                                <input name="usuario" class="mb-4 form-control" placeholder="Ingrese nombre usuario" onkeypress='return validaletraynumero(event)' required>
                                 
                             </div>
                             <div class="mb-5 form-group">
                                 <label>Contraseña</label>
-                                <input name="contrasena" type="password" class="form-control" placeholder="Contraseña" required>
+                                <input name="contrasena" type="password" class="form-control" placeholder="Contraseña" onkeypress='return validaletraynumero(event)' required>
                             </div>
                         </div>
                     </div><!-- /.card -->

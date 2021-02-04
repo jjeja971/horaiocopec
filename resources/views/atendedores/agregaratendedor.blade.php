@@ -25,7 +25,7 @@
           </div>
           <div class="form-group">
             <label for="nombre">Nombre</label>
-            <input type="text" class="form-control" id="nombre" name="nombre" required>
+            <input type="text" class="form-control" id="nombre" name="nombre" onkeypress='return validaletras(event)' required>
           </div>
           <div class="form-group">
               <label for="numero">Teléfono</label>
@@ -33,11 +33,11 @@
             </div>
             <div class="form-group">
               <label for="email">E-mail</label>
-              <input type="email" class="form-control" id="email" name="email" required>
+              <input type="email" class="form-control" id="email" name="email" onkeypress='return validaemail(event)' required>
             </div>
             <div class="form-group">
               <label for="direccion">Dirección</label>
-              <input type="text" class="form-control" id="direccion" name="direccion" required>
+              <input type="text" class="form-control" id="direccion" name="direccion" onkeypress='return validaletraynumeroconespacio(event)' required>
             </div>
             <div class="form-group">
               <label>Jornada</label>

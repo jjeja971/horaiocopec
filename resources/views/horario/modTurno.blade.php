@@ -17,7 +17,7 @@
   
           <div class="form-group">
             <label for="rut">Id</label>
-            <input type="text" class="form-control" id="rut" name="rut" value="{{$item->id_turno}}">
+            <input type="text" class="form-control" id="rut" name="rut" value="{{$item->id_turno}}" readonly>
           </div>
           <div class="form-group">
               <label for="nombre">Hora de Entrada</label>
