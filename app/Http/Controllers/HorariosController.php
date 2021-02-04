@@ -78,9 +78,15 @@ class HorariosController extends Controller
             $rutnuevo=$request->modificarpersonal;
             $lugarnuevo = $request->modlugar;
 
-            $turno=$request->seleccionturno;
+            session()->flash('fecha_horario_m', $fecha);
 
-            dd($lugar);
+            $respuesta = DB::update('exec modificar_horario ?, ?, ?, ?;', [$rut,$rutnuevo,$fecha,$lugarnuevo]); 
+            //dd($respuesta);
+            if($respuesta==1)
+                return redirect ('/horarioManual');
+            else
+                return redirect ('/horarioManual');
+            
         }else
             return redirect ('/');
     }

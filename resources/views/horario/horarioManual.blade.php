@@ -146,7 +146,7 @@
                                         <div class="col-sm-6 mt-4">
                                             <h3 class="mt-5">Atendedor actual</h3>
                                           
-                                            <select class="mt-4" id="personalmodal" name="personalmodal" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                            <select class="mt-4" id="personalmodal" name="personalmodal" style="pointer-events:none; font-size: 1.6em; width:100%; color:#1d59a7"> 
                                                 @foreach ($personalrec as $item) 
                                                     <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
                                                 @endforeach  
@@ -194,6 +194,7 @@
 
 window.onload = function() {
 
+    
     $("#btnagregarTurno").hide();
     
     if($('#date').val()){
@@ -273,7 +274,7 @@ window.onload = function() {
             var selection = chart.getSelection();
             
             $("#personalmodal").val(dataTable.getValue(selection[0].row, 0)); 
-            $("#modificarpersonal").val(dataTable.getValue(selection[0].row, 1)); 
+            $("#modificarpersonal").val(dataTable.getValue(selection[0].row, 0)); 
             $("#modlugar").val(dataTable.getValue(selection[0].row, 4).trim());
            
             //alert(dataTable.getValue(selection[0].row, 2));
