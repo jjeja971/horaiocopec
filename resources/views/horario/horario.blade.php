@@ -4,7 +4,7 @@
 <div class="row">
     
         <div class="col-lg-3"></div>
-        <div class="col-lg-6" style="border: solid rgb(45, 47, 148) 1px; padding:4em ;border-radius:2em; background: rgb(255, 255, 255);">
+        <div class="col-lg-6 elevation-5" style="border: solid rgb(45, 47, 148) 2px; padding:4em ;border-radius:1em; background: rgb(255, 255, 255);">
             
             <div class="row">
                 <div class="col-lg-12 mb-5" style="text-align: center; color:rgb(248, 47, 47)"><h1><b>Menú de Horario y Turno</b></h1></div>
