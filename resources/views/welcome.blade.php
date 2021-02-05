@@ -6,7 +6,7 @@
     <div class="row">
       <!-- PrimeraA columna -->
       <div class="col-lg-12">
-        <div class="card">
+        <div class="card elevation-5">
           <div class="card-body">
             <h5 class="card-title">PROMEDIO DE <b>TRANSACCIONES POR HORA</b> DE HASTA 5 SEMANAS ANTERIORES EN RELACION AL DIA ACTUAL</h5>
 
@@ -22,12 +22,12 @@
 
       <!-- SegundaA columna -->
       <div class="col-lg-12 mt-5">
-        <div class="card">
+        <div class="card elevation-5">
           <div class="card-body">
             <h5 class="card-title"><b>CANTIDAD DE TRANSACCIONES</b> DURANTE ESTE DIA DE LA SEMANA ANTERIOR</h5>
 
-            <p class="card-text">
-              <canvas id="GraficoIni2" width="400" height="70"></canvas>
+            <p class="card-text ">
+              <canvas id="GraficoIni2" width="400"  height="70"></canvas>
             </p>
           </div>
         </div>
