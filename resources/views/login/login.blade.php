@@ -30,7 +30,7 @@
 
                 <div class="col-lg-4"></div>
                 <div class="col-lg-4"  style="text-align: center">
-                    <div class="mt-5 card card-primary card-outline">
+                    <div class="mt-5 card card-primary card-outline elevation-4">
                         <div class="card-body">
                             <h2 class="mt-4 card-text">
                                 Registro de usuario.
@@ -60,7 +60,7 @@
                 <div class="col-lg-4 mt-4" style="text-align: center">
                     @if(session('status'))
                         <div>
-                            <div class="alert" id="mensaje_error" style="background: #ff4141; color:#ffffff">
+                            <div class="alert" id="mensaje_error" style="font-size:1.5em ;background: #ffffff; color:#fd1919">
                                 {{session('status')}}
                             </div>
                         </div>
