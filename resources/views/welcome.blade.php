@@ -24,7 +24,7 @@
       <div class="col-lg-12 mt-5">
         <div class="card elevation-5">
           <div class="card-body">
-            <h5 class="card-title"><b>CANTIDAD DE TRANSACCIONES</b> DURANTE ESTE DIA DE LA SEMANA ANTERIOR</h5>
+            <h5 class="card-title"><b>CANTIDAD DE TRANSACCIONES</b> DE LA SEMANA ANTERIOR EN RELACION AL DIA ACTUAL</h5>
 
             <p class="card-text ">
               <canvas id="GraficoIni2" width="400"  height="70"></canvas>
