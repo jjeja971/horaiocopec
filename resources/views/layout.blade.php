@@ -24,7 +24,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <div class="wrapper">
 
   <!-- Navbar -->
-  <nav class="main-header navbar navbar-expand navbar-dark navbar-light">
+  <nav class="main-header navbar navbar-expand navbar-dark navbar-light" style="background: linear-gradient(315deg, #48515f, #2b323a)">
     <!-- Left navbar links -->
     <ul class="navbar-nav">
       <li class="nav-item">
@@ -78,19 +78,19 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- /.navbar -->
 
   <!-- Main Sidebar Container -->
-  <aside class="main-sidebar sidebar-dark-primary elevation-4">
+  <aside class="main-sidebar sidebar-dark-primary elevation-5" style="background: #343a40)">
     <!-- Brand Logo -->
-    <a href="/Inicio" class="brand-link">
+    <a href="/Inicio" class="brand-link" style="border-bottom: 2px solid #c2c0c0d0"> 
       <img src="{{ URL::asset('/img/Copec_Logo.svg')}}" alt="Copec Logo" class="brand-image elevation-5"
-           style="opacity: .9">
+           style="opacity: .9;">
       <span><br></span>
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
+    <div class="sidebar" >
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
+      <div class="user-panel mt-3 pb-3 mb-3 d-flex" style="border-bottom: 1px solid #c2c0c0">
+        <div class="image" >
           <img src="{{ URL::asset('adminlte/img/default-user.png')}}" class="img-circle elevation-2" alt="Imagen usuario">
         </div>
         <div class="info">
