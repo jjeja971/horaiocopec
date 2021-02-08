@@ -15,7 +15,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ URL::asset('adminlte/plugins/fontawesome-free/css/all.min.css') }}">
   <link rel="stylesheet" href="adminlte/plugins/bootstrap4-duallistbox/bootstrap-duallistbox.min.css">
   <!-- Theme style -->
-  
+  <link rel="stylesheet" href="{{ asset('css/estilos.css') }}" />
   <link rel="stylesheet" href="{{ URL::asset('adminlte/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet') }}">

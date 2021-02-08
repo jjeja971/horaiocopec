@@ -25,7 +25,7 @@
         
     <!-- Segunda fila -->
         <div class="col-lg-2"></div> 
-            <form action="/registrarhorarios" method="POST"  class="row col-lg-8 elevation-4"  style="text-align: center; border: solid rgb(45, 47, 148) 2px; padding:4em ;border-radius:1em; background: rgb(255, 255, 255);">
+            <form action="/registrarhorarios" method="POST"  class="row col-lg-8 elevation-4 tarjetaformulario" >
                 @csrf
                 <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
                 <div class="col-lg-1"></div>
