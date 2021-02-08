@@ -94,7 +94,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <img src="{{ URL::asset('adminlte/img/default-user.png')}}" class="img-circle elevation-2" alt="Imagen usuario">
         </div>
         <div class="info">
-          <a href="/Inicio" class="d-block">{{session('usuario')}}</a>
+          <a href="/Inicio" class="d-block font-weight-bold" style="font-size: 1.1em">{{session('usuario')}}</a>
         </div>
       </div>
 
