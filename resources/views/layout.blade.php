@@ -128,6 +128,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li> 
           <li class="nav-item">
+            <a href="/cargartransaccion" class="nav-link">
+              <i class="fas fa-users-cog nav-icon"></i>
+              <p>
+                Cargar Transacciones
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item">
             <a href="/cerrar_sesion" class="nav-link">       
               <i class="mt-4 fas fa-sign-out-alt nav-icon"></i>
               <p>Salir</p>

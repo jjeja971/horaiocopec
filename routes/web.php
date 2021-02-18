@@ -6,6 +6,7 @@ use App\Http\Controllers\HorariosController;
 use App\Http\Controllers\ControllerHorarioDos;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\TransaccionController;
 
 
 /*
@@ -62,7 +63,9 @@ Route::get('/cerrar_sesion',[AuthController::class, 'cerrar_sesion']);
 
 Route::post('/registrarse', [AuthController::class, 'iniciar_sesion']);
 
+//---------------------Cargar Transacciones controler----
 
+Route::get('/cargartransaccion', [TransaccionController::class, 'transacciones']);
 
 
 
