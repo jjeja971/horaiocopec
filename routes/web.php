@@ -67,5 +67,5 @@ Route::post('/registrarse', [AuthController::class, 'iniciar_sesion']);
 
 Route::get('/cargartransaccion', [TransaccionController::class, 'transacciones']);
 
-
+Route::post('/importexel', [TransaccionController::class, 'importexel']);
 

@@ -16,7 +16,7 @@
       <div class="card-header">
         <h3 class="card-title">Subir archivo Excel</h3>
       </div>
-      <form method="POST" action="insertaratendedor" role="form" enctype="multipart/form-data">
+      <form method="POST" action="importexel" role="form" enctype="multipart/form-data">
           @csrf
         <div class="card-body">
           <div class="form-group">

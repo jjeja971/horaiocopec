@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facade\Excel;
+use App\Imports\transaccionImport;
 
 class TransaccionController extends Controller
 {
