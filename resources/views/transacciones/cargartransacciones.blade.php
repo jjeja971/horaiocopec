@@ -14,14 +14,14 @@
 
     <div class="card card-primary">
       <div class="card-header">
-        <h3 class="card-title">Nuevo Atendedor</h3>
+        <h3 class="card-title">Subir archivo Excel</h3>
       </div>
       <form method="POST" action="insertaratendedor" role="form" enctype="multipart/form-data">
           @csrf
         <div class="card-body">
           <div class="form-group">
-            <label for="rut">Seleccione Archivo </label>
-            <input type="file" name="file" required>
+            <label for="rut">Archivo Excel</label><hr>
+            <input type="file" name="file" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" accept="application/vnd.ms-excel" required>
           </div>
         </div>
         <!-- /.card-body -->
