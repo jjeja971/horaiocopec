@@ -15,8 +15,7 @@ class transaccionImport implements ToModel
     */
     public function model(array $row)
     {
-        return new transaccion([
-            DB::select('insert into turnos values (?,?,?)', [$row[0],$row[1],$row[2]])
-        ]);
+        //dd($row);
+        DB::update('insert into borrar values (?,?)', [$row[0],$row[1]]);
     }
 }
