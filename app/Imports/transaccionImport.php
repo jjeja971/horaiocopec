@@ -3,10 +3,10 @@
 namespace App\Imports;
 
 use App\transaccion;
-use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\{WithHeadingRow,ToModel,WithValidation};
 use Illuminate\Support\Facades\DB;
 
-class transaccionImport implements ToModel
+class transaccionImport implements ToModel, WithHeadingRow
 {
     /**
     * @param array $row
@@ -15,7 +15,11 @@ class transaccionImport implements ToModel
     */
     public function model(array $row)
     {
-        //dd($row);
-        DB::update('insert into turnos values (?,?,?)', [$row[0], $row[1],$row[2]]);
+        //dd($row[0]);
+        if($row["idturno"] && $row['horaentrada'] && $row['horasalida']){
+            DB::insert("insert into transacciones values (?,?,?)",[$row["idturno"], $row['horaentrada'], $row['horasalida']]);
+        }
+        
     }
+
 }

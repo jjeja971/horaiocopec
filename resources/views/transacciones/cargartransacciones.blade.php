@@ -35,3 +35,8 @@
   <div class="col-lg-4"></div>
 </div>
 @endsection
+<script>
+  window.onload = function() {
+  document.getElementById("nombrePag").textContent="Cargar de Transacción";
+  }
+</script>
