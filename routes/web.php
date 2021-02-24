@@ -7,7 +7,7 @@ use App\Http\Controllers\ControllerHorarioDos;
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransaccionController;
-
+use App\Http\Controllers\AutomaticoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,11 +37,10 @@ Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'modicaratendedor']);
 
-//---------------------HORARIO CONTROLLER----
+
 
 Route::get('/menuHorario', [HorariosController::class, 'menuHorario']);
 Route::get('/horarioManual', [HorariosController::class, 'horarioManual']);
-Route::get('/horarioAutomatico', [HorariosController::class, 'horarioAutomatico']);
 Route::get('/interfazTurnos', [HorariosController::class, 'ITurnos']);
 Route::get('/modificarTurno/{id}', [HorariosController::class, 'modTurno']);
 
@@ -50,6 +49,11 @@ Route::post('/modificaturnohorario', [HorariosController::class, 'modificarTurno
 Route::post('/eliminarturnohorario', [HorariosController::class, 'eliminarturnohorario']);
 
 //Route::resource('horarios', HorariosController::class);
+
+//---------------------HORARIO AUTOMATICO CONTROLLER----
+
+Route::get('/horarioAutomatico', [AutomaticoController::class, 'horarioAutomatico']);
+
 
 //---------------------HORARIO2 CONTROLLER----
 
