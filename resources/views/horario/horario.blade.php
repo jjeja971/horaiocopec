@@ -47,10 +47,10 @@
         <div class="col-lg-3"></div>   
    
 </div>
-
-<form action="/horarioAutomatico" method="POST"  class="row col-lg-8 elevation-4" >
-    @csrf
-    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+  
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <form action="/horarioAutomatico" method="POST">
+    @csrf   
         <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -73,8 +73,9 @@
                 </div>
             </div>
         </div>
-    </div>
-</form> 
+    </form> 
+</div>
+
 
 @endsection
 

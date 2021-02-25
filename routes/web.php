@@ -52,7 +52,7 @@ Route::post('/eliminarturnohorario', [HorariosController::class, 'eliminarturnoh
 
 //---------------------HORARIO AUTOMATICO CONTROLLER----
 
-Route::get('/horarioAutomatico', [AutomaticoController::class, 'horarioAutomatico']);
+Route::post('/horarioAutomatico', [AutomaticoController::class, 'horarioAutomatico']);
 
 
 //---------------------HORARIO2 CONTROLLER----
