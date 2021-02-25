@@ -48,39 +48,39 @@
    
 </div>
 
-<form action="/horarioAutomatico" method="POST"  class="row col-lg-8 elevation-4 tarjetaformulario" >
+<form action="/horarioAutomatico" method="POST"  class="row col-lg-8 elevation-4" >
     @csrf
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-        <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-            <div class="form-group">
-                <label >Fecha:</label>
-                <div class="input-group">
-                    @if (session("fecha_horario_m"))
-                        <input id="date" type="date" name="date" max="3000-12-31" 
-                        min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}"> 
-                    @else
-                        <input id="date" type="date" name="date" max="3000-12-31" 
-                        min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control"> 
-                    @endif  
-                </div>          
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label >Fecha:</label>
+                        <div class="input-group">
+                            @if (session("fecha_horario_m"))
+                                <input id="date" type="date" name="date" max="3000-12-31" 
+                                min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}"> 
+                            @else
+                                <input id="date" type="date" name="date" max="3000-12-31" 
+                                min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control"> 
+                            @endif  
+                        </div>          
+                    </div>
+                </div>
+                <div class="modal-footer">
+                <a href="/horarioAutomatico" class="mt-4 mb-5 btn btn-primary btn-lg btn-block">Generar Horario automático</a>
+                </div>
+        
             </div>
+        
         </div>
-        <div class="modal-footer">
-          <a href="/horarioAutomatico" class="mt-4 mb-5 btn btn-primary btn-lg btn-block">Generar Horario automático</a>
-        </div>
-     
-      </div>
-    
     </div>
-  </div>
 </form> 
 
 @endsection
