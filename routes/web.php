@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransaccionController;
 use App\Http\Controllers\AutomaticoController;
+use App\Http\Controllers\VerHorarioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -72,4 +73,8 @@ Route::post('/registrarse', [AuthController::class, 'iniciar_sesion']);
 Route::get('/cargartransaccion', [TransaccionController::class, 'transacciones']);
 
 Route::post('/importexel', [TransaccionController::class, 'importexel']);
+
+//---------------------VER HORARIO CONTROLLER----
+
+Route::get('/verhorario', [VerHorarioController::class, 'verhorario']);
 

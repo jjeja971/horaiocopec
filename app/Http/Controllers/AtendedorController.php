@@ -76,7 +76,7 @@ class AtendedorController extends Controller
             return redirect ('/');            
     }
 
-    public function valida_rut($rut){
+    private function valida_rut($rut){
 
         if(session('usuario')){
             $rut = preg_replace('/[^k0-9]/i', '', $rut);

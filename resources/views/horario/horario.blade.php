@@ -23,11 +23,17 @@
 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8"  style="text-align: center">
-                    <!--<a href="/horarioAutomatico" class="mt-4 mb-5 btn btn-primary btn-lg btn-block">Generar Horario automático</a>-->
                     <button type="button" class="mt-4 mb-5 btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter">Generar Horario automático</button>
                 </div>
-                
                 <div class="col-lg-2"></div>
+
+
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8" style="text-align: center">
+                    <a href="/verhorario" class="mt-5 mb-2 btn btn-primary btn-lg btn-block">Ver Horarios</a>
+                </div>
+                <div class="col-lg-2"></div>
+
                 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8"  style="text-align: center">
