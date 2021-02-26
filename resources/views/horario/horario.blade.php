@@ -2,7 +2,7 @@
 @section('content')
 
 <div class="row">
-    
+        
         <div class="col-lg-3"></div>
         <div class="col-lg-6 elevation-5 tarjetaformulario">
             
@@ -14,7 +14,7 @@
                     <a href="/horarioManual" class="mt-5 mb-2 btn btn-primary btn-lg btn-block">Ingresar Horario manual</a>
                 </div>
                 <div class="col-lg-2"></div>
-
+             
                 <!--<div class="col-lg-4"></div>
                 <div class="col-lg-4" style="text-align: center">
                     <a href="/listahorario" class="mt-5 btn btn-primary btn-lg btn-block">Ingresar Horario manual 2</a>
@@ -77,10 +77,21 @@
 </div>
 
 
+
 @endsection
 
 <script>
     window.onload = function() {
+    if("{{session('alerta')}}")
+        Swal.fire({
+            position: 'center',
+            icon: 'error',
+            title: `{{session('alerta')}}`,
+            html: 'Si desea, puede cargar las transacciones de las ultimas semanas desde <a href="/cargartransaccion">AQUÍ</a>',
+            showConfirmButton: true,
+        
+        })
+
     document.getElementById("nombrePag").textContent="Menú horarios";
     }
 </script>

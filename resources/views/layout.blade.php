@@ -19,6 +19,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <link rel="stylesheet" href="{{ URL::asset('adminlte/css/adminlte.min.css') }}">
   <!-- Google Font: Source Sans Pro -->
   <link href="{{ URL::asset('https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet') }}">
+  
 </head>
 <body class="hold-transition sidebar-mini">
 <div class="wrapper">
@@ -226,6 +227,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <script src="{{ URL::asset('adminlte/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <!-- AdminLTE App -->
 <script src="{{ URL::asset('adminlte/js/adminlte.min.js') }}"></script>
+<!-- SweetAlert -->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 <!--Reloj js -->
 <!-- <script>

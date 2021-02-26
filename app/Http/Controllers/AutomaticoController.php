@@ -12,10 +12,16 @@ class AutomaticoController extends Controller
             
             $fecha = $request->date;
             $personalrec = DB::select('exec listar_atendedor');
-            $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-25',9");
-            //$turnosRecomendados=DB::select('exec ultimaFaseSinDivision ?,9', [$fecha]);
+            //$turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-25',9");
+            $turnosRecomendados=DB::select('exec ultimaFaseSinDivision ?,9', [$fecha]);
            
-            return view ('horario/horarioAutomatico', compact('turnosRecomendados','personalrec'));
+            if ($turnosRecomendados){
+                return view ('horario/horarioAutomatico', compact('turnosRecomendados','personalrec'));
+            } else {
+                session()->flash('alerta', "No existen datos para generar Turnos para el dia $fecha");
+                return redirect ('/menuHorario');
+            }
+
         }else
             return redirect ('/');
     }
