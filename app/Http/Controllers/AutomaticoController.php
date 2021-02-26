@@ -18,7 +18,7 @@ class AutomaticoController extends Controller
             if ($turnosRecomendados){
                 return view ('horario/horarioAutomatico', compact('turnosRecomendados','personalrec'));
             } else {
-                session()->flash('alerta', "No existen datos para generar Turnos para el dia $fecha");
+                session()->flash('alerta', "No existen datos para generar Turnos para el día $fecha");
                 return redirect ('/menuHorario');
             }
 

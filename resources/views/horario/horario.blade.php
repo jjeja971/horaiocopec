@@ -87,9 +87,9 @@
             position: 'center',
             icon: 'error',
             title: `{{session('alerta')}}`,
-            html: 'Si desea, puede cargar las transacciones de las ultimas semanas desde <a href="/cargartransaccion">AQUÍ</a>',
+            html: 'Si desea, puede cargar las transacciones de las ultimas semanas desde <a href="/cargartransaccion"><b>AQUÍ</b></a>',
             showConfirmButton: true,
-        
+            confirmButtonText: "Salir",
         })
 
     document.getElementById("nombrePag").textContent="Menú horarios";
