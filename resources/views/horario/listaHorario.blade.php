@@ -26,7 +26,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">Cantidad de atendedores</th>
             <th scope="col">Horas Totales</th>
-            <th scope="col">Editar</th>
+            <th scope="col">Ver</th>
           </tr>
         </thead>
         <tbody>
@@ -36,9 +36,7 @@
             <th>{{$item2->fecha}}</th>
             <td>{{$item2->Cantidad_atendedor}}</td>
             <td>{{$item2->hora_total}}</td>
-            <td><a href="#" class="btn btn-primary btn-sm">
-              <i class="fas fa-edit"></i>Editar
-            </a></td>
+            <td><a href="/irhorario/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Ver</a></td>
           </tr>
           @endif 
           @endforeach

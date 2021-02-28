@@ -15,4 +15,11 @@ class VerHorarioController extends Controller
         }else
             return redirect ('/');
     }
+
+    public function irhorario($fecha){   
+        if(session('usuario')){  
+            return view ('/horarioManual', compact('fecha'));
+        }else
+            return redirect ('/');
+    }
 }
