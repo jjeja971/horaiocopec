@@ -292,28 +292,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
   setInterval(udateTime, 1000);
 </script> -->
 
-<script>
- $("document").ready(function(){
-    $("#cerrarsesion").click(function(e){
-      e.preventDefault();
-      Swal.fire({    
-           title: "Desea cerrar su sesion?",
-           text: "Sera redirigido a Inicio de sesion",
-           icon: 'warning',
-           showCancelButton: true,
-           confirmButtonColor: '#3085d6',
-           cancelButtonColor: '#d33',
-           confirmButtonText: 'Confirmar',
-           cancelButtonText: 'Cancelar'
-       }).then((result) => {
-           if (result.isConfirmed) {
-            e.run();
-           }
-       })
-    }); 
-  });
-</script>
-
 <!-- dataTable -->
 <script src="{{ URL::asset('https://cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js')}}"></script>
 <script src="adminlte/plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
