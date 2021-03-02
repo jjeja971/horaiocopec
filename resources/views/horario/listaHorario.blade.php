@@ -40,7 +40,7 @@
             <td>{{$item2->Cantidad_atendedor}}</td>
             <td>{{$item2->hora_total}}</td>
             <td><a href="/irhorario/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Ver</a></td>
-            <td><a href="/versemana/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Ver Semana</a></td>
+            <td><a href="/horariosemana/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Ver Semana</a></td>
           </tr>
           @endif 
           @endforeach

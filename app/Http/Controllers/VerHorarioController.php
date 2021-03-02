@@ -31,7 +31,8 @@ class VerHorarioController extends Controller
     public function horariosemana($fecha2){
         if(session('usuario')){
             $dato = DB::select('exec HorarioSemana ?;', [$fecha2]);
-            return view('atendedores/modificar_atendedor', compact('dato'));
+            dd($dato);
+            return view('reportes/verhorariosemana', compact('dato'));
         }else
             return redirect ('/');
     }

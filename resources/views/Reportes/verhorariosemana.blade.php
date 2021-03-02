@@ -5,7 +5,7 @@
 <hr>
 <div class="card">
   <div class="card-header">
-    <h3 class="card-title">Lista de atendedores</h3>
+    <h3 class="card-title">Semana</h3>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
@@ -26,19 +26,19 @@
         @foreach ($dato as $item)
           <tr>
             <td>{{$item->nombre_atendedor}}</td>
-            @if({{$item->dia}}=='LUNES')
+            @if('{{$item->dia}}'=='LUNES')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif({{$item->dia}}=='MARTES')
+            @elseif('{{$item->dia}}'=='MARTES')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif({{$item->dia}}=='MIERCOLES')
+            @elseif('{{$item->dia}}'=='MIERCOLES')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif({{$item->dia}}=='JUEVES')
+            @elseif('{{$item->dia}}'=='JUEVES')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif({{$item->dia}}=='VIERNES')
+            @elseif('{{$item->dia}}'=='VIERNES')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif({{$item->dia}}=='SABADO')
+            @elseif('{{$item->dia}}'=='SABADO')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif({{$item->dia}}=='DOMINGO')
+            @elseif('{{$item->dia}}'=='DOMINGO')
                 <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
             @endif
           </tr>
