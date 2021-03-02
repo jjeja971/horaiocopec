@@ -52,47 +52,47 @@ class HorariosController extends Controller
             $fecha = $request->date;
             $lugar = $request->seleccionlugar;
             session()->flash('fecha_horario_m', $fecha);
-            if($rut);
-                $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,$lugar,session('EDS')]); 
+            if($rut){
+                $respuesta = DB::update('exec Agregar_horario ?, ?, ?, ?, ?;', [$rut,$fecha,$turno,$lugar,session('EDS')]);
+                session()->flash('alerta', 'El turno ha sido registrado exitosamente');
+            } 
             return redirect ('/horarioManual');
             //dd(session('fecha_horario_m'));    
         }else
             return redirect ('/');
     }
 
-    public function modificarTurnoHorario(Request $request){
+    public function formturnohorario(Request $request){
         if(session('usuario')){  
+
             $rut=$request->personalmodal;
-            $fecha = $request->date;
-            
-            $rutnuevo=$request->modificarpersonal;
-            $lugarnuevo = $request->modlugar;
+            $fecha = $request->date; 
 
             session()->flash('fecha_horario_m', $fecha);
 
-            $respuesta = DB::update('exec modificar_horario ?, ?, ?, ?;', [$rut,$rutnuevo,$fecha,$lugarnuevo]); 
-            //dd($respuesta);
-            if($respuesta==1)
-                return redirect ('/horarioManual');
-            else
-                return redirect ('/horarioManual');
-            
-        }else
-            return redirect ('/');
-    }
-    
-    public function eliminarturnohorario(Request $request){
-        if(session('usuario')){  
-            $rut=$request->personalmodal;
-            $fecha = $request->date;
+            switch ($request->input('estado')) {
+                case 'modificar':
+                        
+                        $rutnuevo=$request->modificarpersonal;
+                        $lugarnuevo = $request->modlugar;
+                        $respuesta = DB::update('exec modificar_horario ?, ?, ?, ?;', [$rut,$rutnuevo,$fecha,$lugarnuevo]); 
+                        session()->flash('alerta', 'El turno ha sido modificado exitosamente');
+                        //dd($respuesta);
+                        if($respuesta==1)
+                            return redirect ('/horarioManual');
+                        else
+                            return redirect ('/horarioManual');  
+                        break;
 
-            session()->flash('fecha_horario_m', $fecha);
-            $respuesta = DB::update('exec eliminar_turno_horario ?, ?;', [$rut,$fecha]);
-            if($respuesta==1)
-                return redirect ('/horarioManual');
-            else
-                return redirect ('/horarioManual');
-            
+                case 'eliminar':
+                        $respuesta = DB::update('exec eliminar_turno_horario ?, ?;', [$rut,$fecha]);
+                        session()->flash('alerta', 'El turno ha sido eliminado exitosamente');
+                        if($respuesta==1)
+                            return redirect ('/horarioManual');
+                        else
+                            return redirect ('/horarioManual');    
+                        break;
+            }
         }else
             return redirect ('/');
     }

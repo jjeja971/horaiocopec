@@ -1,25 +1,9 @@
 <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 @extends('layout')
 @section('content')
 
 <div class="container-fluid">
-    @if(session()->has('message'))
-    <div>
-        <script>
-        swal({
-            title: "Horario Registrado!",
-            text: "Actualizado",
-            icon: "success",
-            button: false,
-            timer:800,
-        });
-
-        </script>
-    </div>
-    @endif
-
     <div class="row">
     <!-- Primera fila -->
         
@@ -111,7 +95,7 @@
         <!-- Modal -->
                                         
         <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">                                      
-            <form method="POST" id="formmodal" name="formmodal">
+            <form method="POST" id="formmodal" name="formmodal" action="gestionturnohorario">
             @csrf
                 <div class="modal-dialog modal-xl">
                     <div class="modal-content">
@@ -164,15 +148,13 @@
                                             <hr class="mt-4">
                                         </div>
                                         <div class="col-sm-3"></div>
-
+                                        <input id="estado" name="estado" type="hidden" />
                                         <div class="col-sm-3"></div>
                                         <div class="col-sm-3">
-                                            <button type="submit" id="modificarTurno" style="width: 13em;" class="btn btn-primary btn-lg mb-3 mt-5" onclick="document.formmodal.action = '/modificaturnohorario'; 
-                                            document.formmodal.submit()"><b>Modificar</b></button>
+                                            <button type="submit" id="modificarTurno" name="action" style="width: 13em;" class="btn btn-primary btn-lg mb-3 mt-5" value="modificar"><b>Modificar</b></button>
                                         </div>
                                         <div class="col-sm-3">
-                                            <button type="submit" id="btnRemoverTurno" style="width: 13em;" class="btn btn-danger btn-lg mb-3 mt-5 ml-4" onclick="document.formmodal.action = '/eliminarturnohorario'; 
-                                            document.formmodal.submit()"><b>Eliminar del horario</b></button>
+                                            <button type="submit" id="btnRemoverTurno" name="action" style="width: 13em;" class="btn btn-danger btn-lg mb-3 mt-5 ml-4" value="eliminar"><b>Eliminar del horario</b></button>
                                         </div>
                                         <div class="col-sm-3"></div>
                                         
@@ -195,7 +177,81 @@
 
 window.onload = function() {
 
-    
+    if("{{session('alerta')}}"){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `{{session('alerta')}}`,
+            html: '',
+            showConfirmButton: false,
+            timer: 1000,
+        })
+    }
+   
+    //quitar turno
+    var lugaract=""; //valor de lugar actual
+   
+    $("#modificarTurno").click(function(event){
+        $("#estado").val("modificar");
+        var personalact = $('select[name="personalmodal"] option:selected').text(); //valor de persona actualdel turno seleccionado
+        var personalmod = $('select[name="modificarpersonal"] option:selected').text(); //valor de persona nueva a modificar en turno seleccionado
+        var lugarmod = $('select[name="modlugar"] option:selected').text();  //valor de lugar nuevo a modificar
+        var textoalerta ="No hay cambios";
+        //Texto de mensaje de alerta de confirmacion
+
+        if(personalact!=personalmod && lugaract==lugarmod){ // Si el personal es diferente y el lugar es igual
+            textoalerta = 'Desea reemplazar a '+personalact+
+                ' por '+personalmod+'?';
+        }else if(lugaract!=lugarmod && personalact==personalmod){ // Si el personal es igual y el lugar es diferente
+            textoalerta = 'Desea modificar la asignación de '+lugaract+
+                ' hacia '+lugarmod+' a '+personalact+'?';
+        }else if(personalact!=personalmod && lugaract!=lugarmod){ // Si el personal y lugar son diferentes
+            textoalerta = 'Desea reemplazar a '+personalact+
+                ' por '+personalmod+' y modificar la asignación de '+lugaract+
+                ' hacia '+lugarmod+'?';
+        }
+
+    //preventDefault detiene el envio de formulario
+        event.preventDefault();
+        Swal.fire({
+           
+            title: textoalerta,
+            text: "",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                formmodal.submit();
+            }
+        })
+       
+    });
+
+
+    $("#btnRemoverTurno").click(function(e){
+        $("#estado").val("eliminar");
+        e.preventDefault();
+        Swal.fire({
+           
+            title: "Desea eliminar este Turno?",
+            text: "Este cambio no podrá ser removido",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                formmodal.submit();
+            }
+        })
+    });
+        
     $("#btnagregarTurno").hide();
     
     if($('#date').val()){
@@ -211,13 +267,6 @@ window.onload = function() {
     var hr0 = document.getElementById("hora0p");
     var hr1 = document.getElementById("hora1p");
     var hr2 = document.getElementById("hora2p");
-
-    
-    //se mantiene siempre lista deseleccionada para evitar errores
-    /*var divGraf = document.getElementById("timeline");
-    divGraf.addEventListener("mousemove", function(){
-        $("#listapersonal").val([]);     
-    });*/
     
     document.getElementById("nombrePag").textContent="Horario Manual";
     
@@ -277,6 +326,7 @@ window.onload = function() {
             $("#personalmodal").val(dataTable.getValue(selection[0].row, 0)); 
             $("#modificarpersonal").val(dataTable.getValue(selection[0].row, 0)); 
             $("#modlugar").val(dataTable.getValue(selection[0].row, 4).trim());
+            lugaract = $('select[name="modlugar"] option:selected').text();
            
             //alert(dataTable.getValue(selection[0].row, 2));
                         
@@ -333,8 +383,8 @@ window.onload = function() {
                 chart.draw(view, options);       
         });*/
              
-        //quitar turno
-        var removerTurno = document.getElementById("btnRemoverTurno");
+
+/*         var removerTurno = document.getElementById("btnRemoverTurno");
         removerTurno.addEventListener("click", function(){
             
             var seleccion = chart.getSelection();
@@ -352,7 +402,7 @@ window.onload = function() {
                     }
                     $('#exampleModal').modal('hide');        
             }          
-        });
+        }); */
 
         fHora.addEventListener("change", function(){
 
