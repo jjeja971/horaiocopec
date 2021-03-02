@@ -79,4 +79,4 @@ Route::post('/importexel', [TransaccionController::class, 'importexel']);
 
 Route::get('/verhorario', [VerHorarioController::class, 'verhorario']);
 Route::get('/irhorario/{fecha}', [VerHorarioController::class, 'irhorario']);
-Route::get('/versemana/{fecha2}', [VerHorarioController::class, 'versemana']);
+Route::get('/horariosemana/{fecha2}', [VerHorarioController::class, 'horariosemana']);
