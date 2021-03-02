@@ -121,6 +121,9 @@ class AtendedorController extends Controller
             return redirect ('/');
     }
 
-    
+    public function exportate(){
+        $pdf = PDF::loadView('invoice');
+        return $pdf->stream('invoice.pdf');
+    }
 
 }
