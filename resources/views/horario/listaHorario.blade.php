@@ -1,11 +1,13 @@
 @extends('layout')
 @section('content')
+
 <a href="nuevohorario" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Horario</a>
 <div class="card-header">
   <h3 class="card-title">Año 2021</h3>
 </div>
 
 <div id="accordion">
+  <a href="export">generar PDF</a>
   <div class="card">
     @foreach ($mes as $item)
     <div class="card-header" id="headingOne">
@@ -52,5 +54,6 @@
 @endsection
 <script>
   window.onload = function() { 
-      document.getElementById("nombrePag").textContent="Lista de Horarios";}
+      document.getElementById("nombrePag").textContent="Lista de Horarios";
+      }
 </script>
