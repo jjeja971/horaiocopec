@@ -36,5 +36,12 @@ class VerHorarioController extends Controller
             return redirect ('/');
     }
 
+    
+    public function export(){
+            
+        $pdf = PDF::loadView('invoice');
+        return $pdf->stream('invoice.pdf');
+    }
+
 }
 
