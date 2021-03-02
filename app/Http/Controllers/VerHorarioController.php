@@ -27,4 +27,14 @@ class VerHorarioController extends Controller
         }else
             return redirect ('/');
     }
+
+    public function verhorario($fecha2){
+        if(session('usuario')){
+            $dato = DB::select('exec HorarioSemana ?;', [$fecha2]);
+            return view('atendedores/modificar_atendedor', compact('dato'));
+        }else
+            return redirect ('/');
+    }
+
 }
+
