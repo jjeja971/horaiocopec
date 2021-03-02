@@ -52,5 +52,5 @@
 @endsection
 <script>
   window.onload = function() { 
-      document.getElementById("nombrePag").textContent="Tabla Registro por Fecha";}
+      document.getElementById("nombrePag").textContent="Lista de Horarios";}
 </script>

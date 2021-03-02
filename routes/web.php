@@ -78,4 +78,4 @@ Route::post('/importexel', [TransaccionController::class, 'importexel']);
 //---------------------VER HORARIO CONTROLLER----
 
 Route::get('/verhorario', [VerHorarioController::class, 'verhorario']);
-Route::get('/irhorario//{fecha}', [VerHorarioController::class, 'irhorario']);
+Route::get('/irhorario/{fecha}', [VerHorarioController::class, 'irhorario']);

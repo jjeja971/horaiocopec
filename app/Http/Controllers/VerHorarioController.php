@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -18,7 +19,11 @@ class VerHorarioController extends Controller
 
     public function irhorario($fecha){   
         if(session('usuario')){  
-            return view ('/horarioManual', compact('fecha'));
+            $personalrec = DB::select('exec listar_atendedor');
+            $turno = DB::select('exec listar_turnos');
+            $verificarFecha = DB::select('exec listar_turnos_por_fecha ?', [session('fecha_horario_m')]);
+            session()->flash('fecha_horario_m', $fecha);
+            return redirect()->action([HorariosController::class, 'horarioManual']);
         }else
             return redirect ('/');
     }
