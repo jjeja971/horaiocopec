@@ -72,6 +72,7 @@ class AtendedorController extends Controller
             $estado = 'Activo';
 
             DB::update('exec [modificar_atendedor] ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
+            session()->flash('alerta', 'Modificado con éxito');
             return redirect('/listaratendedores');  
         }else
             return redirect ('/');            
@@ -135,4 +136,21 @@ class AtendedorController extends Controller
         return $pdf->stream('login.pdf');
     }
 
+    public function exportgraf(){
+        
+        $personalrec = DB::select('exec listar_atendedor');
+        $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
+   
+        $view =  \View::make('/Reportes/pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();
+        
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        
+       // ob_end_clean();
+        //return $pdf->stream('login.pdf'); 
+
+        return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+    }
+    //https://virtumedia.wordpress.com/2020/02/27/generar-documentos-pdf-en-laravel-que-incluyan-graficos/
 }

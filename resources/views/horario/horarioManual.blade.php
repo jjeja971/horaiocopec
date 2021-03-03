@@ -176,7 +176,7 @@
 
 
 window.onload = function() {
-
+   
     if("{{session('alerta')}}"){
         Swal.fire({
             position: 'center',
@@ -216,7 +216,7 @@ window.onload = function() {
         Swal.fire({
            
             title: textoalerta,
-            text: "",
+            text: "No podrá deshacer los cambios una ves confirmado",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',

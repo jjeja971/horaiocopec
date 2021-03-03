@@ -4,7 +4,7 @@
 <a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Atendedor</a>
 <hr>
 <div class="card">
-  <a href="exportate">generar PDF</a>
+  <a href="exportgraf">generar PDF</a>
   <div class="card-header">
     <h3 class="card-title">Lista de atendedores</h3>
   </div>
@@ -46,6 +46,19 @@
 
   <script>
       window.onload = function() { 
+
+        if("{{session('alerta')}}"){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `{{session('alerta')}}`,
+            html: '',
+            showConfirmButton: false,
+            timer: 1000,
+        })
+    }
+
+
           document.getElementById("nombrePag").textContent="Tabla Atendedores";
           $('#example').DataTable({
             "language":{

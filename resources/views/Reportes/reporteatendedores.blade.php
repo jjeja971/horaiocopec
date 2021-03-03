@@ -1,13 +1,7 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-
+{{-- <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
+ --}}
+<html lang="es">
 <body>
     <div class="card-body">
         <table id="example" class="table table-bordered table-striped">
@@ -15,10 +9,9 @@
           <tr>
             <th>Rut</th>
             <th>Nombres</th>
-            <th>Telefono</th>
+            <th>Teléfono</th>
             <th>Correo</th>
-            <th>Direccion</th>
-            <th>Editar</th>
+            <th>Dirección</th>
           </tr>
           </thead>
           <tbody>
@@ -34,5 +27,9 @@
           </tbody>
         </table>
       </div>
+
+   
+
+  
 </body>
 </html>
