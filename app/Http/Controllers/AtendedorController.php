@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use PDF;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Collection;
@@ -122,8 +123,10 @@ class AtendedorController extends Controller
     }
 
     public function exportate(){
-        $pdf = PDF::loadView('invoice');
-        return $pdf->stream('invoice.pdf');
+        $lista = DB::select('exec listar_atendedor');
+        $pdf = \PDF::loadView('Reportes/reporteatendedores',compact('lista'));
+        ob_end_clean();
+        return $pdf->download('login.pdf');
     }
 
 }
