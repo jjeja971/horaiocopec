@@ -7,6 +7,8 @@
     <title>Document</title>
 </head>
 <body>
+    asd
+    <div id="invoice" name="invoice">
     <table>
         <thead>
             <tr>
@@ -23,5 +25,6 @@
             @endforeach
         </tbody>
     </table>
+</div>
 </body>
 </html>

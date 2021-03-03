@@ -124,9 +124,15 @@ class AtendedorController extends Controller
 
     public function exportate(){
         $lista = DB::select('exec listar_atendedor');
-        $pdf = \PDF::loadView('Reportes/reporteatendedores',compact('lista'));
+        //$pdf = \PDF::loadView('Reportes/reporteatendedores',compact('lista'));
+    
+        $view =  \View::make('Reportes.reporteatendedores', compact('lista'))->render();
+        
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
         ob_end_clean();
-        return $pdf->download('login.pdf');
+        return $pdf->stream('login.pdf');
     }
 
 }
