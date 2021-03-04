@@ -15,7 +15,7 @@
         <th>Id</th>
         <th>Hora de Entrada</th>
         <th>Hora de Salida</th>
-        <th>Editar</th>
+        
       </tr>
       </thead>
       <tbody>
@@ -24,7 +24,6 @@
                 <td>{{$item->id_turno}}</td>
                 <td>{{$item->hora_entrada}}</td>
                 <td>{{$item->hora_salida}}</td>        
-                <td><a href="/modificarTurno/{{$item->id_turno}}"  class="btn btn-primary btn-sm"><i class="fas fa-edit"></i> Editar</a></td>
             </tr>
         @endforeach
       </tbody>

@@ -50,8 +50,8 @@ class AtendedorController extends Controller
 
             if($this->valida_rut($rut) == true){
                 $dato = DB::update('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
-                
-                return back();
+                session()->flash('alerta', 'Agregado con éxito');
+                return redirect('/listaratendedores');  
             }else{
                 return back()->with('error','Por favor ingrese un rut valido');  
             }
