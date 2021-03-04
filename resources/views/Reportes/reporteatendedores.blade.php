@@ -1,6 +1,6 @@
 <!DOCTYPE html>
-{{-- <link rel="stylesheet" href="adminlte/css/adminlte.min.css">
- --}}
+{{--<link rel="stylesheet" href="adminlte/css/adminlte.min.css">--}}
+ 
 <html lang="es">
 <body>
     <div class="card-body">
