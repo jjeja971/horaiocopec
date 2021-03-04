@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use PDF;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Collection;
@@ -49,8 +50,8 @@ class AtendedorController extends Controller
 
             if($this->valida_rut($rut) == true){
                 $dato = DB::update('exec NuevoAtendedor ?,?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado,$eds]);
-                
-                return back();
+                session()->flash('alerta', 'Agregado con éxito');
+                return redirect('/listaratendedores');  
             }else{
                 return back()->with('error','Por favor ingrese un rut valido');  
             }
@@ -71,6 +72,7 @@ class AtendedorController extends Controller
             $estado = 'Activo';
 
             DB::update('exec [modificar_atendedor] ?,?,?,?,?,?,?;', [$rut,$nombre,$numero,$email,$direccion,$jornada,$estado]);
+            session()->flash('alerta', 'Modificado con éxito');
             return redirect('/listaratendedores');  
         }else
             return redirect ('/');            
@@ -122,8 +124,33 @@ class AtendedorController extends Controller
     }
 
     public function exportate(){
-        $pdf = PDF::loadView('invoice');
-        return $pdf->stream('invoice.pdf');
+        $lista = DB::select('exec listar_atendedor');
+        //$pdf = \PDF::loadView('Reportes/reporteatendedores',compact('lista'));
+    
+        $view =  \View::make('Reportes.reporteatendedores', compact('lista'))->render();
+        
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        ob_end_clean();
+        return $pdf->stream('login.pdf');
     }
 
+    public function exportgraf(){
+        
+        $personalrec = DB::select('exec listar_atendedor');
+        $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
+   
+        $view =  \View::make('/Reportes/pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();
+        
+        $pdf = \App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+        
+       // ob_end_clean();
+        //return $pdf->stream('login.pdf'); 
+
+        return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+    }
+    //https://virtumedia.wordpress.com/2020/02/27/generar-documentos-pdf-en-laravel-que-incluyan-graficos/
 }

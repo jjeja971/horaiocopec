@@ -33,6 +33,9 @@ Route::get('/Inicio', [Controller::class, 'Inicio']);
 Route::get('/probando', [AtendedorController::class, 'probando']);
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
 Route::get('/exportate',[AtendedorController::class, 'exportate']);
+
+Route::get('/exportgraf',[AtendedorController::class, 'exportgraf']);
+
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
 

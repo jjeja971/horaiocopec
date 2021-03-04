@@ -61,6 +61,7 @@ class HorariosController extends Controller
         }else
             return redirect ('/');
     }
+    
 
     public function formturnohorario(Request $request){
         if(session('usuario')){  

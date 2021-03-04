@@ -12,7 +12,7 @@
     <div class="card-header">
       <h3 class="card-title">Modificar Atendedor</h3>
     </div>
-    <form method="POST" action="/modificaratendedor">
+    <form method="POST" id="formodaten" name="formodaten" action="/modificaratendedor">
       @csrf
       <div class="card-body">
 
@@ -49,7 +49,7 @@
 
       <!-- /.card-body -->
       <div class="card-footer">
-          <button type="submit" class="btn btn-primary">Modificar</button>
+          <button type="submit" id="btnmodificar" class="btn btn-primary">Modificar</button>
       </div>
     </form>
   </div>
@@ -60,9 +60,33 @@
 @endsection
 
 <script> 
+
  window.onload = function() { 
+
     document.getElementById("nombrePag").textContent="Modificar Atendedor";
     document.getElementById("jornada").value = {{$item->id_jornada}};
+
+    $("#btnmodificar").click(function(event){
+        
+    //preventDefault detiene el envio de formulario
+        event.preventDefault();
+        Swal.fire({
+           
+            title: "Desea confirmar esta modificación al Atendedor de rut {{$item->rut_atendedor}}",
+            text: "No podrá deshacer los cambios una ves confirmado",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Confirmar',
+            cancelButtonText: 'Cancelar'
+        }).then((result) => {
+            if (result.isConfirmed) {
+              formodaten.submit();
+            }
+        })
+       
+    });
  }
 </script>
 
