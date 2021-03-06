@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
-use PDF;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Collection;
@@ -126,11 +125,9 @@ class AtendedorController extends Controller
     public function exportate(){
         $lista = DB::select('exec listar_atendedor');
         //$pdf = \PDF::loadView('Reportes/reporteatendedores',compact('lista'));
-    
-        $view =  \View::make('Reportes.reporteatendedores', compact('lista'))->render();
+        //$view =  \View::make('Reportes.reporteatendedores', compact('lista'))->render();
         
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($view);
+        $pdf = \PDF::loadView("Reportes.reporteatendedores", compact('lista'));
         
         ob_end_clean();
         return $pdf->stream('login.pdf');
@@ -147,10 +144,10 @@ class AtendedorController extends Controller
         $pdf->loadHTML($view);
         
         
-       // ob_end_clean();
-        //return $pdf->stream('login.pdf'); 
+        ob_end_clean();
+        return $pdf->stream('login.pdf'); 
 
-        return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+        //return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
     }
     //https://virtumedia.wordpress.com/2020/02/27/generar-documentos-pdf-en-laravel-que-incluyan-graficos/
 }

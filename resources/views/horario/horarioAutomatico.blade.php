@@ -22,52 +22,82 @@
 
         <!-- Modal -->
                                         
-        <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+        <div class="modal fade" id="exampleModal" tabindex="-1" style="background: rgba(9, 20, 36, 0.5)" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">                                      
+            <form method="POST" id="formmodal" name="formmodal" action="gestionturnohorario">
+            @csrf
+                <div class="modal-dialog modal-xl">
+                    <div class="modal-content">
+                        <div class="modal-header" style="z-index:90;background: #3955cf">
+                            <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
+                        <div class="modal-body">
+                            <div class="container-fluid" style="text-align: center">
+                                <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
+                                <div class="col-lg-sm mt-5">
+                                
+                                    <div class="row" >
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-3">
+                                            @if (session("fecha_horario_m"))
+                                                <input id="date" type="date" name="date" max="3000-12-31" min="1000-01-01" 
+                                                style="font-size: 1.6em; color:#1d59a7" class="form-control" value="{{session("fecha_horario_m")}}" readonly> 
+                                             @endif
+                                        </div>
+                                        <div class="col-sm-3"> 
+                                            <select id="modlugar" name="modlugar" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                                <option value="Gasolina">Gasolina</option>
+                                                <option value="Petroleo">Petroleo</option>
+                                            </select>    
+                                        </div>
+                                        <div class="col-sm-3"></div>
+
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-6 mt-4">
+                                            <h3 class="mt-5">Atendedor actual</h3>
+                                          
+                                            <select class="mt-4" id="personalmodal" name="personalmodal" style="pointer-events:none; font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                                @foreach ($personalrec as $item) 
+                                                    <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
+                                                @endforeach  
+                                            </select>  
                                             
-            <div class="modal-dialog modal-xl">
-                
-              <div class="modal-content">
-                
-                <div class="modal-header" style="z-index:90;background: #3955cf">
-                    <h5 class="modal-title" id="exampleModalLabel" style="color: whitesmoke">Lista de personal</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div style="background: rgba(237, 240, 243, 0.295); width:48%; height:100%; position:absolute;"></div>
-                <div class="modal-body">
-                    <div class="container-fluid" style="text-align: center">
-                        <h3 style="color: #395ca8"> Seleccione el personal a asignar al turno elegido</h3>                              
-                        <div class="col-md-12 order-md-1">
-                            
-                            <div class="row" >
-                                <div class="col-md-3"></div>
-                                <div class="col-md-4">
-                                    <form name="formulario" class="mt-5">
-                                        <!-- Lista de selección múltiple -->
-                                        <select id="listapersonal" style="font-size: 1.6em; width:600px; color:#1d59a7" name="combo" multiple>           
-                                            @foreach ($personalrec as $item) 
-                                                <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
-                                            @endforeach                                   
-                                        </select>
-                                      </form>
+                                            <h2 class="mt-5">Cambiar Atendedor a</h2>
+                                           
+                                            <select class="mt-4" id="modificarpersonal" name="modificarpersonal" style="font-size: 1.6em; width:100%; color:#1d59a7"> 
+                                                @foreach ($personalrec as $item) 
+                                                    <option value="{{ $item->rut_atendedor }}">{{ $item->nombre_atendedor }}</option>   
+                                                @endforeach  
+                                            </select>  
+                                            
+                                            <hr class="mt-4">
+                                        </div>
+                                        <div class="col-sm-3"></div>
+                                        <input id="estado" name="estado" type="hidden" />
+                                        <div class="col-sm-3"></div>
+                                        <div class="col-sm-3">
+                                            <button type="submit" id="modificarTurno" name="action" style="width: 13em;" class="btn btn-primary btn-lg mb-3 mt-5" value="modificar"><b>Modificar</b></button>
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <button type="submit" id="btnRemoverTurno" name="action" style="width: 13em;" class="btn btn-danger btn-lg mb-3 mt-5 ml-4" value="eliminar"><b>Eliminar del horario</b></button>
+                                        </div>
+                                        <div class="col-sm-3"></div>
+                                        
+                                    </div>
                                 </div>
-                                <div class="col-md-5"></div>
                             </div>
                         </div>
                     </div>
                 </div>
-              </div>
-            </div>
-        </div>
+            </form>
+        </div> 
 
 
 
-     
-        
-
-        
-  
     </div>
 </div>
 
