@@ -25,22 +25,14 @@
       <tbody>
         @foreach ($dato as $item)
           <tr>
-            <td>{{$item->nombre_atendedor}}</td>
-            @if('{{$item->dia}}'=='LUNES')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif('{{$item->dia}}'=='MARTES')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif('{{$item->dia}}'=='MIERCOLES')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif('{{$item->dia}}'=='JUEVES')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif('{{$item->dia}}'=='VIERNES')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif('{{$item->dia}}'=='SABADO')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @elseif('{{$item->dia}}'=='DOMINGO')
-                <td>{{$item->hora_entrada}} a {{$item->salida}}</td>
-            @endif
+            <td>{{$item->nombre}}</td>
+            <td>{{$item->LUNES}}</td>
+            <td>{{$item->MARTES}}</td>
+            <td>{{$item->MIERCOLES}}</td>
+            <td>{{$item->JUEVES}}</td>
+            <td>{{$item->VIERNES}}</td>
+            <td>{{$item->SABADO}}</td>
+            <td>{{$item->DOMINGO}}</td>
           </tr>
         @endforeach
       </tbody>
