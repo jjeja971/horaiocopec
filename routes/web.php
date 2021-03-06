@@ -85,3 +85,4 @@ Route::get('/verhorario', [VerHorarioController::class, 'verhorario']);
 Route::get('/irhorario/{fecha}', [VerHorarioController::class, 'irhorario']);
 Route::get('/horariosemana/{fecha2}', [VerHorarioController::class, 'horariosemana']);
 Route::get('/export',[VerHorarioController::class, 'export']);
+Route::get('/ver',[VerHorarioController::class, 'ver']);
