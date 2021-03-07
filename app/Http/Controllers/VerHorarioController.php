@@ -43,12 +43,5 @@ class VerHorarioController extends Controller
         return $pdf->stream('invoice.pdf');
     }
 
-    public function ver(){
-        $fech = '2021-03-12';
-        $dato = DB::select('exec HorarioSemana ?;', [$fech]);
-        $pdf = \PDF::loadView('reportes/verhorariosemana', compact('dato'));
-        return $pdf->download('ejemplo.pdf');
-   }
-
 }
 

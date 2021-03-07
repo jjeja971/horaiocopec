@@ -1,15 +1,13 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
-
 @extends('layout')
 @section('content')
 <a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Atendedor</a>
 <hr>
-<div id="content" class="card">
+<div class="card">
   <div class="card-header">
     <h3 class="card-title">Semana</h3>
   </div>
   <!-- /.card-header -->
-  <a href="/ver" class="mt-5 mb-2 btn btn-primary btn-lg btn-block">ver</a>
   <div class="card-body">
     <table id="example" class="table table-bordered table-striped">
       <thead>
@@ -44,6 +42,9 @@
 </div>
   
 @endsection
+
+  
+ 
  
 
 
