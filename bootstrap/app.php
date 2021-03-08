@@ -41,6 +41,8 @@ $app->singleton(
     App\Exceptions\Handler::class
 );
 
+class_alias('Barryvdh\Snappy\Facades\SnappyPdf', 'PDF');
+
 /*
 |--------------------------------------------------------------------------
 | Return The Application

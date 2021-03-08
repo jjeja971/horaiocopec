@@ -138,16 +138,24 @@ class AtendedorController extends Controller
         $personalrec = DB::select('exec listar_atendedor');
         $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
    
-        $view =  \View::make('/Reportes/pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();
+/*         $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($view); */
         
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($view);
         
-        
+        /* $pdf = \PDF::loadView("Reportes.pdfgrafico", compact('personalrec', 'turnosRecomendados'));
+      
+        $pdf->setOption('enable-javascript', true);
+        $pdf->setOption('javascript-delay', 1000);
+        $pdf->setOption('no-stop-slow-scripts', true);
+        $pdf->setOption('enable-smart-shrinking', true);
+        $pdf->setOption('images', true);
+     
+     
         ob_end_clean();
-        return $pdf->stream('login.pdf'); 
+        return $pdf->download('login.pdf');  */
 
-        //return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+        return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
     }
-    //https://virtumedia.wordpress.com/2020/02/27/generar-documentos-pdf-en-laravel-que-incluyan-graficos/
+    
 }
