@@ -5,21 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="http://www.gstatic.com/charts/loader.js"></script>
-
-    
-    
 </head>
 <body style="text-align:center; align-items: center;">
-    <div><h1>Ingreso automático de horario</h1>
+    <div><h1>Horario del dia {{session('fecha_horario_m')}}</h1>
     <div id="timeline" style="height: 1500px; width:50%; position: relative;"></div>
 </body>
 
-<script>
-    
-    window.print = function {
-            window.print();
-        }
-</script>
+
 <script>   
         google.load('visualization', '1.1', {
             packages: 'timeline',

@@ -4,7 +4,6 @@
 <a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Atendedor</a>
 <hr>
 <div class="card">
-  <a href="exportgraf">generar PDF</a>
   <div class="card-header">
     <h3 class="card-title">Lista de atendedores</h3>
   </div>

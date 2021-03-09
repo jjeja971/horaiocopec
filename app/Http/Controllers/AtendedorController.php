@@ -133,11 +133,11 @@ class AtendedorController extends Controller
         return $pdf->stream('login.pdf');
     }
 
-    public function exportgraf(){
-        
+    public function exportgraf($fecha){
+        session()->flash('fecha_horario_m', $fecha);
         $personalrec = DB::select('exec listar_atendedor');
         $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
-   
+        
 /*         $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
         $pdf = App::make('dompdf.wrapper');
         $pdf->loadHTML($view); */
@@ -155,6 +155,7 @@ class AtendedorController extends Controller
         ob_end_clean();
         return $pdf->download('login.pdf');  */
 
+        
         return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
     }
     

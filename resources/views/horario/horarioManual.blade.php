@@ -11,7 +11,13 @@
         <div class="col-lg-2"></div> 
             <form action="/registrarhorarios" method="POST"  class="row col-lg-8 elevation-4 tarjetaformulario" >
                 @csrf
-                <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)"><h1>Ingreso manual de Turnos</h1></div>
+                <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)">
+                    <h1>Ingreso manual de Turnos</h1> 
+                    @if (session('fecha_horario_m'))
+                        <a href="exportgraf/{{session('fecha_horario_m')}}" target="_blank">Generar como reporte</a>
+                    @endif
+                    
+                </div>
                 <div class="col-lg-1"></div>
                 <div class="mb-2 mt-2 col-lg-5">
                     <br>
@@ -77,7 +83,7 @@
         <div class="col-lg-2"> </div>
 
     <!-- Quinta fila --> 
-        <div class="col-lg-1"><p id="hora0p">Hora0</p><p id="hora1p">Hora1</p><p id="hora2p">Hora2</p></div>
+       
         <div class="mb-5 mt-5 col-lg-10"  style="text-align: center">
             <form>
                 <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
@@ -264,9 +270,7 @@ window.onload = function() {
     var fHora = document.getElementById("date");
     var agregarTurno = document.getElementById("btnagregarTurno");
 
-    var hr0 = document.getElementById("hora0p");
-    var hr1 = document.getElementById("hora1p");
-    var hr2 = document.getElementById("hora2p");
+    
     
     document.getElementById("nombrePag").textContent="Horario Manual";
     
