@@ -28,7 +28,7 @@
             <th scope="col">Fecha</th>
             <th scope="col">Cantidad de atendedores</th>
             <th scope="col">Horas Totales</th>
-            <th scope="col">Ver</th>
+            <th scope="col">Gestionar</th>
             <th scope="col">Semanal</th>
           </tr>
         </thead>
@@ -39,7 +39,7 @@
             <th>{{$item2->fecha}}</th>
             <td>{{$item2->Cantidad_atendedor}}</td>
             <td>{{$item2->hora_total}}</td>
-            <td><a href="/irhorario/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Ver</a></td>
+            <td><a href="/irhorario/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Gestionar</a></td>
             <td><a href="/horariosemana/{{$item2->fecha}}" class="btn btn-primary btn-sm"><i class="fas fa-edit"></i>Ver Semana</a></td>
           </tr>
           @endif 
