@@ -5,10 +5,10 @@
 </head>
 <body>
     <h1>Grafico de pruebadaskd</h1>
-    <div>
+    
         @if ($data)
             {!! $data !!} 
         @endif
-    </div>
+    
 </body>
 </html>
