@@ -38,6 +38,7 @@ Route::post('/exportgraf/{fecha}',[AtendedorController::class, 'exportgraf']);
 Route::post('/print_chart/{fecha}', [AtendedorController::class, 'imprimirgraf']);
 
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
+Route::get('/nuevoturno', [AtendedorController::class, 'nuevoturno']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);

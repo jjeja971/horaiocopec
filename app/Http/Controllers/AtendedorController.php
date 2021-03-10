@@ -19,6 +19,13 @@ class AtendedorController extends Controller
             return redirect ('/');
     }
 
+    public function nuevoturno(){
+        if(session('usuario')){
+            return view('horario/agregarturno');
+        }else
+            return redirect ('/');
+    }
+
     public function matendedor($rut){
         if(session('usuario')){
             $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
