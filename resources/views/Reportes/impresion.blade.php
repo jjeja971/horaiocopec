@@ -4,7 +4,7 @@
     <title>Gráfico</title>
 </head>
 <body>
-    <h1>Grafico de pruebadaskd</h1>
+    <h1>Gráfico horario</h1>
     
         @if ($data)
             {!! $data !!} 
