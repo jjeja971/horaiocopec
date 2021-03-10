@@ -16,7 +16,7 @@
                     @if (session('fecha_horario_m'))
                         <a href="exportgraf/{{session('fecha_horario_m')}}" target="_blank">Generar como reporte</a>
                     @endif
-                    
+                    <a href="exportgraf/123123" target="_blank">Generar como reporte</a>
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="mb-2 mt-2 col-lg-5">

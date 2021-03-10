@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App;
+use PDF;
 use Illuminate\Support\Facades\DB;
 use Auth;
 use Illuminate\Support\Collection;
@@ -137,26 +138,22 @@ class AtendedorController extends Controller
         session()->flash('fecha_horario_m', $fecha);
         $personalrec = DB::select('exec listar_atendedor');
         $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
-        
-/*         $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($view); */
-        
-        
-        /* $pdf = \PDF::loadView("Reportes.pdfgrafico", compact('personalrec', 'turnosRecomendados'));
-      
-        $pdf->setOption('enable-javascript', true);
-        $pdf->setOption('javascript-delay', 1000);
-        $pdf->setOption('no-stop-slow-scripts', true);
-        $pdf->setOption('enable-smart-shrinking', true);
-        $pdf->setOption('images', true);
-     
-     
-        ob_end_clean();
-        return $pdf->download('login.pdf');  */
-
-        
         return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+
+        $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
+        $pdf = App::make('dompdf.wrapper');
+        $pdf->loadHTML($view);
+        
+    }
+
+    public function imprimirgraf(Request $request)
+    {
+       
+        $data = $request->chartData;
+        $pdf = PDF::loadView('Reportes.impresion', compact('data'));
+        ob_end_clean();
+        return $pdf->download("charts.pdf");
+        
     }
     
 }
