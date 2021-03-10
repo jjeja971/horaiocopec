@@ -6,7 +6,7 @@
 <div class="container-fluid">
     <div class="row">
     <!-- Primera fila -->
-    <form action="/print_chart/{{session('fecha_horario_m')}}" method="POST" target="_blank" enctype="multipart/form-data" style="position: absolute; z-index:99">
+    <form action="/convertirpdf/{{session('fecha_horario_m')}}" method="POST" target="_blank" enctype="multipart/form-data" style="position: absolute; z-index:99">
         @csrf
         @if (session('fecha_horario_m'))
             <input type="hidden" name="chartData" id="chartInputData">
@@ -431,7 +431,7 @@ window.onload = function() {
     setTimeout(function(){
             let chartsData = $("#timeline").html();
             $("#chartInputData").val(chartsData);
-    }, 1000);
+    }, 200);
 };//final window onload
 
     

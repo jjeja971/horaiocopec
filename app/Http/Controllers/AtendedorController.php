@@ -117,8 +117,6 @@ class AtendedorController extends Controller
             return redirect ('/');
     }
 
-    
-
 
     public function probando(){
         if(session('usuario')){
@@ -130,43 +128,5 @@ class AtendedorController extends Controller
             return redirect ('/');
     }
 
-    public function exportate(){
-        $lista = DB::select('exec listar_atendedor');
-        //$pdf = \PDF::loadView('Reportes/reporteatendedores',compact('lista'));
-        //$view =  \View::make('Reportes.reporteatendedores', compact('lista'))->render();
-        
-        $pdf = \PDF::loadView("Reportes.reporteatendedores", compact('lista'));
-        
-        ob_end_clean();
-        return $pdf->stream('login.pdf');
-    }
-
-    public function exportgraf($fecha, Request $request){
-        session()->flash('fecha_horario_m', $fecha);
-        $personalrec = DB::select('exec listar_atendedor');
-        $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
-        $data = $request->chartData;
-        $pdf = PDF::loadView('Reportes.impresion', compact('data','personalrec','turnosRecomendados'));
-        ob_end_clean();
-        return $pdf->download("charts.pdf");
-
-       // return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
-
-/*         $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
-        $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($view); */
-        
-    }
-
-    public function imprimirgraf($fecha, Request $request)
-    {
-        $nombrepdf = "hola_$fecha.pdf";
-        //dd($request->chartData);
-        $data = $request->chartData;
-        $pdf = PDF::loadView('Reportes.impresion', compact('data'));
-        ob_end_clean();
-        return $pdf->stream($nombrepdf);
-        
-    }
     
 }

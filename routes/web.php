@@ -9,6 +9,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TransaccionController;
 use App\Http\Controllers\AutomaticoController;
 use App\Http\Controllers\VerHorarioController;
+use App\Http\Controllers\ReportePDFController;
 
 /*
 |--------------------------------------------------------------------------
@@ -33,9 +34,6 @@ Route::get('/Inicio', [Controller::class, 'Inicio']);
 Route::get('/probando', [AtendedorController::class, 'probando']);
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
 Route::get('/exportate',[AtendedorController::class, 'exportate']);
-
-Route::post('/exportgraf/{fecha}',[AtendedorController::class, 'exportgraf']);
-Route::post('/print_chart/{fecha}', [AtendedorController::class, 'imprimirgraf']);
 
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/nuevoturno', [AtendedorController::class, 'nuevoturno']);
@@ -87,3 +85,6 @@ Route::get('/verhorario', [VerHorarioController::class, 'verhorario']);
 Route::get('/irhorario/{fecha}', [VerHorarioController::class, 'irhorario']);
 Route::get('/horariosemana/{fecha2}', [VerHorarioController::class, 'horariosemana']);
 Route::get('/export',[VerHorarioController::class, 'export']);
+
+//-----------------------REPORTES PDF---
+Route::post('/convertirpdf/{fecha}',[ReportePDFController::class, 'imprimirgrafi']);
