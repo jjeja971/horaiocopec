@@ -6,11 +6,11 @@
 <div class="container-fluid">
     <div class="row">
     <!-- Primera fila -->
-    <form action="/print_chart/{{session('fecha_horario_m')}}" method="POST" enctype="multipart/form-data" style="position: absolute; z-index:99">
+    <form action="/print_chart/{{session('fecha_horario_m')}}" method="POST" target="_blank" enctype="multipart/form-data" style="position: absolute; z-index:99">
         @csrf
         @if (session('fecha_horario_m'))
             <input type="hidden" name="chartData" id="chartInputData">
-            <button type="submit" style="background: rgb(11, 155, 78); color: #ffffff" class="btn"><b>Descargar en PDF</b> <i class="far fa-file-pdf" style="color: rgb(255, 255, 255)"></i></button>
+            <button type="submit" style="background: rgb(11, 155, 78); color: #ffffff"  class="btn"><b>Descargar en PDF</b> <i class="far fa-file-pdf" style="color: rgb(255, 255, 255)"></i></button>
         @endif
     </form>
     <!-- Segunda fila -->
