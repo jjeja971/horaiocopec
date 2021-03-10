@@ -6,17 +6,19 @@
 <div class="container-fluid">
     <div class="row">
     <!-- Primera fila -->
-        
+    <form action="/print_chart/{{session('fecha_horario_m')}}" method="POST" enctype="multipart/form-data" style="position: absolute; z-index:99">
+        @csrf
+        @if (session('fecha_horario_m'))
+            <input type="hidden" name="chartData" id="chartInputData">
+            <button type="submit" style="background: rgb(11, 155, 78); color: #ffffff" class="btn"><b>Descargar en PDF</b> <i class="far fa-file-pdf" style="color: rgb(255, 255, 255)"></i></button>
+        @endif
+    </form>
     <!-- Segunda fila -->
         <div class="col-lg-2"></div> 
             <form action="/registrarhorarios" method="POST"  class="row col-lg-8 elevation-4 tarjetaformulario" >
                 @csrf
                 <div class="col-lg-12" style="text-align: center; color:rgb(102, 102, 245)">
                     <h1>Ingreso manual de Turnos</h1> 
-                    @if (session('fecha_horario_m'))
-                        <a href="exportgraf/{{session('fecha_horario_m')}}" target="_blank">Generar como reporte</a>
-                    @endif
-                    <a href="exportgraf/123123" target="_blank">Generar como reporte</a>
                 </div>
                 <div class="col-lg-1"></div>
                 <div class="mb-2 mt-2 col-lg-5">
@@ -80,10 +82,10 @@
                 </div>
                 <div class="mb-4 col-lg-1"></div>
             </form>             
-        <div class="col-lg-2"> </div>
+        <div class="col-lg-2"></div>
 
     <!-- Quinta fila --> 
-       
+        <div class="col-lg-1"></div>
         <div class="mb-5 mt-5 col-lg-10"  style="text-align: center">
             <form>
                 <div id="timeline" style="height: 180px;"><h1 style="color: rgb(245, 69, 38)"><b>No hay Turnos agregados</b></h1></div>
@@ -277,9 +279,10 @@ window.onload = function() {
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);
 
+    $("#timeline").append("<div id='timeline'></div>")
     //dibujar graf
     function drawChart() {
-        
+  
         var chart = new google.visualization.Timeline(document.getElementById('timeline'));
         var dataTable = new google.visualization.DataTable();
         var view = new google.visualization.DataView(dataTable);
@@ -296,6 +299,9 @@ window.onload = function() {
                 timeline: { legend: 'none' },
                 tooltip: { trigger: 'selection' },              
             };
+
+       
+
         //CARGA DE DATOS A GRAFICO CUANDO EXISTA UNA FECHA INGRESADA
         if($('#date').val()){
             @foreach($verificarFecha as $item2)
@@ -318,6 +324,7 @@ window.onload = function() {
             }  
         }
 
+        
         //escuchar selección barra gráfico
         google.visualization.events.addListener(chart, 'select', selectHandler);
         var opcion = document.getElementById("personalmodal");
@@ -421,7 +428,10 @@ window.onload = function() {
 
     } //final dibujar graf
 
-    
+    setTimeout(function(){
+            let chartsData = $("#timeline").html();
+            $("#chartInputData").val(chartsData);
+    }, 1000);
 };//final window onload
 
     

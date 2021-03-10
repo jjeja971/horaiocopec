@@ -134,21 +134,26 @@ class AtendedorController extends Controller
         return $pdf->stream('login.pdf');
     }
 
-    public function exportgraf($fecha){
+    public function exportgraf($fecha, Request $request){
         session()->flash('fecha_horario_m', $fecha);
         $personalrec = DB::select('exec listar_atendedor');
         $turnosRecomendados=DB::select("exec ultimaFaseSinDivision '2019-11-24',9");
-        return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+        $data = $request->chartData;
+        $pdf = PDF::loadView('Reportes.impresion', compact('data','personalrec','turnosRecomendados'));
+        ob_end_clean();
+        return $pdf->download("charts.pdf");
 
-        $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
+       // return view("Reportes/pdfgrafico",compact('personalrec', 'turnosRecomendados'));
+
+/*         $view =  \View::make('Reportes.pdfgrafico', compact('personalrec', 'turnosRecomendados'))->render();  
         $pdf = App::make('dompdf.wrapper');
-        $pdf->loadHTML($view);
+        $pdf->loadHTML($view); */
         
     }
 
     public function imprimirgraf(Request $request)
     {
-       
+        //dd($request->chartData);
         $data = $request->chartData;
         $pdf = PDF::loadView('Reportes.impresion', compact('data'));
         ob_end_clean();

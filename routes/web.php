@@ -34,8 +34,8 @@ Route::get('/probando', [AtendedorController::class, 'probando']);
 Route::get('/listaratendedores', [AtendedorController::class, 'listaratendedores']);
 Route::get('/exportate',[AtendedorController::class, 'exportate']);
 
-Route::get('/exportgraf/{fecha}',[AtendedorController::class, 'exportgraf']);
-Route::post('/print_chart', [AtendedorController::class, 'imprimirgraf']);
+Route::post('/exportgraf/{fecha}',[AtendedorController::class, 'exportgraf']);
+Route::post('/print_chart/{fecha}', [AtendedorController::class, 'imprimirgraf']);
 
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
