@@ -158,13 +158,14 @@ class AtendedorController extends Controller
         
     }
 
-    public function imprimirgraf(Request $request)
+    public function imprimirgraf($fecha, Request $request)
     {
+        $nombrepdf = "hola_$fecha.pdf";
         //dd($request->chartData);
         $data = $request->chartData;
         $pdf = PDF::loadView('Reportes.impresion', compact('data'));
         ob_end_clean();
-        return $pdf->download("charts.pdf");
+        return $pdf->stream($nombrepdf);
         
     }
     
