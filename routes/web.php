@@ -10,6 +10,8 @@ use App\Http\Controllers\TransaccionController;
 use App\Http\Controllers\AutomaticoController;
 use App\Http\Controllers\VerHorarioController;
 use App\Http\Controllers\ReportePDFController;
+use App\Http\Controllers\JornadaController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -89,3 +91,9 @@ Route::get('/export',[VerHorarioController::class, 'export']);
 
 //-----------------------REPORTES PDF---
 Route::post('/convertirpdf/{fecha}',[ReportePDFController::class, 'imprimirgrafi']);
+
+//--------------------- JORNADA CONTROLLER----
+Route::get('/verjornada', [JornadaController::class, 'verjornada']);
+Route::get('/agregarjornada', [JornadaController::class, 'agregarjornada']);
+
+Route::post('/registrarjornada', [JornadaController::class, 'registrarjornada']);
