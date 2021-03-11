@@ -32,7 +32,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-success">Ingresar datos Turno</button>
+          <button type="submit" class="btn btn-success">Registrar datos Turno</button>
         </div>
       </form>
     </div>
