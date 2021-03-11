@@ -23,4 +23,17 @@ class ReportePDFController extends Controller
         return $pdf->stream($nombrepdf);
         
     }
+
+    public function imprimirhorariosemana($fecha, Request $request)
+    {
+        $titulohtml = "Reporte de Horarios Semana";
+        $nombrepdf = "Semana de $fecha.pdf";
+        //dd($request->chartData);
+        $data = $request->chartData;
+        $pdf = PDF::loadView('Reportes.impresion', compact('data','titulohtml'));
+        ob_end_clean();
+        return $pdf->stream($nombrepdf);
+        
+    }
+
 }

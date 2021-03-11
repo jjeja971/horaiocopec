@@ -104,22 +104,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-          <li class="nav-item has-treeview menu-open">
-            <a class="nav-link active">
-              <i class="nav-icon fas fa-th"></i>
+          <li class="nav-item">
+            <a class="nav-link active pt-3 mb-3 elevation-3" style="background: rgba(158, 175, 252, 0.384); text-align:center">
+              {{-- <i class="nav-icon fas fa-th"></i> --}}
+              <h5>
+                <b>Administración</b>
+              </h5>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/menuHorario" class="nav-link">
+              <i class="far fa-calendar-minus nav-icon"></i>
+              <p>Ir a Horarios y Turnos</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/verjornada" class="nav-link">
+              <i class="far fa-clock nav-icon"></i>
               <p>
-                Administración
+                Jornada
               </p>
             </a>
-           
-              <li class="nav-item">
-                <a href="/menuHorario" class="nav-link">
-                  <i class="far fa-calendar-minus nav-icon"></i>
-                  <p>Ir a Horarios y Turnos</p>
-                </a>
-              </li>
-       
-          </li>
+          </li> 
           <li class="nav-item">
             <a href="/listaratendedores" class="nav-link">
               <i class="fas fa-users-cog nav-icon"></i>
@@ -136,17 +142,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="/verjornada" class="nav-link">
-              <i class="fas fa-file-upload nav-icon"></i>
-              <p>
-                Jornada
-              </p>
-            </a>
-          </li> 
-          <li class="nav-item">
+          <li class="nav-item mt-4">
             <a href="/cerrar_sesion" id="cerrarsesion" name="cerrarsesion" class="nav-link">       
-              <i class="mt-4 fas fa-sign-out-alt nav-icon"></i>
+              <i class="fas fa-sign-out-alt nav-icon"></i>
               <p>Salir</p>
             </a>
           </li>

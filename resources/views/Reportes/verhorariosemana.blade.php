@@ -1,19 +1,25 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
+<link href="css/bootstrap.min.css" rel="stylesheet">
 @extends('layout')
 @section('content')
-<a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Crear PDF</a>
 
+
+<form action="/convertirpdfhorasemana/{!!$fechaInicio!!}" method="post" target="_blank" enctype="multipart/form-data">
+  @csrf
+  <input type="hidden" name="chartData" id="chartInputData">
+  <button type="submit" style="background: rgb(11, 155, 78); color: #ffffff"  class="btn"><b>Descargar en PDF</b> <i class="far fa-file-pdf" style="color: rgb(255, 255, 255)"></i></button>
+</form>
 <hr>
-<div class="card">
+<div class="card" id="tabla_div">
   <div class="card-header">
-    <h3 class="card-title">Semana</h3>
+    <h5><b>Registro de Lunes {!! $fechaInicio !!} a Domingo {!! $fechaFin !!}</b></h5>
   </div>
   <!-- /.card-header -->
   <div class="card-body">
     <table id="example" class="table table-bordered table-striped">
       <thead>
       <tr>
-        <th>Nombre</th>
+        <th>RUT-Nombre</th>
         <th>Lunes</th>
         <th>Martes</th>
         <th>Miercoles</th>
@@ -26,7 +32,7 @@
       <tbody>
         @foreach ($dato as $item)
           <tr>
-            <td>{{$item->nombre}}</td>
+            <td>{{$item->ruta}} - {{$item->nombre}}</td>
             <td>{{$item->LUNES}}</td>
             <td>{{$item->MARTES}}</td>
             <td>{{$item->MIERCOLES}}</td>
@@ -42,6 +48,19 @@
       <!-- /.card-body -->
 </div>
   
+<script>
+  window.onload = function() {
+    document.getElementById("nombrePag").textContent="Horarios de semana";
+
+    $("#tabla_div").append("<div id='tabla_div'></div>");
+
+    setTimeout(function(){
+            let chartsData = $("#tabla_div").html();
+            $("#chartInputData").val(chartsData);
+        }, 200);
+  }
+</script>
+
 @endsection
 
   

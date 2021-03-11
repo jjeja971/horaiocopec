@@ -89,11 +89,12 @@ Route::get('/irhorario/{fecha}', [VerHorarioController::class, 'irhorario']);
 Route::get('/horariosemana/{fecha2}', [VerHorarioController::class, 'horariosemana']);
 Route::get('/export',[VerHorarioController::class, 'export']);
 
-//-----------------------REPORTES PDF---
-Route::post('/convertirpdf/{fecha}',[ReportePDFController::class, 'imprimirgrafi']);
-
 //--------------------- JORNADA CONTROLLER----
 Route::get('/verjornada', [JornadaController::class, 'verjornada']);
 Route::get('/agregarjornada', [JornadaController::class, 'agregarjornada']);
 
 Route::post('/registrarjornada', [JornadaController::class, 'registrarjornada']);
+
+//-----------------------REPORTES PDF---
+Route::post('/convertirpdf/{fecha}',[ReportePDFController::class, 'imprimirgrafi']);
+Route::post('/convertirpdfhorasemana/{fecha}',[ReportePDFController::class, 'imprimirhorariosemana']);

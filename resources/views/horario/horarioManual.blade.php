@@ -184,7 +184,7 @@
 
 
 window.onload = function() {
-   
+    document.getElementById("nombrePag").textContent="Horario Manual";
     if("{{session('alerta')}}"){
         Swal.fire({
             position: 'center',
@@ -271,10 +271,6 @@ window.onload = function() {
 
     var fHora = document.getElementById("date");
     var agregarTurno = document.getElementById("btnagregarTurno");
-
-    
-    
-    document.getElementById("nombrePag").textContent="Horario Manual";
     
     google.charts.load('current', {'packages':['timeline']});
     google.charts.setOnLoadCallback(drawChart);

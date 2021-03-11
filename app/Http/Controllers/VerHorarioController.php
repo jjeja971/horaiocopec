@@ -31,7 +31,13 @@ class VerHorarioController extends Controller
     public function horariosemana($fecha2){
         if(session('usuario')){
             $dato = DB::select('exec HorarioSemana ?;', [$fecha2]);
-            return view('reportes/verhorariosemana', compact('dato'));
+            $diaInicio="Monday";
+            $diaFin="Sunday";
+            $strFecha = strtotime($fecha2);
+            $fechaInicio = date('d \d\e M \d\e\l Y',strtotime('last '.$diaInicio,$strFecha));
+            $fechaFin = date('d \d\e M \d\e\l Y',strtotime('next '.$diaFin,$strFecha));
+
+        return view('reportes/verhorariosemana', compact('dato','fechaInicio','fechaFin'));
         }else
             return redirect ('/');
     }
