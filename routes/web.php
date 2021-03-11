@@ -53,6 +53,7 @@ Route::post('/registrarhorarios', [HorariosController::class, 'registrar_horario
 Route::post('/modificaturnohorario', [HorariosController::class, 'modificarTurnoHorario']);
 Route::post('/eliminarturnohorario', [HorariosController::class, 'eliminarturnohorario']);
 Route::post('/gestionturnohorario', [HorariosController::class, 'formturnohorario']);
+Route::post('/registurno', [HorariosController::class, 'registrar_turno']);
 
 //Route::resource('horarios', HorariosController::class);
 

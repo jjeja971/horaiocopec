@@ -52,6 +52,17 @@ $('#example').DataTable({
         }
         }
         }); 
+
+        if("{{session('alerta')}}"){
+          Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `{{session('alerta')}}`,
+              html: '',
+              showConfirmButton: false,
+              timer: 1000,
+          })
+      }
         
 }
 </script>

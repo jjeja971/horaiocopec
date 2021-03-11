@@ -16,7 +16,7 @@
       <div class="card-header">
         <h3 class="card-title">Nuevo Turno</h3>
       </div>
-      <form method="POST" action="insertaratendedor" role="form">
+      <form method="POST" action="registurno" role="form">
           @csrf
         <div class="card-body">
           <div class="form-group">
@@ -40,3 +40,20 @@
   <div class="col-lg-4"></div>
 </div>
 @endsection
+
+<script>
+
+
+  window.onload = function() {
+     
+      if("{{session('alerta')}}"){
+          Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `{{session('alerta')}}`,
+              html: '',
+              showConfirmButton: false,
+              timer: 1000,
+          })
+      }
+  </script>

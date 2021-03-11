@@ -98,4 +98,17 @@ class HorariosController extends Controller
             return redirect ('/');
     }
 
+    public function registrar_turno(Request $request){  
+        if(session('usuario')){  
+            $entrada=$request->entrada;
+            $salida=$request->salida;
+
+            $respuesta = DB::update('exec agregar_turno ?, ?;', [$entrada,$salida]);
+            session()->flash('alerta', 'El turno ha sido registrado exitosamente');
+            return redirect('/interfazTurnos');
+
+        }else
+            return redirect ('/');
+    }
+
 }
