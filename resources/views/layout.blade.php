@@ -105,29 +105,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item">
-            <a class="nav-link active pt-3 mb-3 elevation-3" style="background: rgba(158, 175, 252, 0.384); text-align:center">
-              {{-- <i class="nav-icon fas fa-th"></i> --}}
+            <a class="nav-link active pt-3 mb-3 elevation-3" style="background: rgba(158, 175, 252, 0.384); text-align:center"> 
               <h5>
-                <b>Administración</b>
+                <i class="nav-icon fas fa-th pr-2"></i><b>Administración</b>
               </h5>
             </a>
           </li>
           <li class="nav-item">
-            <a href="/menuHorario" class="nav-link">
-              <i class="far fa-calendar-minus nav-icon"></i>
-              <p>Ir a Horarios y Turnos</p>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a href="/verjornada" class="nav-link">
-              <i class="far fa-clock nav-icon"></i>
-              <p>
-                Jornada
-              </p>
-            </a>
-          </li> 
-          <li class="nav-item">
-            <a href="/listaratendedores" class="nav-link">
+            <a href="/listaratendedores" class="nav-link  mt-1 mb-2">
               <i class="fas fa-users-cog nav-icon"></i>
               <p>
                 Ir a Atendedores
@@ -135,15 +120,29 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </a>
           </li> 
           <li class="nav-item">
-            <a href="/cargartransaccion" class="nav-link">
+            <a href="/menuHorario" class="nav-link  mt-1 mb-2">
+              <i class="far fa-calendar-minus nav-icon"></i>
+              <p>Ir a Horarios y Turnos</p>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="/verjornada" class="nav-link  mt-1 mb-2">
+              <i class="far fa-clock nav-icon"></i>
+              <p>
+                Jornada
+              </p>
+            </a>
+          </li> 
+          <li class="nav-item">
+            <a href="/cargartransaccion" class="nav-link  mt-1 mb-2">
               <i class="fas fa-file-upload nav-icon"></i>
               <p>
                 Cargar Transacciones
               </p>
             </a>
           </li>
-          <li class="nav-item mt-4">
-            <a href="/cerrar_sesion" id="cerrarsesion" name="cerrarsesion" class="nav-link">       
+          <li class="nav-item">
+            <a href="/cerrar_sesion" id="cerrarsesion" name="cerrarsesion" class="nav-link  mt-1 mb-2">       
               <i class="fas fa-sign-out-alt nav-icon"></i>
               <p>Salir</p>
             </a>

@@ -27,7 +27,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-success">Agregar</button>
+          <button type="submit" class="btn btn-success">Importar Excel</button>
         </div>
       </form>
     </div>

@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 @extends('layout')
 @section('content')
-<a href="agregarjornada" type="buttom" class="btn btn-success btn-lg">Nueva Jornada</a>
+<a href="agregarjornada" type="buttom" class="btn btn-success btn-lg">Ingresar nueva Jornada</a>
 <hr>
 <div class="card">
   <div class="card-header">

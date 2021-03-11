@@ -78,7 +78,7 @@
     <!-- Cuarta fila -->           
                 <div class="mb-4 col-lg-1"></div>
                 <div class="mb-4 mt-4 col-lg-10">
-                    <button type="submit" id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b> Agregar turno</b></button>
+                    <button type="submit" id="btnagregarTurno" class="btn btn-success btn-lg btn-block" style="font-size: 1.2em; color: aliceblue"><b>Registrar turno asignado</b></button>
                 </div>
                 <div class="mb-4 col-lg-1"></div>
             </form>             

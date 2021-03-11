@@ -2,11 +2,10 @@
 @section('content')
 
 <div class="card-header">
-  <h3 class="card-title">Año 2021</h3>
+  <h3><b>Horarios del Año 2021 </b></h3>
 </div>
 
 <div id="accordion">
-  <a href="export">generar PDF</a>
   <div class="card">
     @foreach ($mes as $item)
     <div class="card-header" id="headingOne">

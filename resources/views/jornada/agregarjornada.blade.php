@@ -28,7 +28,7 @@
         <!-- /.card-body -->
 
         <div class="card-footer">
-          <button type="submit" class="btn btn-success">Agregar</button>
+          <button type="submit" class="btn btn-success">Registrar datos Jornada</button>
         </div>
       </form>
     </div>
