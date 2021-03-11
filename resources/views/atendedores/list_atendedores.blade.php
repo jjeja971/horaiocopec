@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 @extends('layout')
 @section('content')
-<a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Ingresar nuevo Atendedor</a>
+<a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg"><i class="fas fa-plus"></i> Nuevo Atendedor</a>
 <hr>
 <div class="card">
   <div class="card-header">

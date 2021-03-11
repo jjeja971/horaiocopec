@@ -49,7 +49,7 @@
 
       <!-- /.card-body -->
       <div class="card-footer">
-          <button type="submit" id="btnmodificar" class="btn btn-primary">Modificar</button>
+          <button type="submit" id="btnmodificar" class="btn btn-primary">Modificar datos Atendedor</button>
       </div>
     </form>
   </div>
