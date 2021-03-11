@@ -11,7 +11,7 @@
 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8" style="text-align: center">
-                    <a href="/horarioManual" class="mt-5 mb-2 btn btn-primary btn-lg btn-block">Ingresar Horario manual</a>
+                    <a href="/horarioManual" style="background: rgb(18, 86, 150)" class="mt-5 mb-2 btn btn-primary btn-lg btn-block elevation-3">Ingresar Horario manual</a>
                 </div>
                 <div class="col-lg-2"></div>
              
@@ -23,21 +23,21 @@
 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8"  style="text-align: center">
-                    <button type="button" class="mt-4 mb-2 btn btn-primary btn-lg btn-block" data-toggle="modal" data-target="#exampleModalCenter">Generar Horario automático</button>
+                    <button type="button" style="background: rgb(18, 86, 150)" class="mt-4 mb-2 btn btn-primary btn-lg btn-block elevation-3" data-toggle="modal" data-target="#exampleModalCenter">Generar Horario automático</button>
                 </div>
                 <div class="col-lg-2"></div>
 
 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8" style="text-align: center">
-                    <a href="/verhorario" class="mt-5 mb-2 btn btn-primary btn-lg btn-block">Ver Horarios</a>
+                    <a href="/verhorario" style="background: rgb(18, 86, 150)" class="mt-5 mb-2 btn btn-primary btn-lg btn-block elevation-3">Ver Horarios</a>
                 </div>
                 <div class="col-lg-2"></div>
 
                 
                 <div class="col-lg-2"></div>
                 <div class="col-lg-8"  style="text-align: center">
-                    <a href="/interfazTurnos" class="mt-3 btn btn-primary btn-lg btn-block">Turnos</a>
+                    <a href="/interfazTurnos" style="background: rgb(18, 86, 150)" class="mt-3 btn btn-primary btn-lg btn-block elevation-3">Turnos</a>
                 </div>
                 <div class="col-lg-2"></div>
                 
@@ -75,7 +75,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="submit" class="mt-4 mb-5 btn btn-primary btn-lg btn-block">Generar Horario automático</button>
+                    <button type="submit" class="mt-4 mb-5 btn btn-success btn-lg btn-block">Generar Horario automático</button>
                 </div>
             </div>
         </div>
