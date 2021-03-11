@@ -135,6 +135,14 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 Cargar Transacciones
               </p>
             </a>
+          </li>
+          <li class="nav-item">
+            <a href="/verjornada" class="nav-link">
+              <i class="fas fa-file-upload nav-icon"></i>
+              <p>
+                Jornada
+              </p>
+            </a>
           </li> 
           <li class="nav-item">
             <a href="/cerrar_sesion" id="cerrarsesion" name="cerrarsesion" class="nav-link">       

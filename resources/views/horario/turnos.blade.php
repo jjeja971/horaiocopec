@@ -36,6 +36,17 @@
 <script>
     
 window.onload = function() {
+
+  if("{{session('alerta')}}"){
+          Swal.fire({
+              position: 'center',
+              icon: 'success',
+              title: `{{session('alerta')}}`,
+              html: '',
+              showConfirmButton: false,
+              timer: 1000,
+          })
+      }
     
 document.getElementById("nombrePag").textContent="Turnos";
 $('#example').DataTable({
@@ -51,18 +62,6 @@ $('#example').DataTable({
             "previous": "Anterior"
         }
         }
-        }); 
-
-        if("{{session('alerta')}}"){
-          Swal.fire({
-              position: 'center',
-              icon: 'success',
-              title: `{{session('alerta')}}`,
-              html: '',
-              showConfirmButton: false,
-              timer: 1000,
-          })
-      }
-        
+        });         
 }
 </script>
