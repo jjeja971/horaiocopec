@@ -303,7 +303,9 @@ window.onload = function() {
        
 
         //CARGA DE DATOS A GRAFICO CUANDO EXISTA UNA FECHA INGRESADA
-        if($('#date').val()){
+
+        
+            if($('#date').val()){
             @foreach($verificarFecha as $item2)
                 dataTable.addRows([
                     [ "{{$item2->rut_atendedor}}",
@@ -317,12 +319,16 @@ window.onload = function() {
                       ]
                 ]);
             @endforeach
+
             //DIBUJAR GRAFICO SOLO CUANDO EXISTAN 1 O MAS DATOS
             if(dataTable.getNumberOfRows()>0){
                 view.setColumns([1,2,3]); 
                 chart.draw(view, options);   
             }  
         }
+    
+
+
 
         
         //escuchar selección barra gráfico

@@ -67,7 +67,7 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label >Fecha:</label>
+                        <label>Fecha:</label>
                         <div class="input-group">         
                             <input id="date" type="date" name="date" max="3000-12-31" 
                             min="1000-01-01" style="font-size: 1.6em; color:#1d59a7" class="form-control" required> 

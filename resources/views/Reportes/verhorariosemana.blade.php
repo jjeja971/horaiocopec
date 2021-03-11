@@ -1,7 +1,8 @@
 <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
 @extends('layout')
 @section('content')
-<a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Agregar nuevo Atendedor</a>
+<a href="nuevoatendedor" type="buttom" class="btn btn-success btn-lg">Crear PDF</a>
+
 <hr>
 <div class="card">
   <div class="card-header">
