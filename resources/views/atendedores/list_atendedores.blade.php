@@ -18,6 +18,7 @@
         <th>Correo</th>
         <th>Direccion</th>
         <th>Editar</th>
+        <th>Eliminar</th>
       </tr>
       </thead>
       <tbody>
@@ -33,6 +34,11 @@
                 <i class="fas fa-edit"></i>Editar
               </a>
             </td>
+            <td>
+              <a id="eliminar" name="eliminar" href="/eliminar_atendedor/{{$item->rut_atendedor}}" class="btn btn-danger btn-sm">
+                <i class="far fa-trash-alt"></i> Eliminar
+              </a>
+            </td>
           </tr>
         @endforeach
       </tbody>
@@ -46,11 +52,23 @@
   <script>
       window.onload = function() { 
 
+
         if("{{session('alerta')}}"){
         Swal.fire({
             position: 'center',
             icon: 'success',
             title: `{{session('alerta')}}`,
+            html: '',
+            showConfirmButton: false,
+            timer: 1000,
+        })
+    }
+
+    if("{{session('alertaeliminar')}}"){
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `{{session('alertaeliminar')}}`,
             html: '',
             showConfirmButton: false,
             timer: 1000,

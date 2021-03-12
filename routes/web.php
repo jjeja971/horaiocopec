@@ -40,6 +40,7 @@ Route::get('/exportate',[AtendedorController::class, 'exportate']);
 Route::get('/nuevoatendedor', [AtendedorController::class, 'natendedor']);
 Route::get('/nuevoturno', [AtendedorController::class, 'nuevoturno']);
 Route::get('/modatendedor/{rut}', [AtendedorController::class, 'matendedor']);
+Route::get('/eliminar_atendedor/{rut}', [AtendedorController::class, 'eliminar_atendedor']);
 
 Route::post('/insertaratendedor', [AtendedorController::class, 'creaatendedor']);
 Route::post('/modificaratendedor', [AtendedorController::class, 'modicaratendedor']);

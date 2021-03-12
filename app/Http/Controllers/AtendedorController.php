@@ -26,6 +26,15 @@ class AtendedorController extends Controller
             return redirect ('/');
     }
 
+    public function eliminar_atendedor($rut){
+        if(session('usuario')){
+            $dato = DB::update('exec eliminar_atendedor ?;', [$rut]);
+            session()->flash('alertaeliminar', 'El atendedor a sido desvinculado con exito');
+            return redirect('/listaratendedores');
+        }else
+            return redirect ('/');
+    }
+
     public function matendedor($rut){
         if(session('usuario')){
             $dato = DB::select('exec select_atendedor_rut ?;', [$rut]);
