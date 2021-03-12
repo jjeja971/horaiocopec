@@ -16,7 +16,7 @@ class AutomaticoController extends Controller
             $verificarFecha = DB::select('exec listar_turnos_por_fecha ?', [$fecha]);
             
             if($verificarFecha){
-                session()->flash('alerta', "Ya hay Turnos asignados en la fecha $fecha");
+                session()->flash('alerta', "No hay datos cargados para generar el horario");
                 return redirect ('/menuHorario');
             }else{
                 DB::update('exec ultimaFaseSinDivision ?,?', [$fecha, 9]);

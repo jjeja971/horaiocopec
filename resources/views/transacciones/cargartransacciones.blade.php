@@ -38,5 +38,22 @@
 <script>
   window.onload = function() {
   document.getElementById("nombrePag").textContent="Cargar de Transacción";
-  }
+
+
+  if("{{session('alerta')}}")
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: `{{session('alerta')}}`,
+            html: '',
+            showConfirmButton: true,
+            confirmButtonText: "Salir",
+        }
+  );
+ 
+
+  };
 </script>
+
+
+

@@ -16,8 +16,12 @@ class transaccionImport implements ToModel, WithHeadingRow
     public function model(array $row)
     {
         //dd($row[0]);
-        if($row["idturno"] && $row['horaentrada'] && $row['horasalida']){
-            DB::insert("insert into transacciones values (?,?,?)",[$row["idturno"], $row['horaentrada'], $row['horasalida']]);
+        if($row['fecha_td'] && $row["hora_td"] && $row['txh']){
+            $fechaf=str_replace('"',"",$row['fecha_td']);
+            $horaf=str_replace('"',"",$row['hora_td']);
+            $txhf=str_replace('"',"",$row['txh']);
+            session()->flash('alerta', 'El archivo excel ha sido registrado exitosamente');
+            DB::insert("exec agregar_transacciones ?,?,?,20012;",["$fechaf", "$horaf", $txhf]);
         }
         
     }
